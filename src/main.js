@@ -6,9 +6,6 @@ import { Scrubber, smoothstep } from './core/Scrubber.js';
 import { buildComposer } from './core/Post.js';
 import { Heartbeat } from './core/Heartbeat.js';
 import { Score } from './core/Score.js';
-import { Narration } from './core/Narration.js';
-
-const voFiles = import.meta.glob('./config/vo-*.json');
 
 const $ = (id) => document.getElementById(id);
 const els = {
@@ -27,7 +24,11 @@ document.title = `O Inquilino — ${part.canto} ${part.mark}`;
 
 const state = { entered: false, irisT: 0, hintGone: false, beatIndex: -1, running: false };
 
-const renderer = new THREE.WebGLRenderer({ canvas: els.canvas, antialias: false, powerPreference: 'high-performance' });
+const renderer = new THREE.WebGLRenderer({
+  canvas: els.canvas, antialias: false, powerPreference: 'high-performance',
+  // the contact sheet reads the buffer back, which needs it kept
+  preserveDrawingBuffer: params.has('capture')
+});
 const DPR = Math.min(window.devicePixelRatio || 1, 1.75);
 renderer.setPixelRatio(DPR);
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -39,7 +40,6 @@ const { composer, film, renderPass } = buildComposer(renderer, scene.scene, scen
 const scrubber = new Scrubber(base.scrub);
 const heart = new Heartbeat(base.audio);
 let score = null;
-let vo = null;
 
 function resize() {
   const w = window.innerWidth, h = window.innerHeight;
@@ -88,14 +88,6 @@ async function load() {
     catch (e) { console.warn('[o inquilino] score:', e.message); score = null; }
   }
 
-  const voKey = `./config/vo-${part.id}.json`;
-  if (heart.ctx && voFiles[voKey]) {
-    try {
-      const manifest = (await voFiles[voKey]()).default;
-      vo = new Narration(heart.ctx, heart.master, manifest, base.narration);
-      await vo.load((p) => setPct(0.70 + p * 0.16));
-    } catch (e) { console.warn('[o inquilino] narration:', e.message); vo = null; }
-  }
   setPct(0.9);
 
   scene.update(0, 0, 0.016);
@@ -111,13 +103,11 @@ function begin() {
   clock.start();
   state.running = true;
   score?.start();
-  vo?.speak(0, score?.bus);
 }
 
 els.soundBtn.addEventListener('click', () => {
   const muted = heart.toggle();
   score?.setMuted(muted);
-  vo?.setMuted(muted);
   els.soundBtn.classList.toggle('muted', muted);
   els.soundLabel.textContent = muted ? 'SOM OFF' : 'SOM ON';
 });
@@ -152,13 +142,6 @@ async function goToPart(index, { atEnd = false } = {}) {
     score?.stop();
     score = new Score(heart.ctx, heart.master, { part: part.id, gain: base.score.gain });
     try { await score.load(); } catch (e) { console.warn('[o inquilino] score:', e.message); score = null; }
-    const key = `./config/vo-${part.id}.json`;
-    if (voFiles[key]) {
-      try {
-        vo = new Narration(heart.ctx, heart.master, (await voFiles[key]()).default, base.narration);
-        await vo.load();
-      } catch (e) { console.warn('[o inquilino] narration:', e.message); vo = null; }
-    } else vo = null;
   }
 
   scrubber.target = scrubber.value = atEnd ? 0.999 : 0;
@@ -169,7 +152,7 @@ async function goToPart(index, { atEnd = false } = {}) {
   history.replaceState(null, '', `?part=${part.id}${params.has('debug') ? '&debug' : ''}`);
   state.running = true;
   score?.start();
-  if (!atEnd) vo?.speak(0, score?.bus);
+
 
   await fadeTo(1, 1100);
   swapping = false;
@@ -230,7 +213,6 @@ function step(time, dt) {
   if (bi !== state.beatIndex) {
     state.beatIndex = bi;
     els.railCaption.textContent = `${bi + 1} / ${part.beats.length}`;
-    if (state.running) vo?.speak(bi, score?.bus);
   }
   if (!state.hintGone && t > 0.02) { state.hintGone = true; els.hint.classList.add('gone'); }
 

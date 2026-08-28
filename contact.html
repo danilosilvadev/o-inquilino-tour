@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>O Inquilino — contact sheet</title>
+  <style>
+    body { background:#0b0b0a; color:#e8e2d6; font:11px/1.5 ui-monospace,monospace; margin:0; padding:14px; }
+    h1 { font-size:12px; letter-spacing:.3em; text-transform:uppercase; margin:0 0 12px; }
+    .part { margin-bottom:10px; }
+    .lbl { color:#8d867a; margin-bottom:3px; }
+    .strip { display:flex; gap:4px; }
+    img { width:236px; height:auto; background:#000; display:block; }
+    iframe { width:900px; height:440px; border:0; position:fixed; left:-9999px; top:0; }
+    #status { position:fixed; right:14px; top:14px; color:#c9a05c; }
+  </style>
+</head>
+<body>
+  <h1>contact sheet</h1>
+  <div id="status">…</div>
+  <div id="out"></div>
+  <script type="module">
+    import parts from './src/poem/parts.json';
+    const out = document.getElementById('out');
+    const status = document.getElementById('status');
+    const AT = [0.18, 0.5, 0.85];
+
+    const only = new URLSearchParams(location.search).get('only');
+    const list = only ? parts.filter(p => only.split(',').includes(p.id)) : parts;
+
+    function shoot(p) {
+      return new Promise((resolve) => {
+        const f = document.createElement('iframe');
+        f.src = `/?part=${p.id}&auto&debug&capture`;
+        document.body.appendChild(f);
+        f.onload = () => setTimeout(() => {
+          const w = f.contentWindow;
+          const shots = [];
+          try {
+            const cv = w.document.querySelector('canvas');
+            for (const t of AT) {
+              w.JUMP(t);
+              shots.push(cv.toDataURL('image/jpeg', 0.62));
+            }
+          } catch (e) { shots.push(null); }
+          f.remove();
+          resolve(shots);
+        }, 4200);
+      });
+    }
+
+    (async () => {
+      for (const p of list) {
+        const shots = await shoot(p);
+        const moves = Object.entries(p.moves).map(([k, v]) => `${k}${v}`).join(' ');
+        out.insertAdjacentHTML('beforeend',
+          `<div class="part"><div class="lbl">${p.id} ${p.mark} — ${moves}</div>
+           <div class="strip">${shots.map(s => s ? `<img src="${s}">` : '<i>failed</i>').join('')}</div></div>`);
+        status.textContent = `${out.children.length}/${list.length}`;
+      }
+      status.textContent = 'done';
+      window.SHEET_DONE = true;
+    })();
+  </script>
+</body>
+</html>
