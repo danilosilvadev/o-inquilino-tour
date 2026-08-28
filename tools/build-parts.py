@@ -58,7 +58,10 @@ MOVES = {
 }
 
 # where the reader ends the part: the last line of VI-3 is "Me fiz."
-WRAP = 36
+# 36 characters overran a 16:9 frame: the visible half-width at reading
+# distance is 3.92 units and a 36-character line is 3.55, so a stanza starting
+# at x=0.5 ended 0.13 units past the edge. 31 leaves a real margin.
+WRAP = 31
 
 
 def wrap_lines(para):
@@ -87,7 +90,7 @@ def build():
                     "to": round(acc + frac, 4),
                     "lines": wrap_lines(para),
                     # alternate which side of the corridor the words hang on
-                    "x": 0.50 if i % 2 == 0 else -3.30,
+                    "x": 0.30 if i % 2 == 0 else -3.45,
                     "y": 1.55 + (0.30 if len(wrap_lines(para)) > 4 else 0.0),
                     "anchor": "left",
                 })

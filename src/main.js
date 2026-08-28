@@ -80,6 +80,7 @@ async function load() {
   setPct(0.05);
 
   await scene.buildText((p) => setPct(0.05 + p * 0.35));
+  scene.fitText(innerWidth / innerHeight);
   try { await scene.loadCharacter(); } catch (e) { console.warn('[o inquilino] character art:', e.message); }
   setPct(0.55);
 
@@ -135,6 +136,7 @@ async function goToPart(index, { atEnd = false } = {}) {
   resize();
 
   await scene.buildText();
+  scene.fitText(innerWidth / innerHeight);
   try { await scene.loadCharacter(); } catch (e) { console.warn('[o inquilino] character art:', e.message); }
   old.dispose();
 

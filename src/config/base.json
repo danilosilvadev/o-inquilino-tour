@@ -80,7 +80,8 @@
   "fadeIn": 0.13,
   "fadeOut": 0.16,
   "readDistance": 5.2,
-  "approach": 3.6
+  "approach": 3.6,
+  "margin": 0.35
  },
  "pulse": {
   "bpm": 52,

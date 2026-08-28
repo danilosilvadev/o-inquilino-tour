@@ -30,6 +30,7 @@ export class PartScene {
     this.mouse = new THREE.Vector2();
     this.mouseSmooth = new THREE.Vector2();
     this.textGroups = [];
+    this._extent = 0;
 
     this._buildRoom();
     this._buildSwarm();
@@ -237,6 +238,16 @@ export class PartScene {
         m.sync(() => { done++; onProgress?.(done / total); res(); });
       })));
 
+      // troika knows the real width once it has laid the glyphs out; use it
+      // rather than guessing from character counts
+      let widest = 0;
+      for (const m of meshes) {
+        const b = m.textRenderInfo?.blockBounds;
+        if (b) widest = Math.max(widest, Math.abs(b[2] - b[0]));
+      }
+      const left = beat.anchor === 'right' ? beat.x - widest : beat.x;
+      this._extent = Math.max(this._extent, Math.max(-left, left + widest));
+
       this.scene.add(group);
       this.textGroups.push({ beat, group, meshes });
     }
@@ -246,6 +257,24 @@ export class PartScene {
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.swarmMat.uniforms.uDPR.value = dpr;
+    this.fitText(w / h);
+  }
+
+  /**
+   * Keep the words inside the frame on any screen.
+   *
+   * A stanza was sized for the wide window this was built in; on 16:9 it ran
+   * 0.13 units past the edge and on 4:3 it was far worse. The block is scaled
+   * to whatever the aspect actually affords instead.
+   */
+  fitText(aspect) {
+    if (!this._extent) return;
+    const T = this.cfg.text;
+    const halfH = T.readDistance * Math.tan((this.cfg.camera.fov * 0.5) * Math.PI / 180);
+    const avail = halfH * aspect - T.margin;
+    const k = Math.min(1, avail / this._extent);
+    for (const { group } of this.textGroups) group.scale.setScalar(k);
+    this._textScale = k;
   }
 
   setMouse(x, y) { this.mouse.set(x, y); }

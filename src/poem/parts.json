@@ -9,11 +9,12 @@
     "from": 0.0,
     "to": 0.2132,
     "lines": [
-     "Hoje eu acordei estranho. Como se",
-     "meu corpo fosse alugado, e Eu um",
-     "intruso. Um corpo estranho."
+     "Hoje eu acordei estranho. Como",
+     "se meu corpo fosse alugado, e",
+     "Eu um intruso. Um corpo",
+     "estranho."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -22,10 +23,10 @@
     "from": 0.2132,
     "to": 0.3197,
     "lines": [
-     "O meu coração não era meu. Eu só",
-     "carregava ele."
+     "O meu coração não era meu. Eu",
+     "só carregava ele."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -34,13 +35,14 @@
     "from": 0.3197,
     "to": 0.6531,
     "lines": [
-     "E como tremia diante da lucidez. Ela",
-     "foi meu horror maior. Eu daria tudo",
-     "para não hospedá-la. Mas mesmo assim",
+     "E como tremia diante da",
+     "lucidez. Ela foi meu horror",
+     "maior. Eu daria tudo para não",
+     "hospedá-la. Mas mesmo assim",
      "arranhava as paredes da minha",
      "cabeça."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
@@ -51,11 +53,12 @@
     "lines": [
      "A lucidez fez do meu coração um",
      "estorvo. Uma bolsa de carne nas",
-     "costas. E quanto mais arrastava,",
-     "mais pesado ficava o rastro de",
-     "terra, de brita, de chão."
+     "costas. E quanto mais",
+     "arrastava, mais pesado ficava o",
+     "rastro de terra, de brita, de",
+     "chão."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.85,
     "anchor": "left"
    }
@@ -84,11 +87,11 @@
     "from": 0.0,
     "to": 0.2778,
     "lines": [
-     "Quanto mais eu penso sobre o que faz",
-     "de mim, eu. Menos entendo dessa",
-     "substância."
+     "Quanto mais eu penso sobre o",
+     "que faz de mim, eu. Menos",
+     "entendo dessa substância."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -99,10 +102,10 @@
     "lines": [
      "Eu sei que sinto mais do que",
      "aguento. Mas minha carne divisa",
-     "fronteiras distantes demais para eu",
-     "alcançar."
+     "fronteiras distantes demais",
+     "para eu alcançar."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -114,7 +117,7 @@
      "E me tranco dentro de fora. Não",
      "tenho casa. Sou um hospedeiro."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -125,7 +128,7 @@
     "lines": [
      "Um verdadeiro parasita."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -153,13 +156,14 @@
     "from": 0.0,
     "to": 0.3532,
     "lines": [
-     "Eu deito quente, mas vou lentamente",
-     "esfriando. E mesmo quando o inverno",
-     "acaba. E o frio me deixa. Eu seguro",
-     "sua capa. Eu o proibo de ir."
+     "Eu deito quente, mas vou",
+     "lentamente esfriando. E mesmo",
+     "quando o inverno acaba. E o",
+     "frio me deixa. Eu seguro sua",
+     "capa. Eu o proibo de ir."
     ],
-    "x": 0.5,
-    "y": 1.55,
+    "x": 0.3,
+    "y": 1.85,
     "anchor": "left"
    },
    {
@@ -167,11 +171,11 @@
     "from": 0.3532,
     "to": 0.5584,
     "lines": [
-     "Espalho pelo meu corpo suas agulhas.",
-     "E no arrepio de cada furo, eu me",
-     "esquento."
+     "Espalho pelo meu corpo suas",
+     "agulhas. E no arrepio de cada",
+     "furo, eu me esquento."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -180,11 +184,11 @@
     "from": 0.5584,
     "to": 0.7714,
     "lines": [
-     "Faço o gelo cobrir o sol. Até a luz",
-     "esfriar. Sobrando apenas uma carne",
-     "conservada."
+     "Faço o gelo cobrir o sol. Até a",
+     "luz esfriar. Sobrando apenas",
+     "uma carne conservada."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -193,10 +197,10 @@
     "from": 0.7714,
     "to": 0.8961,
     "lines": [
-     "Mas ele não me obedece. Escapa entre",
-     "meus dedos."
+     "Mas ele não me obedece. Escapa",
+     "entre meus dedos."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -207,7 +211,7 @@
     "lines": [
      "Me rejeita."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -236,10 +240,11 @@
     "from": 0.0,
     "to": 0.3923,
     "lines": [
-     "E dentro dessa carne existe terra.",
-     "Onde comem vermes no útero da morte."
+     "E dentro dessa carne existe",
+     "terra. Onde comem vermes no",
+     "útero da morte."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -251,7 +256,7 @@
      "Fazem lama onde afundo. É meu",
      "ecossistema."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -260,10 +265,11 @@
     "from": 0.6243,
     "to": 1.0,
     "lines": [
-     "Uma sombra líquida que se infiltra",
-     "no solo e não deixa nada crescer."
+     "Uma sombra líquida que se",
+     "infiltra no solo e não deixa",
+     "nada crescer."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -290,11 +296,11 @@
     "from": 0.0,
     "to": 0.302,
     "lines": [
-     "E quando minha garganta vibra no",
-     "vácuo como a corda de um violão",
-     "satânico."
+     "E quando minha garganta vibra",
+     "no vácuo como a corda de um",
+     "violão satânico."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -307,7 +313,7 @@
      "poderei dizer. Algo está a se",
      "perder. A ficar mais longe."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -319,7 +325,7 @@
      "E a amnésia me seduz, me deixa",
      "sonolento."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -328,10 +334,10 @@
     "from": 0.8327,
     "to": 1.0,
     "lines": [
-     "Faz meus olhos se fecharem dentro de",
-     "mim."
+     "Faz meus olhos se fecharem",
+     "dentro de mim."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -359,10 +365,10 @@
     "from": 0.0,
     "to": 0.3546,
     "lines": [
-     "Fui expulso do meu corpo. De onde eu",
-     "chupo a vida."
+     "Fui expulso do meu corpo. De",
+     "onde eu chupo a vida."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -374,7 +380,7 @@
      "Suicidando o homem pelo menino.",
      "Abandono a verdade."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -385,7 +391,7 @@
     "lines": [
      "Abandono-me."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -412,11 +418,11 @@
     "from": 0.0,
     "to": 0.199,
     "lines": [
-     "Passo os dias preso no meu quarto.",
-     "vendo minha carne se misturar com as",
-     "paredes."
+     "Passo os dias preso no meu",
+     "quarto. vendo minha carne se",
+     "misturar com as paredes."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -428,7 +434,7 @@
      "Lágrimas escorrem da tinta",
      "descascada."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -437,10 +443,11 @@
     "from": 0.2985,
     "to": 0.4453,
     "lines": [
-     "Não existe fora. Só existe fome.",
-     "Numa escuridão esverdeada."
+     "Não existe fora. Só existe",
+     "fome. Numa escuridão",
+     "esverdeada."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -449,11 +456,12 @@
     "from": 0.4453,
     "to": 0.6642,
     "lines": [
-     "E as hienas, crocodilos e urubus",
-     "comem ali. Mas meu sangue já secou.",
-     "Mesmo assim mordem."
+     "E as hienas, crocodilos e",
+     "urubus comem ali. Mas meu",
+     "sangue já secou. Mesmo assim",
+     "mordem."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -462,11 +470,12 @@
     "from": 0.6642,
     "to": 0.9005,
     "lines": [
-     "Cortam as fibras para não esquecer.",
-     "Cravando os caninos até que morram",
-     "eles, até se esquecerem."
+     "Cortam as fibras para não",
+     "esquecer. Cravando os caninos",
+     "até que morram eles, até se",
+     "esquecerem."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -477,7 +486,7 @@
     "lines": [
      "A fome vai vencer."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -508,14 +517,15 @@
     "to": 0.6369,
     "lines": [
      "Embaixo do cobertor por duas",
-     "eternidades. Acordo sem levantar.",
-     "Crucificado no leito. Não há céu. Há",
-     "somente o inferno alto. A cama abre",
-     "a boca, e o travesseiro morde. Fura",
-     "meu crânio que escorre um líquido",
-     "insosso."
+     "eternidades. Acordo sem",
+     "levantar. Crucificado no leito.",
+     "Não há céu. Há somente o",
+     "inferno alto. A cama abre a",
+     "boca, e o travesseiro morde.",
+     "Fura meu crânio que escorre um",
+     "líquido insosso."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
@@ -525,10 +535,10 @@
     "to": 0.881,
     "lines": [
      "Todas as vértebras, vísceras e",
-     "costelas são um acúmulo de peças que",
-     "não funcionam."
+     "costelas são um acúmulo de",
+     "peças que não funcionam."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -537,9 +547,10 @@
     "from": 0.881,
     "to": 1.0,
     "lines": [
-     "E meu coração não bate, ele tosse."
+     "E meu coração não bate, ele",
+     "tosse."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -566,11 +577,11 @@
     "from": 0.0,
     "to": 0.095,
     "lines": [
-     "A baba se acumula, envenenando toda",
-     "a calma que só os solitários",
-     "conhecem."
+     "A baba se acumula, envenenando",
+     "toda a calma que só os",
+     "solitários conhecem."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -579,12 +590,12 @@
     "from": 0.095,
     "to": 0.2298,
     "lines": [
-     "A doença que contraí no útero não",
-     "tem remédio, mas a cada dia que",
-     "passa eu caminho em direção a uma",
-     "cura."
+     "A doença que contraí no útero",
+     "não tem remédio, mas a cada dia",
+     "que passa eu caminho em direção",
+     "a uma cura."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -594,9 +605,10 @@
     "to": 0.3119,
     "lines": [
      "Deixo a sombra andar na minha",
-     "frente. Os pés namorarem o escuro."
+     "frente. Os pés namorarem o",
+     "escuro."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -605,12 +617,12 @@
     "from": 0.3119,
     "to": 0.4673,
     "lines": [
-     "E nessa encruzilhada, encontro Satan",
-     "no meio da estrada tendo perdido seu",
-     "caminho. Caminhamos de mãos dadas,",
-     "rumo à cura."
+     "E nessa encruzilhada, encontro",
+     "Satan no meio da estrada tendo",
+     "perdido seu caminho. Caminhamos",
+     "de mãos dadas, rumo à cura."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -619,11 +631,12 @@
     "from": 0.4673,
     "to": 0.5905,
     "lines": [
-     "O caixão é a minha cama. É a cruz",
-     "que hesito em chamar de minha. Mas",
-     "me deito de braços abertos."
+     "O caixão é a minha cama. É a",
+     "cruz que hesito em chamar de",
+     "minha. Mas me deito de braços",
+     "abertos."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -632,13 +645,15 @@
     "from": 0.5905,
     "to": 0.8139,
     "lines": [
-     "Uma fresta vem enganar a luz. Ela",
-     "refrata de longe numa imensidão",
-     "sombria como uma garotinha tímida.",
-     "Arranha entranhas da madeira! tenta!",
-     "Mas estou tão sedento que bebo sede."
+     "Uma fresta vem enganar a luz.",
+     "Ela refrata de longe numa",
+     "imensidão sombria como uma",
+     "garotinha tímida. Arranha",
+     "entranhas da madeira! tenta!",
+     "Mas estou tão sedento que bebo",
+     "sede."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.85,
     "anchor": "left"
    },
@@ -649,7 +664,7 @@
     "lines": [
      "Sede é minha água."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -658,10 +673,11 @@
     "from": 0.8652,
     "to": 0.9487,
     "lines": [
-     "A cabeça tenta subir, o corpo não",
-     "deixa. Rasgam a matéria escura."
+     "A cabeça tenta subir, o corpo",
+     "não deixa. Rasgam a matéria",
+     "escura."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -672,7 +688,7 @@
     "lines": [
      "Metade é morte, a outra também."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -706,14 +722,15 @@
     "from": 0.0,
     "to": 1.0,
     "lines": [
-     "Estou escorrendo. Escorrendo de mim.",
-     "Eu não sou coisa humana. Sou um",
-     "caldo. Um caldo ralo. Dois. Nenhum.",
-     "Sovado de uma substância minha, mas",
+     "Estou escorrendo. Escorrendo de",
+     "mim. Eu não sou coisa humana.",
+     "Sou um caldo. Um caldo ralo.",
+     "Dois. Nenhum. Sovado de uma",
+     "substância minha, mas",
      "desconhecida. Infiltrando a mim",
      "mesmo."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    }
@@ -737,11 +754,12 @@
     "from": 0.0,
     "to": 0.3201,
     "lines": [
-     "Cavo para caber, ao som de passos do",
-     "mundo superior. Seguem alguma coisa",
-     "que eu não posso seguir."
+     "Cavo para caber, ao som de",
+     "passos do mundo superior.",
+     "Seguem alguma coisa que eu não",
+     "posso seguir."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -751,12 +769,13 @@
     "to": 0.868,
     "lines": [
      "E quando o som das pegadas vai",
-     "adormecendo. Eu tenho medo de fechar",
-     "os olhos. Aqui onde estrelas morrem,",
-     "e o espaço se estica. A luz é mole.",
-     "É o retrato de um buraco."
+     "adormecendo. Eu tenho medo de",
+     "fechar os olhos. Aqui onde",
+     "estrelas morrem, e o espaço se",
+     "estica. A luz é mole. É o",
+     "retrato de um buraco."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.85,
     "anchor": "left"
    },
@@ -767,7 +786,7 @@
     "lines": [
      "E nada toca nada."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -795,10 +814,10 @@
     "to": 0.5903,
     "lines": [
      "E já não sou eu quem age. Vivo",
-     "dentro de uma idéia. Uma costura no",
-     "lóbulo do cadáver."
+     "dentro de uma idéia. Uma",
+     "costura no lóbulo do cadáver."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -807,10 +826,10 @@
     "from": 0.5903,
     "to": 1.0,
     "lines": [
-     "Essa sutura é a única coisa que me",
-     "prende ao legítimo dono."
+     "Essa sutura é a única coisa que",
+     "me prende ao legítimo dono."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -836,16 +855,18 @@
     "from": 0.0,
     "to": 0.5373,
     "lines": [
-     "E quando a terra pulsa. Engolindo",
-     "saudade fina. Sinto saudade de ter",
-     "saudade. Mas a memória é branca. É",
-     "estranha. Emprestada de um outro do",
-     "qual tenho medo. A lembrança vem de",
-     "madrugada enquanto meus cabelos se",
-     "fundem aos fios do colchão, e geme",
-     "perto de mim como um animal no cio."
+     "E quando a terra pulsa.",
+     "Engolindo saudade fina. Sinto",
+     "saudade de ter saudade. Mas a",
+     "memória é branca. É estranha.",
+     "Emprestada de um outro do qual",
+     "tenho medo. A lembrança vem de",
+     "madrugada enquanto meus cabelos",
+     "se fundem aos fios do colchão,",
+     "e geme perto de mim como um",
+     "animal no cio."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
@@ -855,11 +876,11 @@
     "to": 0.7419,
     "lines": [
      "Enquanto ele dorme, eu posso",
-     "enxergar o escuro. E tentar alcançar",
-     "alguma coisa que estava vindo",
-     "lentamente."
+     "enxergar o escuro. E tentar",
+     "alcançar alguma coisa que",
+     "estava vindo lentamente."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -868,10 +889,10 @@
     "from": 0.7419,
     "to": 0.847,
     "lines": [
-     "Mas ele acorda, antes de eu chegar.",
-     "E não enxergo mais."
+     "Mas ele acorda, antes de eu",
+     "chegar. E não enxergo mais."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -882,7 +903,7 @@
     "lines": [
      "Não vejo nada."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -893,7 +914,7 @@
     "lines": [
      "Nem mesmo nada."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -922,11 +943,12 @@
     "from": 0.0,
     "to": 0.7059,
     "lines": [
-     "O vício em oxigênio me deixa sem ar.",
-     "A brisa morta que engulo seco, faz",
-     "do vento parado, grosso."
+     "O vício em oxigênio me deixa",
+     "sem ar. A brisa morta que",
+     "engulo seco, faz do vento",
+     "parado, grosso."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -937,7 +959,7 @@
     "lines": [
      "Um veneno translúcido."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -965,10 +987,10 @@
     "lines": [
      "E dessa vez acaricio dedos",
      "encharcados de delírio. Delírio",
-     "chupa minha alma. Posso secar, parar",
-     "a infiltração."
+     "chupa minha alma. Posso secar,",
+     "parar a infiltração."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -978,13 +1000,13 @@
     "to": 0.4359,
     "lines": [
      "Mordo lábios cheios de trapaça.",
-     "Dreno a baba com um beijo no meu",
-     "rosto. Até nada mais fazer palavra.",
-     "O delírio fez do nada, um algo. E",
-     "como é gostosa a carne macia de um",
-     "fantasma."
+     "Dreno a baba com um beijo no",
+     "meu rosto. Até nada mais fazer",
+     "palavra. O delírio fez do nada,",
+     "um algo. E como é gostosa a",
+     "carne macia de um fantasma."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.85,
     "anchor": "left"
    },
@@ -993,19 +1015,21 @@
     "from": 0.4359,
     "to": 1.0,
     "lines": [
-     "Mas minha fome não sacia. Deforma",
-     "meu cérebro. Enverga meus nervos. Me",
-     "faz comer os restos de um inseto.",
-     "Ele caiu na minha boca enquanto",
-     "dormia. Mergulhou num escuro",
-     "profundo. Suas larvas vão morrer em",
+     "Mas minha fome não sacia.",
+     "Deforma meu cérebro. Enverga",
+     "meus nervos. Me faz comer os",
+     "restos de um inseto. Ele caiu",
+     "na minha boca enquanto dormia.",
+     "Mergulhou num escuro profundo.",
+     "Suas larvas vão morrer em",
      "breve. Que culpa sentiria? Mas",
-     "sinto. Diante do podre absoluto não",
-     "consigo não sentir. Comi um inseto.",
-     "Esmaguei entre os dentes, engoli sua",
-     "gosma, e finalmente senti sabor."
+     "sinto. Diante do podre absoluto",
+     "não consigo não sentir. Comi um",
+     "inseto. Esmaguei entre os",
+     "dentes, engoli sua gosma, e",
+     "finalmente senti sabor."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    }
@@ -1033,20 +1057,22 @@
     "to": 0.8992,
     "lines": [
      "E hoje me apaixono pela feiura.",
-     "Nunca entendi por que os outros tem",
-     "tanto medo dela. A feiura não é",
-     "feia. Se amar fosse bonito, bonito",
-     "seria feio. Amar algo é grotesco. É",
-     "belo. Na feiura é que encontro amor.",
-     "E eu não tenho medo. Tenho paixão.",
-     "Numa imensidão de horror. Eu amo ser",
-     "horrível. Sorrio com dentes",
-     "amarelos, e bebo de uma fonte suja.",
-     "Bebo feio. E mesmo que ninguém me",
-     "ame, eu escolho a feiura. Uma coisa",
-     "feia mas que reconheço."
+     "Nunca entendi por que os outros",
+     "tem tanto medo dela. A feiura",
+     "não é feia. Se amar fosse",
+     "bonito, bonito seria feio. Amar",
+     "algo é grotesco. É belo. Na",
+     "feiura é que encontro amor. E",
+     "eu não tenho medo. Tenho",
+     "paixão. Numa imensidão de",
+     "horror. Eu amo ser horrível.",
+     "Sorrio com dentes amarelos, e",
+     "bebo de uma fonte suja. Bebo",
+     "feio. E mesmo que ninguém me",
+     "ame, eu escolho a feiura. Uma",
+     "coisa feia mas que reconheço."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
@@ -1055,10 +1081,10 @@
     "from": 0.8992,
     "to": 1.0,
     "lines": [
-     "Há algo de divino no feio. Como um",
-     "escuro nítido."
+     "Há algo de divino no feio. Como",
+     "um escuro nítido."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -1083,13 +1109,15 @@
     "from": 0.0,
     "to": 1.0,
     "lines": [
-     "E tudo que era novo, ficou um pouco",
-     "menos novo. Tenho medo que não sobre",
-     "mais nada recente. Que eu me torne o",
-     "passado estéril de pais e filhos."
+     "E tudo que era novo, ficou um",
+     "pouco menos novo. Tenho medo",
+     "que não sobre mais nada",
+     "recente. Que eu me torne o",
+     "passado estéril de pais e",
+     "filhos."
     ],
-    "x": 0.5,
-    "y": 1.55,
+    "x": 0.3,
+    "y": 1.85,
     "anchor": "left"
    }
   ],
@@ -1113,11 +1141,11 @@
     "from": 0.0,
     "to": 0.1018,
     "lines": [
-     "Mas um sonho lúcido também acaba. E",
-     "um dia a fricção do ar esquentou meu",
-     "rosto."
+     "Mas um sonho lúcido também",
+     "acaba. E um dia a fricção do ar",
+     "esquentou meu rosto."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1127,10 +1155,10 @@
     "to": 0.2036,
     "lines": [
      "Pela primeira vez minha testa",
-     "esfregou o asfalto que antes só meus",
-     "pés tocavam."
+     "esfregou o asfalto que antes só",
+     "meus pés tocavam."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1139,10 +1167,10 @@
     "from": 0.2036,
     "to": 0.2822,
     "lines": [
-     "Antes eu não sangrava. Nem uma gota.",
-     "Mas tudo mudou com você."
+     "Antes eu não sangrava. Nem uma",
+     "gota. Mas tudo mudou com você."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1151,13 +1179,14 @@
     "from": 0.2822,
     "to": 0.4588,
     "lines": [
-     "Socava farelos do meu espírito. De",
-     "massa desnutrida. Na boca da minha",
-     "irmã parasita. Jantávamos no útero",
-     "seco, encharcados de corrimento."
+     "Socava farelos do meu espírito.",
+     "De massa desnutrida. Na boca da",
+     "minha irmã parasita. Jantávamos",
+     "no útero seco, encharcados de",
+     "corrimento."
     ],
-    "x": -3.3,
-    "y": 1.55,
+    "x": -3.45,
+    "y": 1.85,
     "anchor": "left"
    },
    {
@@ -1167,11 +1196,11 @@
     "lines": [
      "Quando cortei meu braço e te",
      "entreguei. Você inseriu a carne",
-     "decepada entre suas coxas. Para cada",
-     "dedo meu assumir uma extremidade",
-     "sua."
+     "decepada entre suas coxas. Para",
+     "cada dedo meu assumir uma",
+     "extremidade sua."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
@@ -1181,10 +1210,10 @@
     "to": 0.7384,
     "lines": [
      "E arrancou um sussurro do meu",
-     "ouvido, como se nunca tivesse saído",
-     "da sua garganta:"
+     "ouvido, como se nunca tivesse",
+     "saído da sua garganta:"
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1193,11 +1222,12 @@
     "from": 0.7384,
     "to": 0.8737,
     "lines": [
-     "\"Hoje a noite eu quero que rasteje",
-     "no quarto, até a minha cama, e se",
-     "enrole na minha pele como um lençol."
+     "\"Hoje a noite eu quero que",
+     "rasteje no quarto, até a minha",
+     "cama, e se enrole na minha pele",
+     "como um lençol."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1207,10 +1237,11 @@
     "to": 1.0,
     "lines": [
      "E então, irmãozinho, eu vou te",
-     "amamentar como um bebê de sangue, e",
-     "deixar que morda até engasgar.\""
+     "amamentar como um bebê de",
+     "sangue, e deixar que morda até",
+     "engasgar.\""
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -1242,13 +1273,14 @@
     "from": 0.0,
     "to": 0.456,
     "lines": [
-     "Só você foi capaz de aliviar a coroa",
-     "que me esmagava. Logo eu, que mordia",
-     "só para gastar os dentes, esfreguei",
-     "a língua entre os seus molares,",
-     "viciado na gosma branca."
+     "Só você foi capaz de aliviar a",
+     "coroa que me esmagava. Logo eu,",
+     "que mordia só para gastar os",
+     "dentes, esfreguei a língua",
+     "entre os seus molares, viciado",
+     "na gosma branca."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
@@ -1257,10 +1289,10 @@
     "from": 0.456,
     "to": 0.6209,
     "lines": [
-     "E mesmo que algo se perdesse. Eu",
-     "encontrava. Você encontrou."
+     "E mesmo que algo se perdesse.",
+     "Eu encontrava. Você encontrou."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1269,9 +1301,10 @@
     "from": 0.6209,
     "to": 0.7308,
     "lines": [
-     "Entendi como uma alma se estica."
+     "Entendi como uma alma se",
+     "estica."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1283,7 +1316,7 @@
      "E todo o mundo vai morrer sem",
      "descobrir o que é me amar."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1292,10 +1325,10 @@
     "from": 0.8846,
     "to": 1.0,
     "lines": [
-     "Menos você, que comeu essa carne",
-     "estranha."
+     "Menos você, que comeu essa",
+     "carne estranha."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -1323,13 +1356,15 @@
     "from": 0.0,
     "to": 0.5043,
     "lines": [
-     "Mas cantamos nossa língua morta, que",
-     "herdamos de silêncio ancestral.",
-     "Cordas feriram a madeira estéril, e",
-     "nossos calos fundiram carne viva com",
-     "palavras loucas, num coro canibal."
+     "Mas cantamos nossa língua",
+     "morta, que herdamos de silêncio",
+     "ancestral. Cordas feriram a",
+     "madeira estéril, e nossos calos",
+     "fundiram carne viva com",
+     "palavras loucas, num coro",
+     "canibal."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
@@ -1342,7 +1377,7 @@
      "começava o piano? Compomos a",
      "partitura de nossa extinção."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1352,10 +1387,10 @@
     "to": 1.0,
     "lines": [
      "E só pudemos nos curvar de mãos",
-     "dadas para uma cortina decapitar, e",
-     "a Morte aplaudir."
+     "dadas para uma cortina",
+     "decapitar, e a Morte aplaudir."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -1383,13 +1418,14 @@
     "to": 0.8361,
     "lines": [
      "Um dia as flores murcharam no",
-     "túmulo. A grama pisada virou lodo e",
-     "nem a pegada se pôde ver. A lápide",
-     "foi engolida. E gotas apagaram o",
-     "epitáfio de uma promessa. Da mentira",
-     "que disseram para o solo salgado."
+     "túmulo. A grama pisada virou",
+     "lodo e nem a pegada se pôde",
+     "ver. A lápide foi engolida. E",
+     "gotas apagaram o epitáfio de",
+     "uma promessa. Da mentira que",
+     "disseram para o solo salgado."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
@@ -1400,7 +1436,7 @@
     "lines": [
      "Dois buracos não se enchem."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -1429,7 +1465,7 @@
      "De um tempo grávido de prazer,",
      "nasceu uma gema mole."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1438,10 +1474,10 @@
     "from": 0.1499,
     "to": 0.3026,
     "lines": [
-     "Como pode o peso de nada ser tão",
-     "difícil de carregar?"
+     "Como pode o peso de nada ser",
+     "tão difícil de carregar?"
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1450,13 +1486,14 @@
     "from": 0.3026,
     "to": 0.6772,
     "lines": [
-     "E esse peso lentamente se espalhou",
-     "por todo meu corpo, como se eu",
-     "tivesse deitado errado. E mesmo o",
-     "silêncio, pareceu mais calado."
+     "E esse peso lentamente se",
+     "espalhou por todo meu corpo,",
+     "como se eu tivesse deitado",
+     "errado. E mesmo o silêncio,",
+     "pareceu mais calado."
     ],
-    "x": 0.5,
-    "y": 1.55,
+    "x": 0.3,
+    "y": 1.85,
     "anchor": "left"
    },
    {
@@ -1464,10 +1501,11 @@
     "from": 0.6772,
     "to": 0.8847,
     "lines": [
-     "Se eu abrisse meu peito, ainda veria",
-     "você ali. Mas a veria escorregando."
+     "Se eu abrisse meu peito, ainda",
+     "veria você ali. Mas a veria",
+     "escorregando."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1476,9 +1514,10 @@
     "from": 0.8847,
     "to": 1.0,
     "lines": [
-     "Agora meu rosto está frio. Você foi."
+     "Agora meu rosto está frio. Você",
+     "foi."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    }
@@ -1507,11 +1546,11 @@
     "from": 0.0,
     "to": 0.1518,
     "lines": [
-     "E eu não tenho solidão. Eu sou a",
-     "solidão. Somos uma só carne. Aonde",
-     "vou, ela me espera."
+     "E eu não tenho solidão. Eu sou",
+     "a solidão. Somos uma só carne.",
+     "Aonde vou, ela me espera."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1520,13 +1559,14 @@
     "from": 0.1518,
     "to": 0.4241,
     "lines": [
-     "Quando durmo, me enrola em dedos",
-     "gelados. Quando acordo, lembra o que",
-     "queria esquecer. Mesmo no meio",
-     "deles, a noiva que ficou, me veste",
-     "como um véu molhado."
+     "Quando durmo, me enrola em",
+     "dedos gelados. Quando acordo,",
+     "lembra o que queria esquecer.",
+     "Mesmo no meio deles, a noiva",
+     "que ficou, me veste como um véu",
+     "molhado."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.85,
     "anchor": "left"
    },
@@ -1535,13 +1575,14 @@
     "from": 0.4241,
     "to": 0.6353,
     "lines": [
-     "A morte canta na nossa cerimônia.",
-     "Danço nas cinzas de uma estrela. Até",
-     "meus pés sangrarem — Eu não paro,",
-     "não posso parar."
+     "A morte canta na nossa",
+     "cerimônia. Danço nas cinzas de",
+     "uma estrela. Até meus pés",
+     "sangrarem — Eu não paro, não",
+     "posso parar."
     ],
-    "x": 0.5,
-    "y": 1.55,
+    "x": 0.3,
+    "y": 1.85,
     "anchor": "left"
    },
    {
@@ -1549,11 +1590,12 @@
     "from": 0.6353,
     "to": 0.8063,
     "lines": [
-     "Me apaixono pelo luto. E meu amor",
-     "disseca o cadáver de um fantasma. Se",
-     "banha em líquido ancestral."
+     "Me apaixono pelo luto. E meu",
+     "amor disseca o cadáver de um",
+     "fantasma. Se banha em líquido",
+     "ancestral."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1562,10 +1604,11 @@
     "from": 0.8063,
     "to": 0.9302,
     "lines": [
-     "Meus joelhos perfuram o chão, tentam",
-     "extrair a herança de uma promessa."
+     "Meus joelhos perfuram o chão,",
+     "tentam extrair a herança de uma",
+     "promessa."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1576,7 +1619,7 @@
     "lines": [
      "Mas ainda danço."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
@@ -1607,10 +1650,10 @@
     "to": 0.4045,
     "lines": [
      "A dor é meu corpo estranho. Meu",
-     "lugar comum. Onde a luz sangra na",
-     "placenta de uma sombra."
+     "lugar comum. Onde a luz sangra",
+     "na placenta de uma sombra."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1621,7 +1664,7 @@
     "lines": [
      "Só escuro é espaço."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1633,7 +1676,7 @@
      "E já não consigo mais viver tão",
      "longe do meu corpo."
     ],
-    "x": 0.5,
+    "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
@@ -1644,7 +1687,7 @@
     "lines": [
      "Me fiz."
     ],
-    "x": -3.3,
+    "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    }
