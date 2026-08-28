@@ -22,7 +22,7 @@ const els = {
 // ── which part are we reading? ────────────────────────
 const params = new URLSearchParams(location.search);
 const wanted = params.get('part') || 'I-1';
-const part = parts.find((p) => p.id === wanted) || parts[0];
+let part = parts.find((p) => p.id === wanted) || parts[0];
 document.title = `O Inquilino — ${part.canto} ${part.mark}`;
 
 const state = { entered: false, irisT: 0, hintGone: false, beatIndex: -1, running: false };
@@ -33,8 +33,9 @@ renderer.setPixelRatio(DPR);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-const scene = new PartScene(base, part);
-const { composer, film } = buildComposer(renderer, scene.scene, scene.camera, base.post);
+let partIndex = parts.indexOf(part);
+let scene = new PartScene(base, part);
+const { composer, film, renderPass } = buildComposer(renderer, scene.scene, scene.camera, base.post);
 const scrubber = new Scrubber(base.scrub);
 const heart = new Heartbeat(base.audio);
 let score = null;
@@ -106,11 +107,7 @@ async function load() {
 function begin() {
   els.loader.classList.add('out');
   setTimeout(() => { els.loader.classList.add('hidden'); els.chrome.classList.remove('hidden'); }, 900);
-  els.hudCanto.textContent = part.canto.toUpperCase();
-  els.hudPart.textContent = part.mark;
-  // one tick per beat
-  els.railTicks.innerHTML = part.beats
-    .map((b) => `<b class="rail-tick" style="--at:${b.from}"></b>`).join('');
+  paintHud();
   clock.start();
   state.running = true;
   score?.start();
@@ -125,6 +122,81 @@ els.soundBtn.addEventListener('click', () => {
   els.soundLabel.textContent = muted ? 'SOM OFF' : 'SOM ON';
 });
 
+// ── one poem, twenty-four rooms ──────────────────────
+// The parts hand over to each other rather than being separate pages: the
+// audio context survives, so the Adagio keeps running through its slices the
+// way it was cut to.
+let swapping = false;
+
+async function goToPart(index, { atEnd = false } = {}) {
+  if (swapping || index < 0 || index >= parts.length) return;
+  swapping = true;
+  state.running = false;
+
+  // close the eye
+  await fadeTo(0, 900);
+
+  const old = scene;
+  part = parts[index];
+  partIndex = index;
+  scene = new PartScene(base, part);
+  renderPass.scene = scene.scene;
+  renderPass.camera = scene.camera;
+  resize();
+
+  await scene.buildText();
+  try { await scene.loadCharacter(); } catch (e) { console.warn('[o inquilino] character art:', e.message); }
+  old.dispose();
+
+  if (heart.ctx) {
+    score?.stop();
+    score = new Score(heart.ctx, heart.master, { part: part.id, gain: base.score.gain });
+    try { await score.load(); } catch (e) { console.warn('[o inquilino] score:', e.message); score = null; }
+    const key = `./config/vo-${part.id}.json`;
+    if (voFiles[key]) {
+      try {
+        vo = new Narration(heart.ctx, heart.master, (await voFiles[key]()).default, base.narration);
+        await vo.load();
+      } catch (e) { console.warn('[o inquilino] narration:', e.message); vo = null; }
+    } else vo = null;
+  }
+
+  scrubber.target = scrubber.value = atEnd ? 0.999 : 0;
+  state.beatIndex = -1;
+  scene.update(scrubber.value, clock.getElapsedTime(), 0.016);
+  paintHud();
+
+  history.replaceState(null, '', `?part=${part.id}${params.has('debug') ? '&debug' : ''}`);
+  state.running = true;
+  score?.start();
+  if (!atEnd) vo?.speak(0, score?.bus);
+
+  await fadeTo(1, 1100);
+  swapping = false;
+}
+
+function fadeTo(target, ms) {
+  // deliberately not rAF: a hidden tab suspends it outright, and a handover
+  // that never finishes leaves the reader on a black screen for good
+  return new Promise((res) => {
+    const from = film.uniforms.uFade.value;
+    const t0 = performance.now();
+    const id = setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / ms);
+      film.uniforms.uFade.value = from + (target - from) * k;
+      if (k >= 1) { clearInterval(id); res(); }
+    }, 16);
+  });
+}
+
+function paintHud() {
+  els.hudCanto.textContent = part.canto.toUpperCase();
+  els.hudPart.textContent = part.mark;
+  els.railTicks.innerHTML = '<i id="railFill"></i>' + part.beats
+    .map((b) => `<b class="rail-tick" style="--at:${b.from}"></b>`).join('');
+  els.railFill = document.getElementById('railFill');
+}
+
 const clock = new THREE.Clock(false);
 let last = 0;
 
@@ -133,7 +205,13 @@ function frame() {
   const time = clock.getElapsedTime();
   const dt = Math.min(time - last, 0.05);
   last = time;
+  step(time, dt);
+}
 
+// one frame's worth of work, separated from the scheduling so it can be
+// driven by hand — a hidden tab suspends rAF entirely, which makes the loop
+// untestable otherwise
+function step(time, dt) {
   const t = scrubber.update();
   const out = scene.update(t, time, dt);
 
@@ -156,6 +234,12 @@ function frame() {
   }
   if (!state.hintGone && t > 0.02) { state.hintGone = true; els.hint.classList.add('gone'); }
 
+  // the end of a part is a door, not a wall
+  if (state.running && !swapping) {
+    if (t > 0.998 && scrubber.target >= 0.999 && partIndex < parts.length - 1) goToPart(partIndex + 1);
+    else if (t < 0.002 && scrubber.target <= 0.001 && partIndex > 0) goToPart(partIndex - 1, { atEnd: true });
+  }
+
   composer.render();
 }
 
@@ -171,7 +255,16 @@ if (params.has('auto')) {
 }
 
 if (params.has('debug')) {
-  window.SCENE = scene; window.SCRUB = scrubber; window.FILM = film; window.PART = part;
+  Object.defineProperty(window, 'SCENE', { get: () => scene });
+  Object.defineProperty(window, 'PART', { get: () => part });
+  window.SCRUB = scrubber; window.FILM = film; window.GOTO = goToPart;
+  window.STATE = state;
+  window.TICK = (n = 1, dt = 0.016) => {
+    for (let i = 0; i < n; i++) { last += dt; step(last, dt); }
+    return scrubber.value;
+  };
+  Object.defineProperty(window, 'SWAPPING', { get: () => swapping });
+  Object.defineProperty(window, 'PIDX', { get: () => partIndex });
   window.JUMP = (v) => {
     scrubber.target = v; scrubber.value = v; state.irisT = 1;
     const now = clock.getElapsedTime();

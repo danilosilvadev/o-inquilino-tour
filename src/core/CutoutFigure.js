@@ -128,6 +128,16 @@ export class CutoutFigure {
     this.parts.get('legR').group.rotation.z = -weight * C.weightSplay;
   }
 
+  dispose() {
+    for (const { mesh, mat } of this.parts.values()) {
+      mesh.geometry.dispose();
+      mat.uniforms.tMap.value?.dispose();
+      mat.dispose();
+    }
+    this.parts.clear();
+    this.loaded = false;
+  }
+
   setLight(v) {
     for (const { mat } of this.parts.values()) mat.uniforms.uLight.value = v;
   }

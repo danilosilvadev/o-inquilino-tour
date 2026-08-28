@@ -24,7 +24,8 @@ export const FilmShader = {
     uAberration: { value: 0.0022 },
     uContrast:   { value: 1.06 },
     uExposure:   { value: 1.02 },
-    uFlash:      { value: 0 }         // the cold spike of lucidity
+    uFlash:      { value: 0 },        // the cold spike of lucidity
+    uFade:       { value: 1 }         // between parts
   },
 
   vertexShader: /* glsl */ `
@@ -40,7 +41,7 @@ export const FilmShader = {
 
     uniform sampler2D tDiffuse;
     uniform float uTime, uIris, uTremor, uGrain, uGrainSize;
-    uniform float uVignette, uAberration, uContrast, uExposure, uFlash;
+    uniform float uVignette, uAberration, uContrast, uExposure, uFlash, uFade;
     uniform vec2 uRes;
     varying vec2 vUv;
 
@@ -93,14 +94,15 @@ export const FilmShader = {
       float n = hash(gp + fract(uTime) * 137.0);
       col += (n - 0.5) * uGrain;
 
-      gl_FragColor = vec4(max(col, 0.0), 1.0);
+      gl_FragColor = vec4(max(col, 0.0) * uFade, 1.0);
     }
   `
 };
 
 export function buildComposer(renderer, scene, camera, cfg) {
   const composer = new EffectComposer(renderer);
-  composer.addPass(new RenderPass(scene, camera));
+  const renderPass = new RenderPass(scene, camera);
+  composer.addPass(renderPass);
 
   const film = new ShaderPass(FilmShader);
   film.renderToScreen = true;
@@ -113,5 +115,5 @@ export function buildComposer(renderer, scene, camera, cfg) {
   u.uExposure.value = cfg.exposure;
   composer.addPass(film);
 
-  return { composer, film };
+  return { composer, film, renderPass };
 }

@@ -46,6 +46,15 @@ export class Score {
     return Math.min(1, this.ctx.currentTime / this.buffer.duration);
   }
 
+  stop() {
+    if (!this.node) return;
+    const now = this.ctx.currentTime;
+    this.bus.gain.cancelScheduledValues(now);
+    this.bus.gain.setValueAtTime(this.bus.gain.value, now);
+    this.bus.gain.linearRampToValueAtTime(0.0001, now + 0.9);
+    try { this.node.stop(now + 1.0); } catch (e) { /* already done */ }
+  }
+
   setMuted(muted) {
     this.bus.gain.setTargetAtTime(muted ? 0 : this.cfg.gain, this.ctx.currentTime, 0.25);
   }

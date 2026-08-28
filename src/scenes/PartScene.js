@@ -259,6 +259,22 @@ export class PartScene {
     return lerp(st[i], st[i + 1], smoothstep(0, 1, beatProgress(t, beats[i])));
   }
 
+  dispose() {
+    for (const f of this.figures) f.dispose();
+    for (const { group, meshes } of this.textGroups) {
+      for (const m of meshes) m.dispose();
+      this.scene.remove(group);
+    }
+    this.textGroups.length = 0;
+    this.scene.traverse((o) => {
+      if (o.geometry) o.geometry.dispose();
+      if (o.material) {
+        const mats = Array.isArray(o.material) ? o.material : [o.material];
+        for (const m of mats) m.dispose();
+      }
+    });
+  }
+
   update(t, time, dt) {
     const C = this.cfg;
     const cam = this.camera;
