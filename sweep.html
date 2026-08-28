@@ -52,7 +52,8 @@
           setTimeout(() => {
             try {
               if (!w.SCENE) return done('no scene');
-              w.JUMP?.(0.5);
+              // exercise the timeline without JUMP's 220-pass settle
+              for (const v of [0.0, 0.25, 0.5, 0.75, 1.0]) w.SCENE.update(v, 3, 0.016);
               const gl = w.document.querySelector('canvas');
               const ctx = gl?.getContext('webgl2') || gl?.getContext('webgl');
               const figures = w.SCENE.figures.filter((x) => x.loaded).length;
@@ -62,7 +63,7 @@
               if (figures === 0) return done('no figure');
               done('ok');
             } catch (e) { done('threw: ' + e.message); }
-          }, 5200);
+          }, 2600);
         };
       });
     }
