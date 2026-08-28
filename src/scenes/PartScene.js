@@ -335,7 +335,15 @@ export class PartScene {
 
     // ── the body, and the ones a moment behind it ──
     const lead = lerp(C.figure.leadFar, C.figure.leadNear, smoothstep(0, 0.7, t));
-    const homeX = C.figure.x;
+
+    // he stands opposite whichever side the words are on, so the two never
+    // fight for the middle of the frame
+    let bi = this.part.beats.findIndex((b) => t < b.to);
+    if (bi === -1) bi = this.part.beats.length - 1;
+    const wantX = this.part.beats[bi].x < -1 ? C.figure.xRight : C.figure.xLeft;
+    if (this._figX === undefined) this._figX = wantX;
+    this._figX += (wantX - this._figX) * C.figure.sideLerp;
+    const homeX = this._figX;
     const homeZ = camZ - lead;
     const unrest = smoothstep(0.05, 0.22, t);
     const shown = smoothstep(0.03, 0.17, t);
@@ -343,7 +351,7 @@ export class PartScene {
     const dx = homeX - cam.position.x;
     const dz = homeZ - (camZ - 3.0);
     const dy = 1.2 - cam.position.y;
-    const lit = 0.10 + Math.exp(-(dx * dx + dy * dy + dz * dz) * C.corridor.lampFalloff)
+    const lit = C.figure.ambient + Math.exp(-(dx * dx + dy * dy + dz * dz) * C.corridor.lampFalloff)
                      * C.corridor.lampBase * 2.2 * (1 - cold * 0.3);
 
     for (let i = 0; i < this.figures.length; i++) {

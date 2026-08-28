@@ -48,7 +48,6 @@
   "amount": 0.55
  },
  "figure": {
-  "x": -1.15,
   "leadFar": 9.5,
   "leadNear": 4.6,
   "maxTrail": 4,
@@ -56,7 +55,11 @@
   "trailFade": 0.55,
   "trailOpacity": 0.5,
   "trailGapZ": 0.3,
-  "doubleOffsetX": 0.42
+  "doubleOffsetX": 0.42,
+  "xLeft": -1.35,
+  "xRight": 1.55,
+  "sideLerp": 0.02,
+  "ambient": 0.26
  },
  "cutout": {
   "height": 2.3,
