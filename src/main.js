@@ -247,11 +247,11 @@ if (params.has('debug')) {
   };
   Object.defineProperty(window, 'SWAPPING', { get: () => swapping });
   Object.defineProperty(window, 'PIDX', { get: () => partIndex });
+  // drive the real step, not scene.update: the film uniforms (iris included)
+  // are set in step(), and skipping it left every captured frame masked shut
   window.JUMP = (v) => {
     scrubber.target = v; scrubber.value = v; state.irisT = 1;
-    const now = clock.getElapsedTime();
-    for (let i = 0; i < 220; i++) scene.update(v, now, 0.016);
-    composer.render();
+    for (let i = 0; i < 220; i++) { last += 0.016; step(last, 0.016); }
     return v;
   };
   console.log(`[o inquilino] ${part.id} — ${part.beats.length} beats, moves:`, part.moves);

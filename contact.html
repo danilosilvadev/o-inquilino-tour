@@ -9,8 +9,9 @@
     .part { margin-bottom:10px; }
     .lbl { color:#8d867a; margin-bottom:3px; }
     .strip { display:flex; gap:4px; }
-    img { width:236px; height:auto; background:#000; display:block; }
-    iframe { width:900px; height:440px; border:0; position:fixed; left:-9999px; top:0; }
+    /* brightness is a review aid only — the piece is this dark on purpose */
+    img { width:300px; height:auto; background:#000; display:block; }
+    iframe { width:1000px; height:480px; border:0; position:fixed; left:-9999px; top:0; }
     #status { position:fixed; right:14px; top:14px; color:#c9a05c; }
   </style>
 </head>
@@ -32,19 +33,34 @@
         const f = document.createElement('iframe');
         f.src = `/?part=${p.id}&auto&debug&capture`;
         document.body.appendChild(f);
-        f.onload = () => setTimeout(() => {
+        f.onload = async () => {
           const w = f.contentWindow;
+          // wait for the piece to actually have started, rather than guessing a
+          // delay: until begin() runs, the iris is shut and every frame is black
+          const t0 = Date.now();
+          while (!(w.STATE && w.STATE.running && w.JUMP) && Date.now() - t0 < 20000) {
+            await new Promise((r) => setTimeout(r, 150));
+          }
+          await new Promise((r) => setTimeout(r, 400));
           const shots = [];
           try {
             const cv = w.document.querySelector('canvas');
+            // Brighten BEFORE encoding. JPEG quantisation flattens a frame
+            // this dark to solid black, so boosting the <img> afterwards has
+            // nothing left to boost.
+            const tmp = document.createElement('canvas');
+            tmp.width = 640; tmp.height = Math.round(640 * cv.height / cv.width);
+            const g = tmp.getContext('2d');
             for (const t of AT) {
               w.JUMP(t);
-              shots.push(cv.toDataURL('image/jpeg', 0.62));
+              g.filter = 'brightness(2.4) contrast(1.15)';
+              g.drawImage(cv, 0, 0, tmp.width, tmp.height);
+              shots.push(tmp.toDataURL('image/jpeg', 0.85));
             }
           } catch (e) { shots.push(null); }
           f.remove();
           resolve(shots);
-        }, 4200);
+        };
       });
     }
 

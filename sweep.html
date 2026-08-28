@@ -48,8 +48,14 @@
           const origWarn = w.console.warn;
           w.console.warn = (...a) => { errors.push(a.join(' ')); origWarn.apply(w.console, a); };
 
-          // give it time to build text, load art and render frames
-          setTimeout(() => {
+          // wait for the piece to have started rather than guessing a delay
+          const waitReady = async () => {
+            const t0 = Date.now();
+            while (!(w.STATE && w.STATE.running) && Date.now() - t0 < 20000) {
+              await new Promise((r) => setTimeout(r, 150));
+            }
+          };
+          waitReady().then(() => {
             try {
               if (!w.SCENE) return done('no scene');
               // exercise the timeline without JUMP's 220-pass settle
@@ -63,7 +69,7 @@
               if (figures === 0) return done('no figure');
               done('ok');
             } catch (e) { done('threw: ' + e.message); }
-          }, 2600);
+          });
         };
       });
     }
