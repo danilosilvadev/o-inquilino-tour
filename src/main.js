@@ -1,89 +1,68 @@
 import * as THREE from 'three';
-import cfg from './config/canto-i-p1.json';
-import { CANTO_I_P1 } from './poem/cantoI.js';
-import { CantoI_P1 } from './scenes/CantoI_P1.js';
-import { Scrubber, smoothstep, lerp } from './core/Scrubber.js';
+import base from './config/base.json';
+import parts from './poem/parts.json';
+import { PartScene } from './scenes/PartScene.js';
+import { Scrubber, smoothstep } from './core/Scrubber.js';
 import { buildComposer } from './core/Post.js';
 import { Heartbeat } from './core/Heartbeat.js';
 import { Score } from './core/Score.js';
 import { Narration } from './core/Narration.js';
-import voManifest from './config/vo-I-1.json';
+
+const voFiles = import.meta.glob('./config/vo-*.json');
 
 const $ = (id) => document.getElementById(id);
-
 const els = {
-  canvas: $('gl'),
-  gate: $('gate'),
-  gateReply: $('gateReply'),
-  loader: $('loader'),
-  loaderFill: $('loaderFill'),
-  chrome: $('chrome'),
-  railFill: $('railFill'),
-  railCaption: $('railCaption'),
-  hudPart: $('hudPart'),
-  hint: $('hint'),
-  soundBtn: $('soundBtn'),
-  soundLabel: $('soundLabel')
+  canvas: $('gl'), gate: $('gate'), gateReply: $('gateReply'),
+  loader: $('loader'), loaderFill: $('loaderFill'), chrome: $('chrome'),
+  railFill: $('railFill'), railCaption: $('railCaption'), railTicks: $('railTicks'),
+  hudPart: $('hudPart'), hudCanto: $('hudCanto'), hint: $('hint'),
+  soundBtn: $('soundBtn'), soundLabel: $('soundLabel')
 };
 
-const state = {
-  entered: false,
-  irisT: 0,
-  hintGone: false,
-  captionIndex: -1
-};
+// ── which part are we reading? ────────────────────────
+const params = new URLSearchParams(location.search);
+const wanted = params.get('part') || 'I-1';
+const part = parts.find((p) => p.id === wanted) || parts[0];
+document.title = `O Inquilino — ${part.canto} ${part.mark}`;
 
-// ── renderer ───────────────────────────────────────────
-const renderer = new THREE.WebGLRenderer({
-  canvas: els.canvas,
-  antialias: false,
-  powerPreference: 'high-performance'
-});
+const state = { entered: false, irisT: 0, hintGone: false, beatIndex: -1, running: false };
+
+const renderer = new THREE.WebGLRenderer({ canvas: els.canvas, antialias: false, powerPreference: 'high-performance' });
 const DPR = Math.min(window.devicePixelRatio || 1, 1.75);
 renderer.setPixelRatio(DPR);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-const scene = new CantoI_P1(cfg, CANTO_I_P1);
-const { composer, film } = buildComposer(renderer, scene.scene, scene.camera, cfg.post);
-const scrubber = new Scrubber(cfg.scrub);
-const heart = new Heartbeat(cfg.audio);
+const scene = new PartScene(base, part);
+const { composer, film } = buildComposer(renderer, scene.scene, scene.camera, base.post);
+const scrubber = new Scrubber(base.scrub);
+const heart = new Heartbeat(base.audio);
 let score = null;
 let vo = null;
 
 function resize() {
-  const w = window.innerWidth;
-  const h = window.innerHeight;
+  const w = window.innerWidth, h = window.innerHeight;
   renderer.setSize(w, h);
   composer.setSize(w, h);
   scene.resize(w, h, DPR);
   film.uniforms.uRes.value.set(w * DPR, h * DPR);
 }
 window.addEventListener('resize', resize);
-
 window.addEventListener('pointermove', (e) => {
-  scene.setMouse(
-    (e.clientX / window.innerWidth) * 2 - 1,
-    -((e.clientY / window.innerHeight) * 2 - 1)
-  );
+  scene.setMouse((e.clientX / innerWidth) * 2 - 1, -((e.clientY / innerHeight) * 2 - 1));
 });
 
-// ── threshold ──────────────────────────────────────────
-const REPLIES = {
-  sim: 'mentira. mas entra.',
-  nao: 'nem eu. entra assim mesmo.'
-};
-
+// ── the threshold ─────────────────────────────────────
+const REPLIES = { sim: 'mentira. mas entra.', nao: 'nem eu. entra assim mesmo.' };
 els.gate.querySelectorAll('.gate-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     if (state.entered) return;
     state.entered = true;
     els.gateReply.textContent = REPLIES[btn.dataset.answer];
     els.gateReply.classList.add('show');
-    heart.start();                      // the gesture that unlocks audio
+    heart.start();
     if (heart.ctx) {
-      score = new Score(heart.ctx, heart.master, cfg.score);
-      vo = new Narration(heart.ctx, heart.master, voManifest, cfg.narration);
+      score = new Score(heart.ctx, heart.master, { part: part.id, gain: base.score.gain });
     }
     setTimeout(enterLoading, 1250);
   });
@@ -91,73 +70,53 @@ els.gate.querySelectorAll('.gate-btn').forEach((btn) => {
 
 function enterLoading() {
   els.gate.classList.add('out');
-  setTimeout(() => {
-    els.gate.classList.add('hidden');
-    els.loader.classList.remove('hidden');
-    load();
-  }, 900);
+  setTimeout(() => { els.gate.classList.add('hidden'); els.loader.classList.remove('hidden'); load(); }, 900);
 }
 
-// ── load ───────────────────────────────────────────────
 async function load() {
   let shown = 0;
-  const setPct = (p) => {
-    shown = Math.max(shown, p);
-    els.loaderFill.style.width = `${Math.round(shown * 100)}%`;
-  };
-  setPct(0.06);
+  const setPct = (p) => { shown = Math.max(shown, p); els.loaderFill.style.width = `${Math.round(shown * 100)}%`; };
+  setPct(0.05);
 
-  await scene.buildText((p) => setPct(0.06 + p * 0.36));
+  await scene.buildText((p) => setPct(0.05 + p * 0.35));
+  try { await scene.loadCharacter(); } catch (e) { console.warn('[o inquilino] character art:', e.message); }
+  setPct(0.55);
 
-  // the character's own drawing
-  try {
-    await scene.loadCharacter();
-    setPct(0.48);
-  } catch (err) {
-    console.warn('[o inquilino] character art unavailable:', err.message);
-  }
-
-  // this part's slice of the Adagio
   if (score) {
-    try {
-      await score.load((p) => setPct(0.52 + p * 0.18));
-    } catch (err) {
-      console.warn('[o inquilino] score unavailable:', err.message);
-      score = null;
-    }
+    try { await score.load((p) => setPct(0.55 + p * 0.15)); }
+    catch (e) { console.warn('[o inquilino] score:', e.message); score = null; }
   }
-  if (vo) {
-    try {
-      await vo.load((p) => setPct(0.70 + p * 0.16));
-    } catch (err) {
-      console.warn('[o inquilino] narration unavailable:', err.message);
-      vo = null;
-    }
-  }
-  setPct(0.86);
 
-  // one warm-up frame so the first real frame is not a stutter
+  const voKey = `./config/vo-${part.id}.json`;
+  if (heart.ctx && voFiles[voKey]) {
+    try {
+      const manifest = (await voFiles[voKey]()).default;
+      vo = new Narration(heart.ctx, heart.master, manifest, base.narration);
+      await vo.load((p) => setPct(0.70 + p * 0.16));
+    } catch (e) { console.warn('[o inquilino] narration:', e.message); vo = null; }
+  }
+  setPct(0.9);
+
   scene.update(0, 0, 0.016);
   composer.render();
   setPct(1);
-
-  setTimeout(begin, 620);
+  setTimeout(begin, 500);
 }
 
 function begin() {
   els.loader.classList.add('out');
-  setTimeout(() => {
-    els.loader.classList.add('hidden');
-    els.chrome.classList.remove('hidden');
-  }, 900);
-  els.hudPart.textContent = CANTO_I_P1.part;
+  setTimeout(() => { els.loader.classList.add('hidden'); els.chrome.classList.remove('hidden'); }, 900);
+  els.hudCanto.textContent = part.canto.toUpperCase();
+  els.hudPart.textContent = part.mark;
+  // one tick per beat
+  els.railTicks.innerHTML = part.beats
+    .map((b) => `<b class="rail-tick" style="--at:${b.from}"></b>`).join('');
   clock.start();
   state.running = true;
   score?.start();
   vo?.speak(0, score?.bus);
 }
 
-// ── sound toggle ───────────────────────────────────────
 els.soundBtn.addEventListener('click', () => {
   const muted = heart.toggle();
   score?.setMuted(muted);
@@ -166,13 +125,11 @@ els.soundBtn.addEventListener('click', () => {
   els.soundLabel.textContent = muted ? 'SOM OFF' : 'SOM ON';
 });
 
-// ── loop ───────────────────────────────────────────────
 const clock = new THREE.Clock(false);
 let last = 0;
 
 function frame() {
   requestAnimationFrame(frame);
-
   const time = clock.getElapsedTime();
   const dt = Math.min(time - last, 0.05);
   last = time;
@@ -180,31 +137,24 @@ function frame() {
   const t = scrubber.update();
   const out = scene.update(t, time, dt);
 
-  // iris opens once, on waking
-  state.irisT = Math.min(1, state.irisT + dt / (cfg.post.irisDuration * 18));
+  state.irisT = Math.min(1, state.irisT + dt / (base.post.irisDuration * 18));
   const u = film.uniforms;
   u.uTime.value = time;
   u.uIris.value = state.running ? smoothstep(0, 1, state.irisT) : 0;
-  u.uTremor.value = out.tremor * cfg.post.tremorMax + Math.abs(scrubber.velocity) * 0.02;
-  u.uFlash.value = out.lucid * 0.16 + out.beat * 0.012;
-  u.uGrain.value = cfg.post.grain * (1 + out.lucid * 0.5);
+  u.uTremor.value = out.tremor + Math.abs(scrubber.velocity) * 0.02;
+  u.uFlash.value = out.pulse * 0.02 + out.erase * 0.05;
 
   heart.setIntensity(t);
 
-  // hud
   els.railFill.style.width = `${(t * 100).toFixed(1)}%`;
-  const bi = cfg.beats.findIndex((b) => t >= b.from && t < b.to);
-  const idx = bi === -1 ? cfg.beats.length - 1 : bi;
-  if (idx !== state.captionIndex) {
-    state.captionIndex = idx;
-    els.railCaption.textContent = cfg.beats[idx].caption;
-    if (state.running) vo?.speak(idx, score?.bus);
-
+  let bi = part.beats.findIndex((b) => t >= b.from && t < b.to);
+  if (bi === -1) bi = part.beats.length - 1;
+  if (bi !== state.beatIndex) {
+    state.beatIndex = bi;
+    els.railCaption.textContent = `${bi + 1} / ${part.beats.length}`;
+    if (state.running) vo?.speak(bi, score?.bus);
   }
-  if (!state.hintGone && t > 0.02) {
-    state.hintGone = true;
-    els.hint.classList.add('gone');
-  }
+  if (!state.hintGone && t > 0.02) { state.hintGone = true; els.hint.classList.add('gone'); }
 
   composer.render();
 }
@@ -212,27 +162,22 @@ function frame() {
 resize();
 frame();
 
-// ── debug: ?debug pins the playhead to the URL hash ────
-if (location.search.includes('debug')) {
-  window.SCENE = scene;
-  window.SCRUB = scrubber;
-  window.FILM = film;
-  window.STATE = state;
-  /** settle the whole rig at a playhead position instantly */
+// the sweep needs a door it can walk through without a hand
+if (params.has('auto')) {
+  state.entered = true;
+  els.gate.classList.add('hidden');
+  els.loader.classList.remove('hidden');
+  load();
+}
+
+if (params.has('debug')) {
+  window.SCENE = scene; window.SCRUB = scrubber; window.FILM = film; window.PART = part;
   window.JUMP = (v) => {
-    scrubber.target = v;
-    scrubber.value = v;
-    state.irisT = 1;
+    scrubber.target = v; scrubber.value = v; state.irisT = 1;
     const now = clock.getElapsedTime();
     for (let i = 0; i < 220; i++) scene.update(v, now, 0.016);
     composer.render();
     return v;
   };
-  window.addEventListener('keydown', (e) => {
-    const n = parseInt(e.key, 10);
-    if (!isNaN(n) && n >= 1 && n <= cfg.beats.length) {
-      scrubber.target = cfg.beats[n - 1].from + 0.01;
-    }
-  });
-  console.log('[o inquilino] debug on — keys 1-4 jump to beats, SCENE/SCRUB exposed');
+  console.log(`[o inquilino] ${part.id} — ${part.beats.length} beats, moves:`, part.moves);
 }

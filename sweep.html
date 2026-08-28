@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>O Inquilino — sweep</title>
+  <style>
+    body { background:#0b0b0a; color:#e8e2d6; font:13px/1.6 ui-monospace,monospace; padding:24px; }
+    h1 { font-size:14px; letter-spacing:.3em; text-transform:uppercase; margin-bottom:18px; }
+    table { border-collapse:collapse; width:100%; max-width:1000px; }
+    td,th { text-align:left; padding:4px 12px 4px 0; border-bottom:1px solid #1e1e1c; vertical-align:top; }
+    .ok { color:#7fa87f; } .bad { color:#c96a5c; } .warn { color:#c9a05c; }
+    #summary { margin:18px 0; font-size:15px; }
+    iframe { width:640px; height:360px; border:0; position:fixed; left:-9999px; }
+  </style>
+</head>
+<body>
+  <h1>sweep</h1>
+  <div id="summary">running…</div>
+  <table><thead><tr><th>part</th><th>beats</th><th>chars</th><th>audio</th><th>vo</th><th>status</th></tr></thead>
+  <tbody id="rows"></tbody></table>
+  <script type="module">
+    import parts from './src/poem/parts.json';
+
+    const rows = document.getElementById('rows');
+    const summary = document.getElementById('summary');
+    const results = [];
+
+    async function head(url) {
+      try { return (await fetch(url, { method: 'HEAD' })).ok; } catch { return false; }
+    }
+
+    function runPart(p) {
+      return new Promise((resolve) => {
+        const errors = [];
+        const f = document.createElement('iframe');
+        f.src = `/?part=${p.id}&auto&debug`;
+        document.body.appendChild(f);
+
+        const done = (status) => {
+          try { f.remove(); } catch {}
+          resolve({ id: p.id, beats: p.beats.length, errors, status });
+        };
+
+        f.onload = () => {
+          const w = f.contentWindow;
+          w.addEventListener('error', (e) => errors.push(e.message));
+          w.addEventListener('unhandledrejection', (e) => errors.push(String(e.reason)));
+          const origWarn = w.console.warn;
+          w.console.warn = (...a) => { errors.push(a.join(' ')); origWarn.apply(w.console, a); };
+
+          // give it time to build text, load art and render frames
+          setTimeout(() => {
+            try {
+              if (!w.SCENE) return done('no scene');
+              w.JUMP?.(0.5);
+              const gl = w.document.querySelector('canvas');
+              const ctx = gl?.getContext('webgl2') || gl?.getContext('webgl');
+              const figures = w.SCENE.figures.filter((x) => x.loaded).length;
+              const texts = w.SCENE.textGroups.length;
+              if (!ctx) return done('no gl');
+              if (texts !== p.beats.length) return done(`text ${texts}/${p.beats.length}`);
+              if (figures === 0) return done('no figure');
+              done('ok');
+            } catch (e) { done('threw: ' + e.message); }
+          }, 5200);
+        };
+      });
+    }
+
+    (async () => {
+      for (const p of parts) {
+        const chars = p.beats.reduce((n, b) => n + b.lines.join(' ').length, 0);
+        const hasAudio = await head(`/audio/${p.id}.mp3`);
+        const hasVo = await head(`/audio/vo/${p.id}-1.mp3`);
+        const r = await runPart(p);
+        const bad = r.status !== 'ok' || r.errors.length;
+        results.push({ ...r, bad });
+        rows.insertAdjacentHTML('beforeend', `<tr>
+          <td>${p.id}</td><td>${r.beats}</td><td>${chars}</td>
+          <td class="${hasAudio ? 'ok' : 'bad'}">${hasAudio ? 'yes' : 'MISSING'}</td>
+          <td class="${hasVo ? 'ok' : 'warn'}">${hasVo ? 'yes' : 'pending'}</td>
+          <td class="${bad ? 'bad' : 'ok'}">${r.status}${r.errors.length ? ' — ' + r.errors.slice(0, 2).join(' | ') : ''}</td>
+        </tr>`);
+        summary.textContent = `${results.length}/${parts.length} — ${results.filter((x) => x.bad).length} failing`;
+      }
+      const failing = results.filter((x) => x.bad);
+      summary.className = failing.length ? 'bad' : 'ok';
+      summary.textContent = failing.length
+        ? `${failing.length} failing: ${failing.map((f) => f.id).join(', ')}`
+        : `all ${results.length} parts ok`;
+      window.SWEEP_DONE = { total: results.length, failing: failing.map((f) => ({ id: f.id, status: f.status, errors: f.errors })) };
+    })();
+  </script>
+</body>
+</html>

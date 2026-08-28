@@ -39,7 +39,7 @@
       <span class="hud-sub">um poema atravessado</span>
     </div>
     <div class="hud hud-tr">
-      <span class="hud-canto">CANTO I</span>
+      <span class="hud-canto" id="hudCanto">CANTO I</span>
       <span class="hud-part" id="hudPart">✳</span>
     </div>
     <button class="hud hud-bl sound" id="soundBtn" aria-label="som">
@@ -47,12 +47,8 @@
     </button>
     <div class="hud hud-br rail">
       <span class="rail-caption" id="railCaption">acordar</span>
-      <div class="rail-track">
+      <div class="rail-track" id="railTicks">
         <i id="railFill"></i>
-        <b class="rail-tick" style="--at:0"></b>
-        <b class="rail-tick" style="--at:.24"></b>
-        <b class="rail-tick" style="--at:.48"></b>
-        <b class="rail-tick" style="--at:.74"></b>
       </div>
     </div>
     <div class="hud hud-hint" id="hint">role para atravessar</div>

@@ -30,14 +30,20 @@ def paragraphs(part_id):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--part", default="I-1")
+    ap.add_argument("--all", action="store_true")
     ap.add_argument("--language", default="portuguese")
     ap.add_argument("--voice", default="rafael")
     ap.add_argument("--voice-wav", default=None, help="a real recording to speak in")
     ap.add_argument("--temp", type=float, default=0.55, help="lower = flatter, more read-aloud")
     a = ap.parse_args()
 
-    paras = paragraphs(a.part)
-    print(f"{a.part}: {len(paras)} paragraphs")
+    if a.all:
+        cantos = json.loads((ROOT / "tools" / "structure.json").read_text(encoding="utf-8"))
+        ids = [f"{ROMAN[ci]}-{pi+1}" for ci, c in enumerate(cantos)
+               for pi in range(len(c["parts"]))]
+    else:
+        ids = [a.part]
+    print(f"{len(ids)} part(s)")
 
     model = TTSModel.load_model(language=a.language, temp=a.temp)
 
@@ -51,31 +57,33 @@ def main():
 
     out_dir = ROOT / "public" / "audio" / "vo"
     out_dir.mkdir(parents=True, exist_ok=True)
-    manifest = []
 
-    for i, text in enumerate(paras):
-        wav = model.generate_audio(state, text)
-        if isinstance(wav, torch.Tensor):
-            wav = wav.detach().cpu().float().squeeze()
-        sr = model.sample_rate
-        dur = wav.shape[-1] / sr
+    import numpy as np, scipy.io.wavfile as wf
 
-        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tf:
-            import scipy.io.wavfile as wf
-            import numpy as np
-            wf.write(tf.name, sr, (wav.numpy() * 32767).astype(np.int16))
-            mp3 = out_dir / f"{a.part}-{i + 1}.mp3"
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tf.name,
-                            "-af", "afade=t=in:st=0:d=0.15,"
-                                   f"afade=t=out:st={max(0, dur - 0.3):.2f}:d=0.3",
-                            "-c:a", "libmp3lame", "-b:a", "96k", str(mp3)], check=True)
-        manifest.append({"index": i, "file": f"vo/{a.part}-{i + 1}.mp3",
-                         "duration": round(dur, 2), "text": text})
-        print(f"  [{i + 1}] {dur:5.2f}s  {text[:64]}...")
+    for part_id in ids:
+        paras = paragraphs(part_id)
+        manifest = []
+        for i, text in enumerate(paras):
+            wav = model.generate_audio(state, text)
+            if isinstance(wav, torch.Tensor):
+                wav = wav.detach().cpu().float().squeeze()
+            sr = model.sample_rate
+            dur = wav.shape[-1] / sr
 
-    (ROOT / "src" / "config" / f"vo-{a.part}.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"total {sum(m['duration'] for m in manifest):.1f}s -> {out_dir}")
+            with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tf:
+                wf.write(tf.name, sr, (wav.numpy() * 32767).astype(np.int16))
+                mp3 = out_dir / f"{part_id}-{i + 1}.mp3"
+                subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tf.name,
+                                "-af", "afade=t=in:st=0:d=0.15,"
+                                       f"afade=t=out:st={max(0, dur - 0.3):.2f}:d=0.3",
+                                "-c:a", "libmp3lame", "-b:a", "96k", str(mp3)], check=True)
+            manifest.append({"index": i, "file": f"vo/{part_id}-{i + 1}.mp3",
+                             "duration": round(dur, 2), "text": text})
+
+        (ROOT / "src" / "config" / f"vo-{part_id}.json").write_text(
+            json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"{part_id}: {len(manifest)} clips, "
+              f"{sum(m['duration'] for m in manifest):.1f}s", flush=True)
 
 
 if __name__ == "__main__":

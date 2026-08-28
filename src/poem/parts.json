@@ -1,0 +1,1665 @@
+[
+ {
+  "id": "I-1",
+  "canto": "Canto I",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2132,
+    "lines": [
+     "Hoje eu acordei estranho. Como se",
+     "meu corpo fosse alugado, e Eu um",
+     "intruso. Um corpo estranho."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2132,
+    "to": 0.3197,
+    "lines": [
+     "O meu coração não era meu. Eu só",
+     "carregava ele."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3197,
+    "to": 0.6531,
+    "lines": [
+     "E como tremia diante da lucidez. Ela",
+     "foi meu horror maior. Eu daria tudo",
+     "para não hospedá-la. Mas mesmo assim",
+     "arranhava as paredes da minha",
+     "cabeça."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6531,
+    "to": 1.0,
+    "lines": [
+     "A lucidez fez do meu coração um",
+     "estorvo. Uma bolsa de carne nas",
+     "costas. E quanto mais arrastava,",
+     "mais pesado ficava o rastro de",
+     "terra, de brita, de chão."
+    ],
+    "x": -3.3,
+    "y": 1.85,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "double": 0.8,
+   "pulse": 0.5,
+   "erase": 0.4,
+   "afterimage": 0.5
+  }
+ },
+ {
+  "id": "I-2",
+  "canto": "Canto I",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2778,
+    "lines": [
+     "Quanto mais eu penso sobre o que faz",
+     "de mim, eu. Menos entendo dessa",
+     "substância."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2778,
+    "to": 0.6458,
+    "lines": [
+     "Eu sei que sinto mais do que",
+     "aguento. Mas minha carne divisa",
+     "fronteiras distantes demais para eu",
+     "alcançar."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6458,
+    "to": 0.8611,
+    "lines": [
+     "E me tranco dentro de fora. Não",
+     "tenho casa. Sou um hospedeiro."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.8611,
+    "to": 1.0,
+    "lines": [
+     "Um verdadeiro parasita."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "double": 1.0,
+   "press": 0.6,
+   "stretch": 0.3
+  }
+ },
+ {
+  "id": "I-3",
+  "canto": "Canto I",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3532,
+    "lines": [
+     "Eu deito quente, mas vou lentamente",
+     "esfriando. E mesmo quando o inverno",
+     "acaba. E o frio me deixa. Eu seguro",
+     "sua capa. Eu o proibo de ir."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3532,
+    "to": 0.5584,
+    "lines": [
+     "Espalho pelo meu corpo suas agulhas.",
+     "E no arrepio de cada furo, eu me",
+     "esquento."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5584,
+    "to": 0.7714,
+    "lines": [
+     "Faço o gelo cobrir o sol. Até a luz",
+     "esfriar. Sobrando apenas uma carne",
+     "conservada."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.7714,
+    "to": 0.8961,
+    "lines": [
+     "Mas ele não me obedece. Escapa entre",
+     "meus dedos."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.8961,
+    "to": 1.0,
+    "lines": [
+     "Me rejeita."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "cold": 1.0,
+   "swarm": 0.7,
+   "erase": 0.3
+  }
+ },
+ {
+  "id": "I-4",
+  "canto": "Canto I",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3923,
+    "lines": [
+     "E dentro dessa carne existe terra.",
+     "Onde comem vermes no útero da morte."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3923,
+    "to": 0.6243,
+    "lines": [
+     "Fazem lama onde afundo. É meu",
+     "ecossistema."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6243,
+    "to": 1.0,
+    "lines": [
+     "Uma sombra líquida que se infiltra",
+     "no solo e não deixa nada crescer."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "sink": 1.0,
+   "swarm": 0.8,
+   "press": 0.4
+  }
+ },
+ {
+  "id": "I-5",
+  "canto": "Canto I",
+  "mark": "*****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.302,
+    "lines": [
+     "E quando minha garganta vibra no",
+     "vácuo como a corda de um violão",
+     "satânico."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.302,
+    "to": 0.6653,
+    "lines": [
+     "Me perseguem palavras que nunca",
+     "poderei dizer. Algo está a se",
+     "perder. A ficar mais longe."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6653,
+    "to": 0.8327,
+    "lines": [
+     "E a amnésia me seduz, me deixa",
+     "sonolento."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.8327,
+    "to": 1.0,
+    "lines": [
+     "Faz meus olhos se fecharem dentro de",
+     "mim."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "erase": 1.0,
+   "stretch": 0.6,
+   "cold": 0.3
+  }
+ },
+ {
+  "id": "II-1",
+  "canto": "Canto II",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3546,
+    "lines": [
+     "Fui expulso do meu corpo. De onde eu",
+     "chupo a vida."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3546,
+    "to": 0.7163,
+    "lines": [
+     "Suicidando o homem pelo menino.",
+     "Abandono a verdade."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.7163,
+    "to": 1.0,
+    "lines": [
+     "Abandono-me."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "double": 1.0,
+   "erase": 0.6,
+   "tilt": 0.3
+  }
+ },
+ {
+  "id": "II-2",
+  "canto": "Canto II",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.199,
+    "lines": [
+     "Passo os dias preso no meu quarto.",
+     "vendo minha carne se misturar com as",
+     "paredes."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.199,
+    "to": 0.2985,
+    "lines": [
+     "Lágrimas escorrem da tinta",
+     "descascada."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.2985,
+    "to": 0.4453,
+    "lines": [
+     "Não existe fora. Só existe fome.",
+     "Numa escuridão esverdeada."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.4453,
+    "to": 0.6642,
+    "lines": [
+     "E as hienas, crocodilos e urubus",
+     "comem ali. Mas meu sangue já secou.",
+     "Mesmo assim mordem."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.6642,
+    "to": 0.9005,
+    "lines": [
+     "Cortam as fibras para não esquecer.",
+     "Cravando os caninos até que morram",
+     "eles, até se esquecerem."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.9005,
+    "to": 1.0,
+    "lines": [
+     "A fome vai vencer."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.1,
+   -2.8,
+   -6.7,
+   -10.6,
+   -14.5,
+   -18.4
+  ],
+  "moves": {
+   "press": 1.0,
+   "swarm": 0.8,
+   "erase": 0.4
+  }
+ },
+ {
+  "id": "II-3",
+  "canto": "Canto II",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.6369,
+    "lines": [
+     "Embaixo do cobertor por duas",
+     "eternidades. Acordo sem levantar.",
+     "Crucificado no leito. Não há céu. Há",
+     "somente o inferno alto. A cama abre",
+     "a boca, e o travesseiro morde. Fura",
+     "meu crânio que escorre um líquido",
+     "insosso."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.6369,
+    "to": 0.881,
+    "lines": [
+     "Todas as vértebras, vísceras e",
+     "costelas são um acúmulo de peças que",
+     "não funcionam."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.881,
+    "to": 1.0,
+    "lines": [
+     "E meu coração não bate, ele tosse."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "tilt": 1.0,
+   "press": 0.7,
+   "sink": 0.5
+  }
+ },
+ {
+  "id": "II-4",
+  "canto": "Canto II",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.095,
+    "lines": [
+     "A baba se acumula, envenenando toda",
+     "a calma que só os solitários",
+     "conhecem."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.095,
+    "to": 0.2298,
+    "lines": [
+     "A doença que contraí no útero não",
+     "tem remédio, mas a cada dia que",
+     "passa eu caminho em direção a uma",
+     "cura."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.2298,
+    "to": 0.3119,
+    "lines": [
+     "Deixo a sombra andar na minha",
+     "frente. Os pés namorarem o escuro."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.3119,
+    "to": 0.4673,
+    "lines": [
+     "E nessa encruzilhada, encontro Satan",
+     "no meio da estrada tendo perdido seu",
+     "caminho. Caminhamos de mãos dadas,",
+     "rumo à cura."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.4673,
+    "to": 0.5905,
+    "lines": [
+     "O caixão é a minha cama. É a cruz",
+     "que hesito em chamar de minha. Mas",
+     "me deito de braços abertos."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.5905,
+    "to": 0.8139,
+    "lines": [
+     "Uma fresta vem enganar a luz. Ela",
+     "refrata de longe numa imensidão",
+     "sombria como uma garotinha tímida.",
+     "Arranha entranhas da madeira! tenta!",
+     "Mas estou tão sedento que bebo sede."
+    ],
+    "x": -3.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b7",
+    "from": 0.8139,
+    "to": 0.8652,
+    "lines": [
+     "Sede é minha água."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b8",
+    "from": 0.8652,
+    "to": 0.9487,
+    "lines": [
+     "A cabeça tenta subir, o corpo não",
+     "deixa. Rasgam a matéria escura."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b9",
+    "from": 0.9487,
+    "to": 1.0,
+    "lines": [
+     "Metade é morte, a outra também."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.6,
+   -1.8,
+   -5.2,
+   -8.6,
+   -12.0,
+   -15.4,
+   -18.8,
+   -22.2,
+   -25.6
+  ],
+  "moves": {
+   "sink": 0.8,
+   "stretch": 0.7,
+   "cold": 0.5,
+   "double": 0.4
+  }
+ },
+ {
+  "id": "III-1",
+  "canto": "Canto III",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 1.0,
+    "lines": [
+     "Estou escorrendo. Escorrendo de mim.",
+     "Eu não sou coisa humana. Sou um",
+     "caldo. Um caldo ralo. Dois. Nenhum.",
+     "Sovado de uma substância minha, mas",
+     "desconhecida. Infiltrando a mim",
+     "mesmo."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -6.4
+  ],
+  "moves": {
+   "sink": 1.0,
+   "erase": 0.8
+  }
+ },
+ {
+  "id": "III-2",
+  "canto": "Canto III",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3201,
+    "lines": [
+     "Cavo para caber, ao som de passos do",
+     "mundo superior. Seguem alguma coisa",
+     "que eu não posso seguir."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3201,
+    "to": 0.868,
+    "lines": [
+     "E quando o som das pegadas vai",
+     "adormecendo. Eu tenho medo de fechar",
+     "os olhos. Aqui onde estrelas morrem,",
+     "e o espaço se estica. A luz é mole.",
+     "É o retrato de um buraco."
+    ],
+    "x": -3.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.868,
+    "to": 1.0,
+    "lines": [
+     "E nada toca nada."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "stretch": 1.0,
+   "cold": 0.8,
+   "swarm": 0.4
+  }
+ },
+ {
+  "id": "III-3",
+  "canto": "Canto III",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.5903,
+    "lines": [
+     "E já não sou eu quem age. Vivo",
+     "dentro de uma idéia. Uma costura no",
+     "lóbulo do cadáver."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.5903,
+    "to": 1.0,
+    "lines": [
+     "Essa sutura é a única coisa que me",
+     "prende ao legítimo dono."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "erase": 0.7,
+   "double": 0.6,
+   "stretch": 0.4
+  }
+ },
+ {
+  "id": "IV-1",
+  "canto": "Canto IV",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.5373,
+    "lines": [
+     "E quando a terra pulsa. Engolindo",
+     "saudade fina. Sinto saudade de ter",
+     "saudade. Mas a memória é branca. É",
+     "estranha. Emprestada de um outro do",
+     "qual tenho medo. A lembrança vem de",
+     "madrugada enquanto meus cabelos se",
+     "fundem aos fios do colchão, e geme",
+     "perto de mim como um animal no cio."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.5373,
+    "to": 0.7419,
+    "lines": [
+     "Enquanto ele dorme, eu posso",
+     "enxergar o escuro. E tentar alcançar",
+     "alguma coisa que estava vindo",
+     "lentamente."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.7419,
+    "to": 0.847,
+    "lines": [
+     "Mas ele acorda, antes de eu chegar.",
+     "E não enxergo mais."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.847,
+    "to": 0.9235,
+    "lines": [
+     "Não vejo nada."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.9235,
+    "to": 1.0,
+    "lines": [
+     "Nem mesmo nada."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "afterimage": 1.0,
+   "cold": 0.5,
+   "stretch": 0.4
+  }
+ },
+ {
+  "id": "IV-2",
+  "canto": "Canto IV",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.7059,
+    "lines": [
+     "O vício em oxigênio me deixa sem ar.",
+     "A brisa morta que engulo seco, faz",
+     "do vento parado, grosso."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.7059,
+    "to": 1.0,
+    "lines": [
+     "Um veneno translúcido."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "press": 0.9,
+   "cold": 0.7,
+   "swarm": 0.3
+  }
+ },
+ {
+  "id": "IV-3",
+  "canto": "Canto IV",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1659,
+    "lines": [
+     "E dessa vez acaricio dedos",
+     "encharcados de delírio. Delírio",
+     "chupa minha alma. Posso secar, parar",
+     "a infiltração."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1659,
+    "to": 0.4359,
+    "lines": [
+     "Mordo lábios cheios de trapaça.",
+     "Dreno a baba com um beijo no meu",
+     "rosto. Até nada mais fazer palavra.",
+     "O delírio fez do nada, um algo. E",
+     "como é gostosa a carne macia de um",
+     "fantasma."
+    ],
+    "x": -3.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.4359,
+    "to": 1.0,
+    "lines": [
+     "Mas minha fome não sacia. Deforma",
+     "meu cérebro. Enverga meus nervos. Me",
+     "faz comer os restos de um inseto.",
+     "Ele caiu na minha boca enquanto",
+     "dormia. Mergulhou num escuro",
+     "profundo. Suas larvas vão morrer em",
+     "breve. Que culpa sentiria? Mas",
+     "sinto. Diante do podre absoluto não",
+     "consigo não sentir. Comi um inseto.",
+     "Esmaguei entre os dentes, engoli sua",
+     "gosma, e finalmente senti sabor."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "swarm": 1.0,
+   "pulse": 0.6,
+   "tilt": 0.4
+  }
+ },
+ {
+  "id": "IV-4",
+  "canto": "Canto IV",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.8992,
+    "lines": [
+     "E hoje me apaixono pela feiura.",
+     "Nunca entendi por que os outros tem",
+     "tanto medo dela. A feiura não é",
+     "feia. Se amar fosse bonito, bonito",
+     "seria feio. Amar algo é grotesco. É",
+     "belo. Na feiura é que encontro amor.",
+     "E eu não tenho medo. Tenho paixão.",
+     "Numa imensidão de horror. Eu amo ser",
+     "horrível. Sorrio com dentes",
+     "amarelos, e bebo de uma fonte suja.",
+     "Bebo feio. E mesmo que ninguém me",
+     "ame, eu escolho a feiura. Uma coisa",
+     "feia mas que reconheço."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.8992,
+    "to": 1.0,
+    "lines": [
+     "Há algo de divino no feio. Como um",
+     "escuro nítido."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "pulse": 0.8,
+   "erase": 0.3
+  }
+ },
+ {
+  "id": "IV-5",
+  "canto": "Canto IV",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 1.0,
+    "lines": [
+     "E tudo que era novo, ficou um pouco",
+     "menos novo. Tenho medo que não sobre",
+     "mais nada recente. Que eu me torne o",
+     "passado estéril de pais e filhos."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -6.4
+  ],
+  "moves": {
+   "erase": 0.9,
+   "stretch": 0.5,
+   "cold": 0.4
+  }
+ },
+ {
+  "id": "V-1",
+  "canto": "Canto V",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1018,
+    "lines": [
+     "Mas um sonho lúcido também acaba. E",
+     "um dia a fricção do ar esquentou meu",
+     "rosto."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1018,
+    "to": 0.2036,
+    "lines": [
+     "Pela primeira vez minha testa",
+     "esfregou o asfalto que antes só meus",
+     "pés tocavam."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.2036,
+    "to": 0.2822,
+    "lines": [
+     "Antes eu não sangrava. Nem uma gota.",
+     "Mas tudo mudou com você."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.2822,
+    "to": 0.4588,
+    "lines": [
+     "Socava farelos do meu espírito. De",
+     "massa desnutrida. Na boca da minha",
+     "irmã parasita. Jantávamos no útero",
+     "seco, encharcados de corrimento."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.4588,
+    "to": 0.6327,
+    "lines": [
+     "Quando cortei meu braço e te",
+     "entreguei. Você inseriu a carne",
+     "decepada entre suas coxas. Para cada",
+     "dedo meu assumir uma extremidade",
+     "sua."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.6327,
+    "to": 0.7384,
+    "lines": [
+     "E arrancou um sussurro do meu",
+     "ouvido, como se nunca tivesse saído",
+     "da sua garganta:"
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b7",
+    "from": 0.7384,
+    "to": 0.8737,
+    "lines": [
+     "\"Hoje a noite eu quero que rasteje",
+     "no quarto, até a minha cama, e se",
+     "enrole na minha pele como um lençol."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b8",
+    "from": 0.8737,
+    "to": 1.0,
+    "lines": [
+     "E então, irmãozinho, eu vou te",
+     "amamentar como um bebê de sangue, e",
+     "deixar que morda até engasgar.\""
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.48,
+   -2.05,
+   -5.57,
+   -9.1,
+   -12.62,
+   -16.15,
+   -19.68,
+   -23.2
+  ],
+  "moves": {
+   "double": 1.0,
+   "pulse": 0.8,
+   "afterimage": 0.4
+  }
+ },
+ {
+  "id": "V-2",
+  "canto": "Canto V",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.456,
+    "lines": [
+     "Só você foi capaz de aliviar a coroa",
+     "que me esmagava. Logo eu, que mordia",
+     "só para gastar os dentes, esfreguei",
+     "a língua entre os seus molares,",
+     "viciado na gosma branca."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.456,
+    "to": 0.6209,
+    "lines": [
+     "E mesmo que algo se perdesse. Eu",
+     "encontrava. Você encontrou."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6209,
+    "to": 0.7308,
+    "lines": [
+     "Entendi como uma alma se estica."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.7308,
+    "to": 0.8846,
+    "lines": [
+     "E todo o mundo vai morrer sem",
+     "descobrir o que é me amar."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.8846,
+    "to": 1.0,
+    "lines": [
+     "Menos você, que comeu essa carne",
+     "estranha."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "pulse": 1.0,
+   "double": 0.7
+  }
+ },
+ {
+  "id": "V-3",
+  "canto": "Canto V",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.5043,
+    "lines": [
+     "Mas cantamos nossa língua morta, que",
+     "herdamos de silêncio ancestral.",
+     "Cordas feriram a madeira estéril, e",
+     "nossos calos fundiram carne viva com",
+     "palavras loucas, num coro canibal."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.5043,
+    "to": 0.7564,
+    "lines": [
+     "Onde terminava o violino? Onde",
+     "começava o piano? Compomos a",
+     "partitura de nossa extinção."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.7564,
+    "to": 1.0,
+    "lines": [
+     "E só pudemos nos curvar de mãos",
+     "dadas para uma cortina decapitar, e",
+     "a Morte aplaudir."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "stretch": 0.8,
+   "afterimage": 0.7,
+   "tilt": 0.5
+  }
+ },
+ {
+  "id": "V-4",
+  "canto": "Canto V",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.8361,
+    "lines": [
+     "Um dia as flores murcharam no",
+     "túmulo. A grama pisada virou lodo e",
+     "nem a pegada se pôde ver. A lápide",
+     "foi engolida. E gotas apagaram o",
+     "epitáfio de uma promessa. Da mentira",
+     "que disseram para o solo salgado."
+    ],
+    "x": 0.5,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.8361,
+    "to": 1.0,
+    "lines": [
+     "Dois buracos não se enchem."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "sink": 1.0,
+   "cold": 0.8,
+   "erase": 0.5
+  }
+ },
+ {
+  "id": "VI-1",
+  "canto": "Canto VI",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1499,
+    "lines": [
+     "De um tempo grávido de prazer,",
+     "nasceu uma gema mole."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1499,
+    "to": 0.3026,
+    "lines": [
+     "Como pode o peso de nada ser tão",
+     "difícil de carregar?"
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3026,
+    "to": 0.6772,
+    "lines": [
+     "E esse peso lentamente se espalhou",
+     "por todo meu corpo, como se eu",
+     "tivesse deitado errado. E mesmo o",
+     "silêncio, pareceu mais calado."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6772,
+    "to": 0.8847,
+    "lines": [
+     "Se eu abrisse meu peito, ainda veria",
+     "você ali. Mas a veria escorregando."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.8847,
+    "to": 1.0,
+    "lines": [
+     "Agora meu rosto está frio. Você foi."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "erase": 0.9,
+   "pulse": 0.5,
+   "cold": 0.6
+  }
+ },
+ {
+  "id": "VI-2",
+  "canto": "Canto VI",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1518,
+    "lines": [
+     "E eu não tenho solidão. Eu sou a",
+     "solidão. Somos uma só carne. Aonde",
+     "vou, ela me espera."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1518,
+    "to": 0.4241,
+    "lines": [
+     "Quando durmo, me enrola em dedos",
+     "gelados. Quando acordo, lembra o que",
+     "queria esquecer. Mesmo no meio",
+     "deles, a noiva que ficou, me veste",
+     "como um véu molhado."
+    ],
+    "x": -3.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.4241,
+    "to": 0.6353,
+    "lines": [
+     "A morte canta na nossa cerimônia.",
+     "Danço nas cinzas de uma estrela. Até",
+     "meus pés sangrarem — Eu não paro,",
+     "não posso parar."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6353,
+    "to": 0.8063,
+    "lines": [
+     "Me apaixono pelo luto. E meu amor",
+     "disseca o cadáver de um fantasma. Se",
+     "banha em líquido ancestral."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.8063,
+    "to": 0.9302,
+    "lines": [
+     "Meus joelhos perfuram o chão, tentam",
+     "extrair a herança de uma promessa."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.9302,
+    "to": 1.0,
+    "lines": [
+     "Mas ainda danço."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.1,
+   -2.8,
+   -6.7,
+   -10.6,
+   -14.5,
+   -18.4
+  ],
+  "moves": {
+   "afterimage": 1.0,
+   "tilt": 0.7,
+   "pulse": 0.6
+  }
+ },
+ {
+  "id": "VI-3",
+  "canto": "Canto VI",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.4045,
+    "lines": [
+     "A dor é meu corpo estranho. Meu",
+     "lugar comum. Onde a luz sangra na",
+     "placenta de uma sombra."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.4045,
+    "to": 0.5864,
+    "lines": [
+     "Só escuro é espaço."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5864,
+    "to": 0.8182,
+    "lines": [
+     "E já não consigo mais viver tão",
+     "longe do meu corpo."
+    ],
+    "x": 0.5,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.8182,
+    "to": 1.0,
+    "lines": [
+     "Me fiz."
+    ],
+    "x": -3.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "stretch": 1.0,
+   "erase": 0.7,
+   "pulse": 0.8
+  }
+ }
+]

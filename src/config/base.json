@@ -1,0 +1,120 @@
+{
+ "palette": {
+  "void": "#070706",
+  "bone": "#e8e2d6",
+  "ash": "#8d867a",
+  "blood": "#7a1f16",
+  "bloodDark": "#3d0d08",
+  "hair": "#141210"
+ },
+ "camera": {
+  "fov": 46,
+  "near": 0.1,
+  "far": 90,
+  "yStart": 1.55,
+  "yEnd": 0.78,
+  "wobbleAmp": 0.075,
+  "wobbleSpeed": 0.34,
+  "mouseParallax": 0.55,
+  "lerp": 0.055,
+  "lookAhead": 6.0
+ },
+ "fog": {
+  "near": 6,
+  "far": 32
+ },
+ "scrub": {
+  "wheelScale": 7.5e-05,
+  "touchScale": 0.0009,
+  "keyStep": 0.018,
+  "ease": 0.062
+ },
+ "corridor": {
+  "width": 7.2,
+  "height": 5.4,
+  "length": 62,
+  "damp": 0.72,
+  "stainScale": 2.35,
+  "drip": 0.42,
+  "crackScale": 4.6,
+  "crackBite": 0.07,
+  "crackPatch": 0.62,
+  "lampFalloff": 0.034,
+  "lampBase": 0.26
+ },
+ "swarm": {
+  "count": 9000,
+  "pointSize": 1.1,
+  "amount": 0.55
+ },
+ "figure": {
+  "x": -1.15,
+  "leadFar": 9.5,
+  "leadNear": 4.6,
+  "maxTrail": 4,
+  "lagBase": 0.055,
+  "trailFade": 0.55,
+  "trailOpacity": 0.5,
+  "trailGapZ": 0.3,
+  "doubleOffsetX": 0.42
+ },
+ "cutout": {
+  "height": 2.3,
+  "tint": "#e8e2d6",
+  "opacity": 1.0,
+  "shoulderY": 0.6,
+  "breath": 0.012,
+  "breathRate": 0.55,
+  "drift": 0.01,
+  "weightSink": 0.1,
+  "weightSplay": 0.05
+ },
+ "text": {
+  "fontSize": 0.235,
+  "lineHeight": 1.5,
+  "maxWidth": 5.6,
+  "letterSpacing": -0.005,
+  "fadeIn": 0.13,
+  "fadeOut": 0.16,
+  "readDistance": 5.2,
+  "approach": 3.6
+ },
+ "pulse": {
+  "bpm": 52,
+  "desync": 0.37
+ },
+ "moves": {
+  "pressIn": 0.42,
+  "tiltMax": 0.26,
+  "sinkY": 0.55,
+  "stretchZ": 0.35,
+  "stretchRoom": 0.5,
+  "pulseRoom": 0.012,
+  "pulseLamp": 0.35,
+  "eraseMax": 0.85
+ },
+ "post": {
+  "grain": 0.085,
+  "grainSize": 1.35,
+  "vignette": 1.12,
+  "aberration": 0.0022,
+  "contrast": 1.06,
+  "exposure": 1.02,
+  "tremorMax": 0.0075,
+  "irisDuration": 0.11
+ },
+ "audio": {
+  "bpm": 52,
+  "thudGain": 0.16,
+  "roomGain": 0.05,
+  "desync": 0.37
+ },
+ "score": {
+  "gain": 0.55
+ },
+ "narration": {
+  "gain": 1.0,
+  "duckTo": 0.16,
+  "duckFrom": 0.55
+ }
+}
