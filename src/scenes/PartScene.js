@@ -208,7 +208,6 @@ export class PartScene {
     for (const beat of this.part.beats) {
       const group = new THREE.Group();
       group.position.set(beat.x, beat.y, 0);
-      group.userData.frozenZ = null;
       const meshes = [];
 
       beat.lines.forEach((line, i) => {
@@ -301,7 +300,8 @@ export class PartScene {
     const pulse = this.m('pulse') * beat;
 
     // ── camera ──
-    const zTarget = this._cameraZ(t) * (1 + stretch * C.moves.stretchZ);
+    this._zMul = 1 + stretch * C.moves.stretchZ;
+    const zTarget = this._cameraZ(t) * this._zMul;
     const yTarget = lerp(C.camera.yStart, C.camera.yEnd, smoothstep(0.5, 1, t))
                   - sink * C.moves.sinkY;
     const ws = C.camera.wobbleSpeed;
@@ -391,10 +391,14 @@ export class PartScene {
 
       if (leaving <= 0.001) {
         group.position.z = camZ - T.readDistance - T.approach * (1 - arriving);
-        group.userData.frozenZ = null;
       } else {
-        if (group.userData.frozenZ === null) group.userData.frozenZ = group.position.z;
-        group.position.z = group.userData.frozenZ;
+        // Where it stops has to be a function of the timeline, not of where
+        // the camera happened to be when we got here. Freezing at the live
+        // camera position meant a fast scrub stranded stanzas right in front
+        // of the reader at the wrong scale.
+        const bt = this.part.beats[i];
+        const leaveT = bt.from + (1 - T.fadeOut) * (bt.to - bt.from);
+        group.position.z = this._cameraZ(leaveT) * this._zMul - T.readDistance;
       }
       group.position.x = b.x + Math.sin(time * 0.31 + i) * 0.012;
 
