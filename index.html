@@ -3,55 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>O Inquilino — Canto I</title>
-  <meta name="description" content="O Inquilino — um poema atravessado. Canto I, parte primeira." />
+  <title>O Inquilino</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
 </head>
 <body>
-  <canvas id="gl"></canvas>
+  <div id="stage" class="stage-root"></div>
 
-  <!-- ░ threshold ░ -->
   <section id="gate" class="veil">
     <p class="gate-eyebrow">o inquilino</p>
     <h1 class="gate-ask">Você está<br /><em>em seu corpo?</em></h1>
     <div class="gate-choices">
       <button class="gate-btn" data-answer="sim">SIM</button>
-      <span class="gate-pulse" aria-hidden="true"></span>
       <button class="gate-btn" data-answer="nao">NÃO</button>
     </div>
     <p class="gate-reply" id="gateReply">&nbsp;</p>
   </section>
 
-  <!-- ░ loader ░ -->
-  <section id="loader" class="veil hidden">
-    <div class="loader-heart" aria-hidden="true"></div>
-    <div class="loader-rail"><i id="loaderFill"></i></div>
-    <p class="loader-note">alugando o corpo…</p>
-  </section>
-
-  <!-- ░ chrome ░ -->
   <div id="chrome" class="hidden">
-    <div class="hud hud-tl">
-      <span class="hud-title">O INQUILINO</span>
-      <span class="hud-sub">um poema atravessado</span>
-    </div>
-    <div class="hud hud-tr">
-      <span class="hud-canto" id="hudCanto">CANTO I</span>
-      <span class="hud-part" id="hudPart">✳</span>
-    </div>
-    <button class="hud hud-bl sound" id="soundBtn" aria-label="som">
-      <span class="sound-dot"></span><span id="soundLabel">SOM ON</span>
-    </button>
-    <div class="hud hud-br rail">
-      <span class="rail-caption" id="railCaption">acordar</span>
-      <div class="rail-track" id="railTicks">
-        <i id="railFill"></i>
-      </div>
-    </div>
-    <div class="hud hud-hint" id="hint">role para atravessar</div>
+    <div class="hud tl"><span class="title">O INQUILINO</span><span class="sub">um poema atravessado</span></div>
+    <div class="hud tr"><span id="hudCanto">CANTO I</span><span id="hudPart" class="mark">✳</span></div>
+    <button class="hud bl sound" id="soundBtn"><span class="dot"></span><span id="soundLabel">SOM ON</span></button>
+    <div class="hud br"><div class="rail" id="rail"><i id="railFill"></i></div></div>
+    <div class="hud hint" id="hint">role para atravessar</div>
   </div>
 
   <script type="module" src="/src/main.js"></script>

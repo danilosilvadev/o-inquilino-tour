@@ -53,19 +53,31 @@ and is the score for the images — it is read from the poem, not generated.
 
 ---
 
-## The character
+## The stage
 
-He is not drawn procedurally; he **is** the drawing. `tools/split-sheet.py`
-lifts each view off the turnaround sheet, and `tools/cut-parts.py` cuts the back
-view into three rigid pieces at measured joints (neck at 17% of height, hip at
-62%, legs separating at 65%).
+No renderer, no dependencies. An SVG landscape, a skeleton drawn with a dozen
+lines, and the stanza in HTML over the top. 34 KB, 12 KB gzipped.
 
-Rigid is the whole point: the parts rotate and translate but are **never scaled
-or warped**, because stretching charcoal turns grain into rubber. This is old
-cutout animation — the parts move, the drawing does not deform, so every stroke
-on screen is the stroke that was drawn.
+**Six landscapes, one per canto.** The first build had one corridor behind the
+whole poem, so twenty-four parts looked identical while the writing changed
+completely. Each canto now has its own dark, near-empty place:
 
----
+| canto | the place |
+|---|---|
+| I | a floor and one lit doorway, far off, narrowing |
+| II | two masses pressing in, and a ceiling coming down |
+| III | no ground at all — a void, a slow drip, points drifting apart |
+| IV | a heavy ground that swells like something breathes under it |
+| V | the only canto with someone else in it; the floor lifts, then two holes |
+| VI | an empty field, ash falling, a ring worn into the ground |
+
+None of them illustrate a line. They are the shape of the feeling the canto
+happens inside. The figure never mimes the words either — each canto only
+changes how he holds himself while he stands in it.
+
+`src/stage/Skeleton.js` is all angles, so a pose is just numbers and poses
+interpolate. `src/stage/Landscapes.js` holds the six.
+
 
 ## Sound
 
