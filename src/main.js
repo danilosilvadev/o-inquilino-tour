@@ -140,6 +140,8 @@ if (params.has('debug')) {
   window.SCRUB = scrub;
   window.GOTO = goTo;
   window.READY = () => running;
+  Object.defineProperty(window, 'SCORE', { get: () => score });
+  Object.defineProperty(window, 'CTX', { get: () => ctx });
   window.TICK = (n = 1) => { for (let i = 0; i < n; i++) step((performance.now() - t0) / 1000); return scrub.value; };
   console.log(`[o inquilino] ${part.id} — ${part.canto}, ${part.beats.length} beats`);
 }

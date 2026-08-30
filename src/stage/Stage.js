@@ -10,16 +10,12 @@ import { beatProgress, envelope, smoothstep } from '../core/Scrubber.js';
  * order the strokes appear in.
  */
 
-// which drawing stands for which canto. one image per canto for now; the
-// technique does not care what the picture is.
-const ART = {
-  'Canto I': 'art/seated.png',
-  'Canto II': 'art/seated.png',
-  'Canto III': 'art/seated.png',
-  'Canto IV': 'art/seated.png',
-  'Canto V': 'art/seated.png',
-  'Canto VI': 'art/back.png'
-};
+import art from '../config/art.json';
+
+// every part has its own scene (see tools/build-art.py). Until a part's image
+// exists on disk it falls back, so art can land one file at a time instead of
+// all twenty-four at once.
+const FALLBACK = 'art/seated.png';
 
 export class Stage {
   constructor(root, part) {
@@ -47,7 +43,16 @@ export class Stage {
   }
 
   async load() {
-    await this.charcoal.load(ART[this.part.canto] || ART['Canto I']);
+    const wanted = art[this.part.id]?.file;
+    try {
+      if (!wanted) throw new Error('no entry');
+      await this.charcoal.load(wanted);
+      this.usingFallback = false;
+    } catch {
+      await this.charcoal.load(FALLBACK);
+      this.usingFallback = true;
+      console.info(`[o inquilino] ${this.part.id}: no scene yet — ${art[this.part.id]?.scene || ''}`);
+    }
     this.resize();
   }
 
