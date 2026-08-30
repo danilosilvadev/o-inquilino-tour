@@ -15,6 +15,7 @@ const params = new URLSearchParams(location.search);
 let index = Math.max(0, parts.findIndex((p) => p.id === (params.get('part') || 'I-1')));
 let part = parts[index];
 let stage = new Stage(els.stage, part);
+stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
 
 const scrub = new Scrubber({ wheelScale: 0.00009, touchScale: 0.0011, keyStep: 0.02, ease: 0.07 });
 let ctx = null, master = null, score = null;
@@ -80,13 +81,14 @@ async function goTo(i, { atEnd = false } = {}) {
   stage.dispose();
   part = parts[i]; index = i;
   stage = new Stage(els.stage, part);
+  await stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
   document.title = `O Inquilino — ${part.canto} ${part.mark}`;
 
   score?.stop();
   await loadScore();
 
   scrub.target = scrub.value = atEnd ? 0.999 : 0;
-  stage.update(scrub.value, (performance.now() - t0) / 1000);
+  stage.update(scrub.value);
   paintHud();
   history.replaceState(null, '', `?part=${part.id}`);
 
@@ -108,7 +110,7 @@ let hintGone = false;
 
 function step(time) {
   const t = scrub.update();
-  stage.update(t, time);
+  stage.update(t);
 
   if (els.railFill) els.railFill.style.width = `${(t * 100).toFixed(1)}%`;
   if (!hintGone && t > 0.02) { hintGone = true; els.hint.classList.add('gone'); }
@@ -118,6 +120,8 @@ function step(time) {
     else if (t < 0.002 && scrub.target <= 0.001 && index > 0) goTo(index - 1, { atEnd: true });
   }
 }
+
+window.addEventListener('resize', () => stage.resize());
 
 function frame() {
   requestAnimationFrame(frame);

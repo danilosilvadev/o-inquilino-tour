@@ -23,13 +23,13 @@ html, body {
 /* ── the stage ───────────────────────────────────────── */
 .stage-root { position: fixed; inset: 0; }
 
-.stage {
+.plate {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   opacity: 0;
   transition: opacity 900ms ease;
 }
-body.in .stage { opacity: 1; }
+body.in .plate { opacity: 1; }
 
 /* the landscape is drawn in thin light on near-black */
 .edge  { stroke: var(--line); stroke-width: 0.7; opacity: 0.42; }
