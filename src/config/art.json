@@ -1,11 +1,15 @@
 {
  "I-1": {
-  "file": "art/I-1.png",
-  "scene": "a boy sitting up on the edge of a bed at dawn, an empty room, he does not recognise it"
+  "file": "art/I-1.jpg",
+  "scene": "a boy sitting up on the edge of a bed at dawn, an empty room, he does not recognise it",
+  "medium": "thread",
+  "fit": "cover"
  },
  "I-2": {
-  "file": "art/I-2.png",
-  "scene": "a locked door seen from the inside, no handle on this side"
+  "file": "art/I-2.jpg",
+  "scene": "a locked door seen from the inside, no handle on this side",
+  "medium": "thread",
+  "fit": "cover"
  },
  "I-3": {
   "file": "art/I-3.png",

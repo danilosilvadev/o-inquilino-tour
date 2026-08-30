@@ -88,7 +88,7 @@ async function goTo(i, { atEnd = false } = {}) {
   await loadScore();
 
   scrub.target = scrub.value = atEnd ? 0.999 : 0;
-  stage.update(scrub.value);
+  stage.update(scrub.value, (performance.now() - t0) / 1000);
   paintHud();
   history.replaceState(null, '', `?part=${part.id}`);
 
@@ -110,7 +110,7 @@ let hintGone = false;
 
 function step(time) {
   const t = scrub.update();
-  stage.update(t);
+  stage.update(t, time);
 
   if (els.railFill) els.railFill.style.width = `${(t * 100).toFixed(1)}%`;
   if (!hintGone && t > 0.02) { hintGone = true; els.hint.classList.add('gone'); }

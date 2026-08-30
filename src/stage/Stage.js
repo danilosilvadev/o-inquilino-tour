@@ -25,7 +25,7 @@ export class Stage {
     this.canvas.className = 'plate';
     root.appendChild(this.canvas);
 
-    this.charcoal = new Charcoal(this.canvas, { strokes: 6000 });
+
 
     this.words = document.createElement('div');
     this.words.className = 'words';
@@ -43,12 +43,22 @@ export class Stage {
   }
 
   async load() {
-    const wanted = art[this.part.id]?.file;
+    const entry = art[this.part.id] || {};
+    // thread art is full-bleed and already light-on-dark; ink drawings are
+    // dark-on-paper and have to be turned over to read on this ground
+    const thread = entry.medium === 'thread';
+    this.charcoal = new Charcoal(this.canvas, {
+      strokes: thread ? 14000 : 6000,
+      invert: !thread,
+      fit: entry.fit || (thread ? 'cover' : 'contain')
+    });
+    const wanted = entry.file;
     try {
       if (!wanted) throw new Error('no entry');
       await this.charcoal.load(wanted);
       this.usingFallback = false;
     } catch {
+      this.charcoal = new Charcoal(this.canvas, { strokes: 6000, invert: true, fit: 'contain' });
       await this.charcoal.load(FALLBACK);
       this.usingFallback = true;
       console.info(`[o inquilino] ${this.part.id}: no scene yet — ${art[this.part.id]?.scene || ''}`);
@@ -57,17 +67,22 @@ export class Stage {
   }
 
   resize() {
+    if (!this.charcoal) return;
     this.charcoal.resize(window.innerWidth, window.innerHeight);
   }
 
-  update(t) {
+  update(t, time = 0) {
+    if (!this.charcoal) return;
     // the drawing is mostly there by the last stanza, so the part ends on a
     // finished picture rather than on one still being made
-    this.charcoal.setProgress(smoothstep(0.02, 0.78, t));
+    this.charcoal.setProgress(smoothstep(0.02, 0.78, t), time);
 
     for (let i = 0; i < this.blocks.length; i++) {
       const local = beatProgress(t, this.part.beats[i]);
-      const a = envelope(local, 0.14, 0.18);
+      // the words clear off the end of the part, so it finishes on the
+      // finished picture rather than on a picture with writing over it
+      const clear = 1 - smoothstep(0.86, 0.99, t);
+      const a = envelope(local, 0.14, 0.18) * clear;
       const b = this.blocks[i];
       b.style.opacity = a.toFixed(3);
       b.style.transform = `translateY(${((1 - a) * 14).toFixed(2)}px)`;
