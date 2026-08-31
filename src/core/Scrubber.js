@@ -9,6 +9,8 @@ export class Scrubber {
     this.target = 0;
     this.value = 0;
     this.velocity = 0;
+    this.overBack = 0;
+    this.overForward = 0;
     this._touchY = 0;
     this._dragging = false;
     this._bind();
@@ -52,8 +54,22 @@ export class Scrubber {
   }
 
   push(delta) {
-    this.target = Math.min(1, Math.max(0, this.target + delta));
+    const next = this.target + delta;
+    // Leaving a part has to be something the reader does, not something that
+    // happens because the playhead is sitting at an end. Count only the effort
+    // spent pushing past an edge that is already reached.
+    if (next < 0 && this.target <= 0.001) this.overBack += -next;
+    else if (next > 1 && this.target >= 0.999) this.overForward += next - 1;
+    if (delta > 0) this.overBack = 0;
+    if (delta < 0) this.overForward = 0;
+    this.target = Math.min(1, Math.max(0, next));
   }
+
+  /** the reader has leaned on the edge hard enough to mean it */
+  wantsPrev(threshold = 0.05) { return this.overBack >= threshold; }
+  wantsNext(threshold = 0.05) { return this.overForward >= threshold; }
+
+  clearIntent() { this.overBack = 0; this.overForward = 0; }
 
   /** Call once per frame. Returns the eased playhead. */
   update() {

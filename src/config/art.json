@@ -3,29 +3,43 @@
   "file": "art/I-1.jpg",
   "scene": "a boy sitting up on the edge of a bed at dawn, an empty room, he does not recognise it",
   "medium": "thread",
-  "fit": "cover"
+  "fit": "cover",
+  "source": "images/1.jpeg"
  },
  "I-2": {
   "file": "art/I-2.jpg",
   "scene": "a locked door seen from the inside, no handle on this side",
   "medium": "thread",
-  "fit": "cover"
+  "fit": "cover",
+  "source": "images/2.jpeg"
  },
  "I-3": {
-  "file": "art/I-3.png",
-  "scene": "a boy curled under a thin blanket, frost creeping across the window"
+  "file": "art/I-3.jpg",
+  "scene": "a boy curled under a thin blanket, frost creeping across the window",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/3.jpeg"
  },
  "I-4": {
-  "file": "art/I-4.png",
-  "scene": "wet turned earth opened up, roots and worms, a patch where nothing grows"
+  "file": "art/I-4.jpg",
+  "scene": "wet turned earth opened up, roots and worms, a patch where nothing grows",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/4.jpeg"
  },
  "I-5": {
-  "file": "art/I-5.png",
-  "scene": "an open mouth making no sound, the face already going under"
+  "file": "art/I-5.jpg",
+  "scene": "an open mouth making no sound, the face already going under",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/5.jpeg"
  },
  "II-1": {
-  "file": "art/II-1.png",
-  "scene": "a boy standing over his own body lying on the floor"
+  "file": "art/II-1.jpg",
+  "scene": "a boy standing over his own body lying on the floor",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/6.jpeg"
  },
  "II-2": {
   "file": "art/II-2.png",

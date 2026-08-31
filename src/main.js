@@ -7,7 +7,7 @@ const $ = (id) => document.getElementById(id);
 const els = {
   stage: $('stage'), gate: $('gate'), gateReply: $('gateReply'),
   chrome: $('chrome'), rail: $('rail'), railFill: $('railFill'),
-  hudCanto: $('hudCanto'), hudPart: $('hudPart'), hint: $('hint'),
+  hint: $('hint'),
   soundBtn: $('soundBtn'), soundLabel: $('soundLabel')
 };
 
@@ -64,8 +64,7 @@ async function loadScore() {
 }
 
 function paintHud() {
-  els.hudCanto.textContent = part.canto.toUpperCase();
-  els.hudPart.textContent = part.mark;
+  // no canto/part label here: every plate has its own, stitched into it
   els.rail.innerHTML = '<i id="railFill"></i>' +
     part.beats.map((b) => `<b style="--at:${b.from}"></b>`).join('');
   els.railFill = $('railFill');
@@ -88,6 +87,7 @@ async function goTo(i, { atEnd = false } = {}) {
   await loadScore();
 
   scrub.target = scrub.value = atEnd ? 0.999 : 0;
+  scrub.clearIntent();
   stage.update(scrub.value, (performance.now() - t0) / 1000);
   paintHud();
   history.replaceState(null, '', `?part=${part.id}`);
@@ -116,8 +116,8 @@ function step(time) {
   if (!hintGone && t > 0.02) { hintGone = true; els.hint.classList.add('gone'); }
 
   if (running && !swapping) {
-    if (t > 0.998 && scrub.target >= 0.999 && index < parts.length - 1) goTo(index + 1);
-    else if (t < 0.002 && scrub.target <= 0.001 && index > 0) goTo(index - 1, { atEnd: true });
+    if (scrub.wantsNext() && index < parts.length - 1) goTo(index + 1);
+    else if (scrub.wantsPrev() && index > 0) goTo(index - 1, { atEnd: true });
   }
 }
 

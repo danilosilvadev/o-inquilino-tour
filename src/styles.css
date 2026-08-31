@@ -48,12 +48,18 @@ body.in .plate { opacity: 1; }
 /* ── the words ───────────────────────────────────────── */
 .words { position: fixed; inset: 0; pointer-events: none; }
 
+/* The thread plates are busy edge to edge, unlike paper with space around it,
+   so the words need their own ground. A soft scrim, not a box. */
 .stanza {
   position: absolute;
   top: 50%;
-  left: 8vw;
+  left: 6vw;
   transform: translateY(-50%);
-  max-width: min(30ch, 38vw);
+  max-width: min(30ch, 34vw);
+  padding: 1.6rem 2rem;
+  text-shadow: 0 1px 14px rgba(0,0,0,0.95), 0 0 34px rgba(0,0,0,0.8);
+  background: radial-gradient(ellipse at center,
+              rgba(6,6,5,0.82) 0%, rgba(6,6,5,0.66) 45%, rgba(6,6,5,0) 78%);
   font-family: var(--serif);
   font-size: clamp(1.05rem, 1.9vw, 1.7rem);
   line-height: 1.55;
@@ -61,7 +67,7 @@ body.in .plate { opacity: 1; }
   transition: opacity 420ms ease;
   will-change: opacity, transform;
 }
-.stanza.right { left: auto; right: 8vw; text-align: right; }
+.stanza.right { left: auto; right: 6vw; text-align: right; }
 .stanza span { display: block; }
 
 /* ── the threshold ───────────────────────────────────── */
