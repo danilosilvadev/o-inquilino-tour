@@ -130,20 +130,36 @@
   "captionHole": false
  },
  "V-1": {
-  "file": "art/V-1.png",
-  "scene": "a boy face down on asphalt, blood at his forehead, a girl standing over him"
+  "file": "art/V-1.jpg",
+  "scene": "a boy face down on asphalt, blood at his forehead, a girl standing over him",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/18.jpeg",
+  "captionHole": false
  },
  "V-2": {
-  "file": "art/V-2.png",
-  "scene": "two faces almost touching, mouth to mouth, too close"
+  "file": "art/V-2.jpg",
+  "scene": "two faces almost touching, mouth to mouth, too close",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/19.jpeg",
+  "captionHole": false
  },
  "V-3": {
-  "file": "art/V-3.png",
-  "scene": "two children with a violin and a piano, a heavy curtain coming down on them"
+  "file": "art/V-3.jpg",
+  "scene": "two children with a violin and a piano, a heavy curtain coming down on them",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/20.jpeg",
+  "captionHole": false
  },
  "V-4": {
-  "file": "art/V-4.png",
-  "scene": "a grave with wilted flowers, the headstone sunk, two open holes in the ground"
+  "file": "art/V-4.jpg",
+  "scene": "a grave with wilted flowers, the headstone sunk, two open holes in the ground",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/21.jpeg",
+  "captionHole": false
  },
  "VI-1": {
   "file": "art/VI-1.png",
