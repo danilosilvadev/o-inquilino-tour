@@ -184,7 +184,11 @@
   "captionHole": false
  },
  "VI-3": {
-  "file": "art/VI-3.png",
-  "scene": "a boy stepping back inside his own outline"
+  "file": "art/VI-3.jpg",
+  "scene": "a boy stepping back inside his own outline",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/24.jpeg",
+  "captionHole": false
  }
 }
