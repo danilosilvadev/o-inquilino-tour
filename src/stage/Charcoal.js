@@ -74,26 +74,6 @@ function makeHole(size = 256, seed = 1) {
   return c;
 }
 
-/** a few tiles of grain, cycled, so nothing is ever perfectly still */
-function makeGrain(size = 160, tiles = 4) {
-  const out = [];
-  for (let t = 0; t < tiles; t++) {
-    const c = document.createElement('canvas');
-    c.width = c.height = size;
-    const g = c.getContext('2d');
-    const img = g.createImageData(size, size);
-    const d = img.data;
-    for (let i = 0; i < d.length; i += 4) {
-      const v = 110 + Math.random() * 145;
-      d[i] = d[i + 1] = d[i + 2] = v;
-      d[i + 3] = 255;
-    }
-    g.putImageData(img, 0, 0);
-    out.push(c);
-  }
-  return out;
-}
-
 export class Charcoal {
   constructor(canvas, cfg = {}) {
     this.canvas = canvas;
@@ -118,18 +98,14 @@ export class Charcoal {
       // holes: places the stitching never reaches. one of them sits over the
       // caption worked into the plate, so that text is torn out rather than
       // competing with the stanza on screen
-      holes: 3, holeMin: 0.035, holeMax: 0.075, holeDepth: 0.82,
+      holes: 3, holeMin: 0.016, holeMax: 0.038, holeDepth: 0.78,
       captionHole: true,
-      // the finish is never dead still
-      grain: 0.055, grainRate: 7,
       // The plate is never allowed to resolve. It settles only part way, so the
       // picture is always seen through the gaps in its own stitching, and it
       // goes darker as it finishes rather than clean.
-      // the stitching itself stops short, so gaps stay open for good
-      maxReveal: 0.80,
-      settleMax: 0.26,
-      endDark: 0.62,
-      endGrain: 0.125,
+      // The plate simply stops before it sharpens. No overlay, no filter —
+      // what is left is the stitching itself, unfinished.
+      maxReveal: 0.62,
       ...cfg
     };
     this.progress = 0;
@@ -146,7 +122,6 @@ export class Charcoal {
     });
     this.brush = makeBrush(this.cfg.brush);
     this.holeSprite = makeHole(320, 7);
-    this.grainTiles = makeGrain();
     // The embroidery is already light thread on dark fabric. Only the ink
     // drawings, which are dark on pale paper, need turning over.
     this.plate = this.cfg.invert ? this._invert(this.img) : this.img;
@@ -254,7 +229,7 @@ export class Charcoal {
     const list = [];
     if (C.captionHole) {
       // big enough to actually take the whole caption off the plate
-      list.push({ x: 0.845, y: 0.095, r: 0.32, sx: 1.55, sy: 0.66, depth: 1, twice: true });
+      list.push({ x: 0.845, y: 0.085, r: 0.20, sx: 1.6, sy: 0.40, depth: 1, twice: true });
     }
 
     // The rest go on the empty ground, never on the figure. The ink map built
@@ -424,8 +399,7 @@ export class Charcoal {
     // Stitches never quite tile the frame, so at full progress the picture was
     // still being viewed through the gaps between them. Past 0.88 the finished
     // artwork settles in underneath, and the part ends on the piece itself.
-    const done = clamp01((this.progress / this.cfg.maxReveal - 0.70) / 0.30);
-    const settle = done * C.settleMax;
+    const done = clamp01(this.progress / this.cfg.maxReveal);
 
     const ok = Number.isFinite(bx) && Number.isFinite(by) &&
                Number.isFinite(bw) && Number.isFinite(bh);
@@ -445,11 +419,6 @@ export class Charcoal {
     this.sctx.drawImage(this.mask, 0, 0);
     this.sctx.globalCompositeOperation = 'source-over';
 
-    if (settle > 0) {
-      ctx.globalAlpha = settle;
-      this._drawCloth(ctx, X, Y, BW, BH, time);
-      ctx.globalAlpha = 1;
-    }
     ctx.drawImage(this.scratch, 0, 0);
 
     // ── light travelling over the thread ──
@@ -474,36 +443,12 @@ export class Charcoal {
       this.hctx.globalCompositeOperation = 'source-over';
 
       ctx.globalCompositeOperation = 'lighter';
-      ctx.globalAlpha = C.freshGlow * (1 - settle);
+      ctx.globalAlpha = C.freshGlow;
       ctx.drawImage(this.hot, 0, 0);
       ctx.globalAlpha = 1;
     }
 
     this._punchHoles(ctx, time);
-
-    // it gets darker as it arrives, not brighter. whatever is left unstitched
-    // stays unstitched, and the dark closes over the rest.
-    if (done > 0) {
-      const d = ctx.createRadialGradient(W * 0.5, H * 0.5, Math.min(W, H) * 0.18,
-                                         W * 0.5, H * 0.5, Math.max(W, H) * 0.78);
-      d.addColorStop(0, `rgba(3,3,4,${(C.endDark * done * 0.30).toFixed(3)})`);
-      d.addColorStop(0.55, `rgba(3,3,4,${(C.endDark * done * 0.72).toFixed(3)})`);
-      d.addColorStop(1, `rgba(3,3,4,${Math.min(0.97, C.endDark * done * 1.6).toFixed(3)})`);
-      ctx.globalCompositeOperation = 'source-atop';
-      ctx.fillStyle = d;
-      ctx.fillRect(0, 0, W, H);
-    }
-
-    // grain, last: the plate keeps breathing even once it is finished
-    if (C.grain > 0 && this.grainTiles) {
-      const tile = this.grainTiles[Math.floor(time * C.grainRate) % this.grainTiles.length];
-      const pat = ctx.createPattern(tile, 'repeat');
-      ctx.globalCompositeOperation = 'overlay';
-      ctx.globalAlpha = C.grain + (C.endGrain - C.grain) * done;
-      ctx.fillStyle = pat;
-      ctx.fillRect(0, 0, W, H);
-      ctx.globalAlpha = 1;
-    }
 
     ctx.globalCompositeOperation = 'source-over';
   }
