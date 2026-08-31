@@ -122,6 +122,14 @@ export class Charcoal {
       captionHole: true,
       // the finish is never dead still
       grain: 0.055, grainRate: 7,
+      // The plate is never allowed to resolve. It settles only part way, so the
+      // picture is always seen through the gaps in its own stitching, and it
+      // goes darker as it finishes rather than clean.
+      // the stitching itself stops short, so gaps stay open for good
+      maxReveal: 0.80,
+      settleMax: 0.26,
+      endDark: 0.62,
+      endGrain: 0.125,
       ...cfg
     };
     this.progress = 0;
@@ -389,7 +397,8 @@ export class Charcoal {
   }
 
   setProgress(p, time = 0) {
-    this.progress = clamp01(p);
+    // never all the way: the plate is left unfinished on purpose
+    this.progress = clamp01(p) * this.cfg.maxReveal;
     if (!this.ready || !this.mctx) return;
     if (!Number.isFinite(time)) time = 0;
     this._paintTo(this.progress);
@@ -415,7 +424,8 @@ export class Charcoal {
     // Stitches never quite tile the frame, so at full progress the picture was
     // still being viewed through the gaps between them. Past 0.88 the finished
     // artwork settles in underneath, and the part ends on the piece itself.
-    const settle = clamp01((this.progress - 0.88) / 0.12);
+    const done = clamp01((this.progress / this.cfg.maxReveal - 0.70) / 0.30);
+    const settle = done * C.settleMax;
 
     const ok = Number.isFinite(bx) && Number.isFinite(by) &&
                Number.isFinite(bw) && Number.isFinite(bh);
@@ -444,7 +454,7 @@ export class Charcoal {
 
     // ── light travelling over the thread ──
     // source-atop keeps it on the stitching and off the empty ground
-    if (C.sheen > 0 && settle < 1) {
+    if (C.sheen > 0) {
       const band = W * 0.55;
       const cx = ((time * 0.045) % 1.6 - 0.3) * (W + band) - band * 0.5;
       const g = ctx.createLinearGradient(cx, 0, cx + band, H * 0.6);
@@ -471,12 +481,25 @@ export class Charcoal {
 
     this._punchHoles(ctx, time);
 
+    // it gets darker as it arrives, not brighter. whatever is left unstitched
+    // stays unstitched, and the dark closes over the rest.
+    if (done > 0) {
+      const d = ctx.createRadialGradient(W * 0.5, H * 0.5, Math.min(W, H) * 0.18,
+                                         W * 0.5, H * 0.5, Math.max(W, H) * 0.78);
+      d.addColorStop(0, `rgba(3,3,4,${(C.endDark * done * 0.30).toFixed(3)})`);
+      d.addColorStop(0.55, `rgba(3,3,4,${(C.endDark * done * 0.72).toFixed(3)})`);
+      d.addColorStop(1, `rgba(3,3,4,${Math.min(0.97, C.endDark * done * 1.6).toFixed(3)})`);
+      ctx.globalCompositeOperation = 'source-atop';
+      ctx.fillStyle = d;
+      ctx.fillRect(0, 0, W, H);
+    }
+
     // grain, last: the plate keeps breathing even once it is finished
     if (C.grain > 0 && this.grainTiles) {
       const tile = this.grainTiles[Math.floor(time * C.grainRate) % this.grainTiles.length];
       const pat = ctx.createPattern(tile, 'repeat');
       ctx.globalCompositeOperation = 'overlay';
-      ctx.globalAlpha = C.grain;
+      ctx.globalAlpha = C.grain + (C.endGrain - C.grain) * done;
       ctx.fillStyle = pat;
       ctx.fillRect(0, 0, W, H);
       ctx.globalAlpha = 1;
