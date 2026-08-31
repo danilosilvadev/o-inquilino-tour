@@ -12,6 +12,7 @@
  */
 
 const clamp01 = (v) => Math.min(1, Math.max(0, v));
+const hash1 = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
 /** a soft, grainy streak — one sprite, reused for every stroke */
 function makeBrush(size = 64) {
@@ -83,9 +84,6 @@ export class Charcoal {
       // stitch-sized, not charcoal-sized
       minLen: 0.006, maxLen: 0.024, width: 0.007,
       wander: 0.78,
-      // how much of the reveal order is pure scatter. High keeps the gaps fine
-      // and evenly spread rather than clumped into holes.
-      scatter: 0.82,
       // the gaps do not sit still: which stitches are missing drifts slowly
       shimmer: 0.055, shimmerRate: 0.16, shimmerStep: 0.28,
       invert: false, fit: 'cover',
@@ -112,11 +110,12 @@ export class Charcoal {
       // The plate is never allowed to resolve. It settles only part way, so the
       // picture is always seen through the gaps in its own stitching, and it
       // goes darker as it finishes rather than clean.
-      // The plate simply stops before it sharpens. No overlay, no filter —
-      // what is left is the stitching itself, unfinished.
-      // Raised from 0.62 once the gaps stopped clumping: spread evenly, the
-      // same figure reads as a veil over everything rather than a few voids.
-      maxReveal: 0.86,
+      // How it forms: small cells, taken in scattered order, each worked along
+      // its own direction.
+      cellsX: 34, cellsY: 19, cellSpan: 0.55,
+      // What stays open: chosen per stitch and spread evenly, so the gaps are
+      // fine wherever you look and are not just the cells worked last.
+      holdBack: 0.15,
       ...cfg
     };
     this.progress = 0;
@@ -206,17 +205,26 @@ export class Charcoal {
       const gy = Math.floor(idx / S) + Math.random();
       const x = gx / S, y = gy / h;
 
-      // The order decides what the UNFINISHED plate looks like, not just how it
-      // fills. Ordering by smooth low-frequency noise meant whole regions
-      // shared a score, so stopping early left a few enormous black voids.
-      // Scatter dominates instead: the part never stitched comes out as fine
-      // gaps spread over everything.
-      const n = Math.sin(x * 7.1 + y * 3.3) * 0.5 + Math.sin(y * 11.7 - x * 5.2) * 0.5;
-      const coarse = y * 0.45 + (n * 0.5 + 0.5) * 0.55;
-      const score = coarse * (1 - this.cfg.scatter) + Math.random() * this.cfg.scatter;
+      // Cloth is not filled in at random and it is not filled in in one sweep.
+      // It is worked patch by patch, and inside a patch the needle runs one
+      // way. So the plate is divided into small cells; the cells are taken in
+      // scattered order, and within a cell the stitches follow that cell's own
+      // thread direction. Several cells are in flight at once, which is what
+      // makes it read as tissue forming rather than pixels arriving.
+      const CX = this.cfg.cellsX, CY = this.cfg.cellsY;
+      const cx = Math.min(CX - 1, Math.floor(x * CX));
+      const cy = Math.min(CY - 1, Math.floor(y * CY));
+      const cellId = cy * CX + cx;
+      const cellOrder = hash1(cellId * 1.7 + 0.5);
+      const ang = hash1(cellId * 3.1 + 9.2) * Math.PI;
+      // position along this cell's thread run, 0..1
+      const fx = x * CX - cx, fy = y * CY - cy;
+      const along = (fx * Math.cos(ang) + fy * Math.sin(ang)) * 0.7071 + 0.5;
+      const score = cellOrder + along * this.cfg.cellSpan;
 
       strokes.push({
         x, y, score,
+        sv: Math.random(),          // whether this one is ever laid at all
         a: (Math.random() - 0.5) * 2.4 + (y - 0.5) * 0.8,   // roughly follows the body
         len: this.cfg.minLen + Math.random() * (this.cfg.maxLen - this.cfg.minLen),
         w: this.cfg.width * (0.6 + Math.random() * 0.8)
@@ -385,10 +393,11 @@ export class Charcoal {
     let batch = 0;
     while (this._painted < strokes.length) {
       const st = strokes[this._painted];
-      // a stitch near the edge of what is done drifts in and out over time
-      const wobble = Math.sin(this._now * C.shimmerRate + st.ph) * C.shimmer;
-      if (st.at > p + wobble) break;
+      if (st.at > p) break;
       this._painted++;
+      // held back, and which ones are held back drifts, so the gaps crawl
+      const bar = C.holdBack + Math.sin(this._now * C.shimmerRate + st.ph) * C.shimmer;
+      if (st.sv < bar) continue;
       batch++;
       const x = this.dx + st.x * this.dw;
       const y = this.dy + st.y * this.dh;
@@ -438,8 +447,7 @@ export class Charcoal {
   }
 
   setProgress(p, time = 0) {
-    // never all the way: the plate is left unfinished on purpose
-    this.progress = clamp01(p) * this.cfg.maxReveal;
+    this.progress = clamp01(p);
     if (!this.ready || !this.mctx) return;
     if (!Number.isFinite(time)) time = 0;
     this._paintTo(this.progress, time);
@@ -465,7 +473,7 @@ export class Charcoal {
     // Stitches never quite tile the frame, so at full progress the picture was
     // still being viewed through the gaps between them. Past 0.88 the finished
     // artwork settles in underneath, and the part ends on the piece itself.
-    const done = clamp01(this.progress / this.cfg.maxReveal);
+    const done = clamp01(this.progress);
 
     const ok = Number.isFinite(bx) && Number.isFinite(by) &&
                Number.isFinite(bw) && Number.isFinite(bh);
