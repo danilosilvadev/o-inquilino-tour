@@ -73,11 +73,33 @@ export class Stage {
     this.charcoal.resize(window.innerWidth, window.innerHeight);
   }
 
+  /**
+   * Leaving a part runs the same front backwards — the plate is eaten away
+   * from its far edge back to where it started, rather than dissolved. Driven
+   * on a timer, because a hidden tab suspends rAF and a half-burnt plate that
+   * never finishes is worse than one that does.
+   */
+  unform(ms = 900) {
+    if (!this.charcoal) return Promise.resolve();
+    const from = this._progress ?? 1;
+    const t0 = performance.now();
+    return new Promise((res) => {
+      const id = setInterval(() => {
+        const k = Math.min(1, (performance.now() - t0) / ms);
+        const v = from * (1 - k);
+        this._progress = v;
+        this.charcoal.setProgress(v, (performance.now() - t0) / 1000);
+        if (k >= 1) { clearInterval(id); res(); }
+      }, 33);
+    });
+  }
+
   update(t, time = 0) {
     if (!this.charcoal) return;
     // the drawing is mostly there by the last stanza, so the part ends on a
     // finished picture rather than on one still being made
-    this.charcoal.setProgress(smoothstep(0.02, 0.78, t), time);
+    this._progress = smoothstep(0.02, 0.78, t);
+    this.charcoal.setProgress(this._progress, time);
 
     for (let i = 0; i < this.blocks.length; i++) {
       const local = beatProgress(t, this.part.beats[i]);

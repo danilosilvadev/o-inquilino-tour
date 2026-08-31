@@ -110,9 +110,8 @@ export class Charcoal {
       // The plate is never allowed to resolve. It settles only part way, so the
       // picture is always seen through the gaps in its own stitching, and it
       // goes darker as it finishes rather than clean.
-      // How it forms: small cells, taken in scattered order, each worked along
-      // its own direction.
-      cellsX: 34, cellsY: 19, cellSpan: 0.55,
+      // How it forms: one edge, spreading from one place, eaten into fingers.
+      burnRagged: 0.30,
       // What stays open: chosen per stitch and spread evenly, so the gaps are
       // fine wherever you look and are not just the cells worked last.
       holdBack: 0.15,
@@ -136,6 +135,15 @@ export class Charcoal {
     // The embroidery is already light thread on dark fabric. Only the ink
     // drawings, which are dark on pale paper, need turning over.
     this.plate = this.cfg.invert ? this._invert(this.img) : this.img;
+
+    // where the front starts, and how far it has to reach the far corner.
+    // Must be set before any stroke is scored against it.
+    const so = this.cfg.seed || 1;
+    this.aspect = this.img.width / this.img.height;
+    this.origin = [hash1(so * 7.7), hash1(so * 13.3)];
+    this.maxDist = Math.max(
+      ...[[0, 0], [1, 0], [0, 1], [1, 1]].map(([ox, oy]) =>
+        Math.hypot((ox - this.origin[0]) * this.aspect, oy - this.origin[1])));
     this._buildStrokes();
     this.ready = true;
   }
@@ -205,22 +213,18 @@ export class Charcoal {
       const gy = Math.floor(idx / S) + Math.random();
       const x = gx / S, y = gy / h;
 
-      // Cloth is not filled in at random and it is not filled in in one sweep.
-      // It is worked patch by patch, and inside a patch the needle runs one
-      // way. So the plate is divided into small cells; the cells are taken in
-      // scattered order, and within a cell the stitches follow that cell's own
-      // thread direction. Several cells are in flight at once, which is what
-      // makes it read as tissue forming rather than pixels arriving.
-      const CX = this.cfg.cellsX, CY = this.cfg.cellsY;
-      const cx = Math.min(CX - 1, Math.floor(x * CX));
-      const cy = Math.min(CY - 1, Math.floor(y * CY));
-      const cellId = cy * CX + cx;
-      const cellOrder = hash1(cellId * 1.7 + 0.5);
-      const ang = hash1(cellId * 3.1 + 9.2) * Math.PI;
-      // position along this cell's thread run, 0..1
-      const fx = x * CX - cx, fy = y * CY - cy;
-      const along = (fx * Math.cos(ang) + fy * Math.sin(ang)) * 0.7071 + 0.5;
-      const score = cellOrder + along * this.cfg.cellSpan;
+      // Paper burning, run backwards. One front, starting from a single place
+      // and spreading outward, with an edge eaten into fingers at several
+      // scales — not a dozen patches appearing at once.
+      const dx = (x - this.origin[0]) * this.aspect;
+      const dy = y - this.origin[1];
+      const dist = Math.sqrt(dx * dx + dy * dy) / this.maxDist;
+      const s1 = this.cfg.seed * 1.3, s2 = this.cfg.seed * 2.7, s3 = this.cfg.seed * 5.1;
+      const fingers =
+        Math.sin(x * 7.3 + y * 4.1 + s1) * 0.52 +
+        Math.sin(x * 17.9 - y * 12.7 + s2) * 0.30 +
+        Math.sin(x * 34.1 + y * 27.3 + s3) * 0.18;
+      const score = dist + fingers * this.cfg.burnRagged;
 
       strokes.push({
         x, y, score,

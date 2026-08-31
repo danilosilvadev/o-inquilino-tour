@@ -76,8 +76,8 @@ function paintHud() {
 async function goTo(i, { atEnd = false } = {}) {
   if (swapping || i < 0 || i >= parts.length) return;
   swapping = true; running = false;
-  document.body.classList.remove('in');
-  await new Promise((r) => setTimeout(r, 800));
+  // burn it back down rather than fading it out
+  await stage.unform(850);
 
   stage.dispose();
   part = parts[i]; index = i;
@@ -94,7 +94,6 @@ async function goTo(i, { atEnd = false } = {}) {
   paintHud();
   history.replaceState(null, '', `?part=${part.id}`);
 
-  document.body.classList.add('in');
   running = true;
   score?.start();
   swapping = false;
