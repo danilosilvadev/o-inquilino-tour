@@ -99,6 +99,10 @@ export class Charcoal {
       // caption worked into the plate, so that text is torn out rather than
       // competing with the stanza on screen
       holes: 3, holeMin: 0.016, holeMax: 0.038, holeDepth: 0.78,
+      // the tears wander, so no part of the plate is hidden for good
+      holeDrift: 0.055, holeRoam: 0.30,
+      // how torn a given plate is, and how much its tears vary in size
+      holeScaleMin: 0.7, holeScaleMax: 1.8,
       captionHole: true,
       // The plate is never allowed to resolve. It settles only part way, so the
       // picture is always seen through the gaps in its own stitching, and it
@@ -121,7 +125,8 @@ export class Charcoal {
       im.src = src;
     });
     this.brush = makeBrush(this.cfg.brush);
-    this.holeSprite = makeHole(320, 7);
+    const seed = this.cfg.seed || 1;
+    this.holeSprites = Array.from({ length: 5 }, (_, i) => makeHole(320, seed * 3.7 + i * 11.3));
     // The embroidery is already light thread on dark fabric. Only the ink
     // drawings, which are dark on pale paper, need turning over.
     this.plate = this.cfg.invert ? this._invert(this.img) : this.img;
@@ -227,9 +232,14 @@ export class Charcoal {
       return x - Math.floor(x);
     };
     const list = [];
+    // this plate's own way of coming apart: some are barely nicked, others
+    // properly holed, and no two share a shape
+    const plateScale = C.holeScaleMin + rnd(101) * (C.holeScaleMax - C.holeScaleMin);
+    const plateCount = Math.max(2, Math.round(C.holes * (0.6 + rnd(103) * 1.4)));
+
     if (C.captionHole) {
       // big enough to actually take the whole caption off the plate
-      list.push({ x: 0.845, y: 0.085, r: 0.20, sx: 1.6, sy: 0.40, depth: 1, twice: true });
+      list.push({ x: 0.845, y: 0.085, r: 0.20, sx: 1.6, sy: 0.40, depth: 1, twice: true, pinned: true, sprite: 0, rot: 0 });
     }
 
     // The rest go on the empty ground, never on the figure. The ink map built
@@ -237,7 +247,7 @@ export class Charcoal {
     // a hole is allowed only where there is almost nothing to lose.
     const W = this._wS, H = this._wH, wt = this._weight;
     let placed = 0;
-    for (let i = 0; placed < C.holes && i < 400; i++) {
+    for (let i = 0; placed < plateCount && i < 500; i++) {
       const x = 0.06 + rnd(i * 3) * 0.88;
       const y = 0.10 + rnd(i * 3 + 1) * 0.80;
       if (wt) {
@@ -253,10 +263,20 @@ export class Charcoal {
       }
       list.push({
         x, y,
-        r: C.holeMin + rnd(i * 3 + 2) * (C.holeMax - C.holeMin),
-        sx: 0.8 + rnd(i * 5) * 0.6,
-        sy: 0.8 + rnd(i * 7) * 0.6,
-        depth: C.holeDepth
+        r: (C.holeMin + rnd(i * 3 + 2) * (C.holeMax - C.holeMin)) * plateScale,
+        // long slashes, round nicks, and everything between
+        sx: 0.55 + rnd(i * 5) * 1.5,
+        sy: 0.55 + rnd(i * 7) * 1.5,
+        rot: rnd(i * 31) * Math.PI,
+        sprite: Math.floor(rnd(i * 37) * 5),
+        depth: C.holeDepth * (0.7 + rnd(i * 41) * 0.5),
+        // a slow wander, each on its own timing so they never travel as a group
+        fx: 0.6 + rnd(i * 11) * 0.8,
+        fy: 0.5 + rnd(i * 13) * 0.7,
+        px: rnd(i * 17) * 6.283,
+        py: rnd(i * 19) * 6.283,
+        ax: C.holeRoam * (0.7 + rnd(i * 23) * 0.6),
+        ay: C.holeRoam * (0.45 + rnd(i * 29) * 0.5)
       });
       placed++;
     }
@@ -265,6 +285,7 @@ export class Charcoal {
 
   _punchHoles(ctx, time) {
     if (!this.holes) return;
+    const C = this.cfg;
     const W = this.canvas.width, H = this.canvas.height;
     const base = Math.min(W, H);
     ctx.globalCompositeOperation = 'destination-out';
@@ -274,10 +295,25 @@ export class Charcoal {
       const br = 1 + Math.sin(time * 0.23 + i * 1.7) * 0.02;
       const w = base * o.r * o.sx * 2 * br;
       const h = base * o.r * o.sy * 2 * br;
+
+      // pinned tears hold their ground — the caption one has a job to do.
+      // the rest drift, so nothing stays covered for long.
+      let cx = o.x, cy = o.y;
+      if (!o.pinned) {
+        const d = time * C.holeDrift;
+        cx = clamp01(o.x + Math.sin(d * o.fx + o.px) * o.ax);
+        cy = clamp01(o.y + Math.cos(d * o.fy + o.py) * o.ay);
+      }
+
+      const sprite = this.holeSprites[(o.sprite || 0) % this.holeSprites.length];
       ctx.globalAlpha = o.depth ?? 1;
-      ctx.drawImage(this.holeSprite, o.x * W - w / 2, o.y * H - h / 2, w, h);
+      ctx.save();
+      ctx.translate(cx * W, cy * H);
+      if (o.rot) ctx.rotate(o.rot);
+      ctx.drawImage(sprite, -w / 2, -h / 2, w, h);
       // a feathered sprite only thins what it covers; the caption has to go
-      if (o.twice) ctx.drawImage(this.holeSprite, o.x * W - w / 2, o.y * H - h / 2, w, h);
+      if (o.twice) ctx.drawImage(sprite, -w / 2, -h / 2, w, h);
+      ctx.restore();
       ctx.globalAlpha = 1;
     }
     ctx.globalCompositeOperation = 'source-over';
