@@ -52,7 +52,9 @@ export class Stage {
       seed,
       strokes: thread ? 14000 : 6000,
       invert: !thread,
-      fit: entry.fit || (thread ? 'cover' : 'contain')
+      fit: entry.fit || (thread ? 'cover' : 'contain'),
+      // plates 7-9 carry no stitched caption, so nothing needs tearing out
+      captionHole: entry.captionHole !== false
     });
     const wanted = entry.file;
     try {
