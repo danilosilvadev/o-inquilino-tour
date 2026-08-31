@@ -1,4 +1,5 @@
 import parts from './poem/parts.json';
+import base from './config/base.json';
 import { Stage } from './stage/Stage.js';
 import { Scrubber } from './core/Scrubber.js';
 import { Bed } from './core/Bed.js';
@@ -9,7 +10,8 @@ const els = {
   chrome: $('chrome'), rail: $('rail'), railFill: $('railFill'),
   hint: $('hint'), playBtn: $('playBtn'), playLabel: $('playLabel'),
   interlude: $('interlude'), interludeName: $('interludeName'),
-  soundBtn: $('soundBtn'), soundLabel: $('soundLabel')
+  soundBtn: $('soundBtn'), soundLabel: $('soundLabel'),
+  end: $('end'), endLinks: $('endLinks')
 };
 
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -21,7 +23,7 @@ stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
 
 const scrub = new Scrubber({ wheelScale: 0.00009, touchScale: 0.0011, keyStep: 0.02, ease: 0.07 });
 let ctx = null, master = null, bed = null;
-let running = false, swapping = false, muted = false, playing = false;
+let running = false, swapping = false, muted = false, playing = false, done = false;
 let lastT = performance.now() / 1000;
 let t0 = performance.now();
 
@@ -36,9 +38,21 @@ els.gate.querySelectorAll('.gate-btn').forEach((b) => {
     els.gateReply.textContent = REPLIES[b.dataset.answer];
     els.gateReply.classList.add('show');
     startAudio();
+    immerse();
     setTimeout(enter, 1200);
   });
 });
+
+// a phone held upright wastes the plate. Ask the browser for the whole screen
+// and for landscape; both are refused on iOS, where the CSS prompt takes over.
+const handheld = matchMedia('(hover: none) and (pointer: coarse)').matches;
+async function immerse() {
+  if (!handheld) return;
+  try { await document.documentElement.requestFullscreen({ navigationUI: 'hide' }); }
+  catch (e) { /* refused or already there */ }
+  try { await screen.orientation.lock('landscape'); }
+  catch (e) { /* unsupported on iOS Safari — .rotate asks instead */ }
+}
 
 function startAudio() {
   const AC = window.AudioContext || window.webkitAudioContext;
@@ -58,6 +72,7 @@ async function enter() {
   document.body.classList.add('in');
   running = true;
   bed?.switchTo(bedFor(part));
+  if (!params.has('still')) setPlaying(true);
 }
 
 // The poem changes register at Canto V, where the other person arrives, and
@@ -139,6 +154,20 @@ function partSeconds() {
   return part.seconds || 20;
 }
 
+async function finish() {
+  if (done) return;
+  done = true;
+  setPlaying(false);
+  running = false;
+  bed?.fadeOut(12);
+  await stage.unform(2600);
+  els.chrome.classList.add('hidden');
+  els.end.classList.remove('hidden');
+  els.end.classList.add('out');
+  els.end.offsetHeight;          // commit the transparent state before easing in
+  els.end.classList.remove('out');
+}
+
 function setPlaying(v) {
   playing = v;
   els.playBtn.classList.toggle('on', v);
@@ -169,7 +198,7 @@ function step(time) {
     scrub.target = Math.min(1, scrub.target + dt / partSeconds());
     if (scrub.target >= 1 && scrub.value > 0.995) {
       if (index < parts.length - 1) goTo(index + 1);
-      else setPlaying(false);
+      else finish();
     }
   }
 
@@ -180,9 +209,20 @@ function step(time) {
   if (!hintGone && t > 0.02) { hintGone = true; els.hint.classList.add('gone'); }
 
   if (running && !swapping) {
-    if (scrub.wantsNext() && index < parts.length - 1) goTo(index + 1);
+    if (scrub.wantsNext() && index >= parts.length - 1) finish();
+    else if (scrub.wantsNext()) goTo(index + 1);
     else if (scrub.wantsPrev() && index > 0) goTo(index - 1, { atEnd: true });
   }
+}
+
+const LINKS = [['instagram', 'Instagram'], ['youtube', 'YouTube']];
+for (const [key, label] of LINKS) {
+  const href = (base.links || {})[key];
+  if (!href) continue;                 // no link is better than a wrong one
+  const a = document.createElement('a');
+  a.href = href; a.textContent = label;
+  a.target = '_blank'; a.rel = 'noopener noreferrer';
+  els.endLinks.appendChild(a);
 }
 
 window.addEventListener('resize', () => stage.resize());
@@ -207,6 +247,8 @@ if (params.has('debug')) {
   Object.defineProperty(window, 'PLAYING', { get: () => playing });
   Object.defineProperty(window, 'BED', { get: () => bed });
   Object.defineProperty(window, 'CTX', { get: () => ctx });
+  window.FINISH = finish;
+  Object.defineProperty(window, 'DONE', { get: () => done });
   window.TICK = (n = 1) => { for (let i = 0; i < n; i++) step((performance.now() - t0) / 1000); return scrub.value; };
   console.log(`[o inquilino] ${part.id} — ${part.canto}, ${part.beats.length} beats`);
 }

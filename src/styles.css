@@ -197,3 +197,38 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
   transition: opacity 2400ms ease, transform 6000ms ease;
 }
 .interlude.name span { opacity: 0.5; transform: scale(1); }
+
+
+/* ── the end ─────────────────────────────────────────── */
+#end { z-index: 30; gap: clamp(2.4rem, 7vh, 5rem); }
+.fim {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 11vw, 8rem);
+  letter-spacing: 0.06em;
+  color: var(--bone);
+  opacity: 0.92;
+}
+.links { display: flex; gap: clamp(1.8rem, 6vw, 4rem); }
+.links a {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--ash); text-decoration: none;
+  padding-bottom: 0.35rem; border-bottom: 1px solid rgba(232,226,214,0.18);
+  transition: color 320ms, border-color 320ms, letter-spacing 320ms;
+}
+.links a:hover { color: var(--bone); border-color: var(--bone); letter-spacing: 0.38em; }
+
+/* ── turn the phone ──────────────────────────────────── */
+/* orientation lock is refused on iOS, so ask instead of pretending */
+.rotate { display: none; }
+@media (max-width: 900px) and (orientation: portrait) {
+  .rotate {
+    position: fixed; inset: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--ink);
+  }
+  .rotate span {
+    font-family: var(--mono); font-size: 0.66rem;
+    letter-spacing: 0.34em; text-transform: uppercase; color: var(--ash);
+  }
+}

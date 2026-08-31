@@ -90,6 +90,10 @@ export class Bed {
     t.running = false;
   }
 
+  fadeOut(sec = 12) {
+    this.bus.gain.setTargetAtTime(0, this.ctx.currentTime, sec / 3);
+  }
+
   setMuted(m) {
     this.bus.gain.setTargetAtTime(m ? 0 : this.cfg.gain, this.ctx.currentTime, 0.3);
   }
