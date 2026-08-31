@@ -63,6 +63,10 @@ MOVES = {
 # at x=0.5 ended 0.13 units past the edge. 31 leaves a real margin.
 WRAP = 31
 
+# reading pace, and the least time any stanza is allowed on screen
+READ_RATE = 9.5
+MIN_BEAT = 7.0
+
 
 def wrap_lines(para):
     return textwrap.wrap(para, WRAP, break_long_words=False) or [para]
@@ -78,16 +82,22 @@ def build():
             paras = part["paras"]
             n = len(paras)
 
-            # beats are weighted by how much there is to read
-            weights = [max(len(p), 40) for p in paras]
-            total = sum(weights)
+            # Time is worked out per beat in real seconds, then turned into
+            # windows — not shared out of a fixed part length. A short line
+            # needs a moment to land whatever else is in the part, and
+            # proportional shares were giving a seven-character stanza three
+            # seconds because the part around it happened to be short.
+            secs = [max(MIN_BEAT, len(para) / READ_RATE) for para in paras]
+            total = sum(secs)
+
             beats, acc = [], 0.0
-            for i, (para, w) in enumerate(zip(paras, weights)):
-                frac = w / total
+            for i, (para, sec) in enumerate(zip(paras, secs)):
+                frac = sec / total
                 beats.append({
                     "id": f"b{i + 1}",
                     "from": round(acc, 4),
                     "to": round(acc + frac, 4),
+                    "seconds": round(sec, 1),
                     "lines": wrap_lines(para),
                     # alternate which side of the corridor the words hang on
                     "x": 0.30 if i % 2 == 0 else -3.45,
@@ -110,6 +120,7 @@ def build():
                 "beats": beats,
                 "stations": stations,
                 "moves": MOVES.get(pid, {}),
+                "seconds": round(total, 1),
             })
 
     out = ROOT / "src" / "poem" / "parts.json"

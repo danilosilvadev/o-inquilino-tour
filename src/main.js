@@ -123,9 +123,10 @@ async function goTo(i, { atEnd = false } = {}) {
 // pace. A part is held for as long as its own text takes to read: more words,
 // more time on screen. Beat windows are already weighted by paragraph length,
 // so the long stanzas inside a part get the larger share of it too.
+// worked out per beat when the parts were built, with a floor under every
+// stanza so a short line still gets its moment
 function partSeconds() {
-  const chars = part.beats.reduce((n, b) => n + b.lines.join(' ').length, 0);
-  return Math.max(16, chars / 9.5);
+  return part.seconds || 20;
 }
 
 function setPlaying(v) {

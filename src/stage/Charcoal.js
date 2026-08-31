@@ -98,6 +98,8 @@ export class Charcoal {
       ripple: 0.0055,     // sideways travel of a band, as a share of width
       rippleBands: 84,
       rippleSpeed: 0.42,
+      // a slow push in across the part, so the plate is never a flat still
+      zoom: 0.085,
       // holes: places the stitching never reaches. one of them sits over the
       // caption worked into the plate, so that text is torn out rather than
       // competing with the stanza on screen
@@ -459,6 +461,7 @@ export class Charcoal {
     const C = this.cfg;
     const { ctx } = this;
     const W = this.canvas.width, H = this.canvas.height;
+    const done = clamp01(this.progress);
 
     // ── the frame is never quite still ──
     // cover already overflows the canvas, so there is room to wander inside it
@@ -466,7 +469,9 @@ export class Charcoal {
     const slackY = Math.max(0, this.dh - H) * 0.5;
     const wx = Math.sin(time * 0.07) * Math.min(slackX, W * C.drift);
     const wy = Math.cos(time * 0.051) * Math.min(slackY, H * C.drift * 0.6);
-    const breath = 1 + Math.sin(time * 0.19) * C.breath;
+    // the frame closes in slowly as the plate forms, and keeps breathing
+    const push = 1 + C.zoom * done;
+    const breath = (1 + Math.sin(time * 0.19) * C.breath) * push;
     const bw = this.dw * breath, bh = this.dh * breath;
     const bx = this.dx - (bw - this.dw) * 0.5 + wx;
     const by = this.dy - (bh - this.dh) * 0.5 + wy;
@@ -477,7 +482,6 @@ export class Charcoal {
     // Stitches never quite tile the frame, so at full progress the picture was
     // still being viewed through the gaps between them. Past 0.88 the finished
     // artwork settles in underneath, and the part ends on the piece itself.
-    const done = clamp01(this.progress);
 
     const ok = Number.isFinite(bx) && Number.isFinite(by) &&
                Number.isFinite(bw) && Number.isFinite(bh);
