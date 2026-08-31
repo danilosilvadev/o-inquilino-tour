@@ -1,42 +1,67 @@
 /**
- * Bed — one continuous piece of music under the whole poem.
+ * Bed — the music under the poem.
  *
- * Not a slice per part any more. It starts once, loops for as long as anyone
- * is reading, and is never touched when a part hands over — so crossing from
- * one plate to the next does not interrupt it.
+ * Two pieces, not one per part: the poem changes register at Canto V, where
+ * the other person arrives, and the music changes with it. Each piece loops
+ * for as long as it is wanted, crossfaded into itself so the loop has no seam,
+ * and crossing between the two is a slow fade rather than a cut.
  *
- * The loop is crossfaded rather than butt-joined: the next pass is scheduled
- * to begin while the current one is still fading, so there is no seam.
+ * Nothing here is touched when a part hands over — only when the register
+ * actually changes.
  */
 export class Bed {
   constructor(ctx, master, cfg = {}) {
     this.ctx = ctx;
-    this.cfg = { file: 'audio/bed.mp3', gain: 0.5, fade: 4, ...cfg };
-    this.buffer = null;
-    this.timer = null;
-    this.live = [];
+    this.cfg = { gain: 0.5, loopFade: 5, switchFade: 6, ...cfg };
+    this.tracks = new Map();     // name -> { buffer, gain, timer, live }
+    this.current = null;
 
     this.bus = ctx.createGain();
     this.bus.gain.value = this.cfg.gain;
     this.bus.connect(master);
   }
 
-  async load() {
-    const res = await fetch(this.cfg.file);
-    if (!res.ok) throw new Error(`missing ${this.cfg.file}`);
-    this.buffer = await this.ctx.decodeAudioData(await res.arrayBuffer());
+  async load(name, file) {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error(`missing ${file}`);
+    const buffer = await this.ctx.decodeAudioData(await res.arrayBuffer());
+    const gain = this.ctx.createGain();
+    gain.gain.value = 0;
+    gain.connect(this.bus);
+    this.tracks.set(name, { buffer, gain, timer: null, live: [] });
   }
 
-  start() {
-    if (!this.buffer || this.started) return;
-    this.started = true;
-    this._pass(this.ctx.currentTime + 0.05);
+  /** bring a piece up, take the other down; a no-op if it is already playing */
+  switchTo(name) {
+    const next = this.tracks.get(name);
+    if (!next || this.current === name) return;
+    const now = this.ctx.currentTime;
+    const f = this.cfg.switchFade;
+
+    if (this.current) {
+      const prev = this.tracks.get(this.current);
+      prev.gain.gain.cancelScheduledValues(now);
+      prev.gain.gain.setValueAtTime(prev.gain.gain.value, now);
+      prev.gain.gain.linearRampToValueAtTime(0.0001, now + f);
+      // let it finish fading before its loops are torn down
+      setTimeout(() => this._silence(this.tracks.get(name) === prev ? null : prev), (f + 0.5) * 1000);
+    }
+
+    this.current = name;
+    if (!next.running) this._pass(name, now + 0.05);
+    next.gain.gain.cancelScheduledValues(now);
+    next.gain.gain.setValueAtTime(next.gain.gain.value, now);
+    next.gain.gain.linearRampToValueAtTime(1, now + f);
   }
 
-  /** one pass of the bed, which also books the next one before it ends */
-  _pass(at) {
-    const d = this.buffer.duration;
-    const f = Math.min(this.cfg.fade, d / 3);
+  /** one pass of a piece, which books the next before it ends */
+  _pass(name, at) {
+    const t = this.tracks.get(name);
+    if (!t) return;
+    t.running = true;
+
+    const d = t.buffer.duration;
+    const f = Math.min(this.cfg.loopFade, d / 3);
 
     const g = this.ctx.createGain();
     g.gain.setValueAtTime(0.0001, at);
@@ -45,18 +70,24 @@ export class Bed {
     g.gain.linearRampToValueAtTime(0.0001, at + d);
 
     const src = this.ctx.createBufferSource();
-    src.buffer = this.buffer;
-    src.connect(g).connect(this.bus);
+    src.buffer = t.buffer;
+    src.connect(g).connect(t.gain);
     src.start(at);
     src.stop(at + d + 0.05);
-    src.onended = () => { this.live = this.live.filter((s) => s !== src); };
-    this.live.push(src);
+    src.onended = () => { t.live = t.live.filter((s) => s !== src); };
+    t.live.push(src);
 
-    // the next pass begins while this one is still fading, so the seam is
-    // covered. Booked a little early, since timers are not sample-accurate.
     const nextAt = at + d - f;
     const wait = Math.max(200, (nextAt - this.ctx.currentTime - 2) * 1000);
-    this.timer = setTimeout(() => this._pass(nextAt), wait);
+    t.timer = setTimeout(() => this._pass(name, nextAt), wait);
+  }
+
+  _silence(t) {
+    if (!t) return;
+    clearTimeout(t.timer);
+    for (const s of t.live) { try { s.stop(); } catch (e) { /* already done */ } }
+    t.live = [];
+    t.running = false;
   }
 
   setMuted(m) {
@@ -64,9 +95,7 @@ export class Bed {
   }
 
   stop() {
-    clearTimeout(this.timer);
-    for (const s of this.live) { try { s.stop(); } catch (e) { /* already done */ } }
-    this.live = [];
-    this.started = false;
+    for (const t of this.tracks.values()) this._silence(t);
+    this.current = null;
   }
 }

@@ -57,14 +57,23 @@ async function enter() {
   els.chrome.classList.remove('hidden');
   document.body.classList.add('in');
   running = true;
-  bed?.start();
+  bed?.switchTo(bedFor(part));
 }
 
-// one bed for the whole reading; parts hand over underneath it
+// The poem changes register at Canto V, where the other person arrives, and
+// the music changes with it. Parts hand over underneath whichever is playing.
+const BEDS = { early: 'audio/bed.mp3', late: 'audio/bed-2.mp3' };
+const bedFor = (p) => (['Canto V', 'Canto VI'].includes(p.canto) ? 'late' : 'early');
+
 async function loadBed() {
   if (!ctx || bed) return;
-  bed = new Bed(ctx, master, { gain: 0.5, fade: 5 });
-  try { await bed.load(); } catch (e) { console.warn('[o inquilino] music:', e.message); bed = null; }
+  bed = new Bed(ctx, master, { gain: 0.5, loopFade: 5, switchFade: 7 });
+  try {
+    await Promise.all(Object.entries(BEDS).map(([k, f]) => bed.load(k, f)));
+  } catch (e) {
+    console.warn('[o inquilino] music:', e.message);
+    bed = null;
+  }
   bed?.setMuted(muted);
 }
 
@@ -111,6 +120,7 @@ async function goTo(i, { atEnd = false } = {}) {
     await wait(1600);
   }
 
+  bed?.switchTo(bedFor(part));
   running = true;
   swapping = false;
   lastT = performance.now() / 1000;
