@@ -50,7 +50,7 @@ import art from '../config/art.json';
 // every part has its own scene (see tools/build-art.py). Until a part's image
 // exists on disk it falls back, so art can land one file at a time instead of
 // all twenty-four at once.
-const FALLBACK = 'art/seated.png';
+const FALLBACK = 'art/seated.webp';
 
 export class Stage {
   constructor(root, part) {
