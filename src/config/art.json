@@ -4,42 +4,48 @@
   "scene": "a boy sitting up on the edge of a bed at dawn, an empty room, he does not recognise it",
   "medium": "thread",
   "fit": "cover",
-  "source": "images/1.jpeg"
+  "source": "images/1.jpeg",
+  "captionHole": false
  },
  "I-2": {
   "file": "art/I-2.jpg",
   "scene": "a locked door seen from the inside, no handle on this side",
   "medium": "thread",
   "fit": "cover",
-  "source": "images/2.jpeg"
+  "source": "images/2.jpeg",
+  "captionHole": false
  },
  "I-3": {
   "file": "art/I-3.jpg",
   "scene": "a boy curled under a thin blanket, frost creeping across the window",
   "medium": "thread",
   "fit": "cover",
-  "source": "images/3.jpeg"
+  "source": "images/3.jpeg",
+  "captionHole": false
  },
  "I-4": {
   "file": "art/I-4.jpg",
   "scene": "wet turned earth opened up, roots and worms, a patch where nothing grows",
   "medium": "thread",
   "fit": "cover",
-  "source": "images/4.jpeg"
+  "source": "images/4.jpeg",
+  "captionHole": false
  },
  "I-5": {
   "file": "art/I-5.jpg",
   "scene": "an open mouth making no sound, the face already going under",
   "medium": "thread",
   "fit": "cover",
-  "source": "images/5.jpeg"
+  "source": "images/5.jpeg",
+  "captionHole": false
  },
  "II-1": {
   "file": "art/II-1.jpg",
   "scene": "a boy standing over his own body lying on the floor",
   "medium": "thread",
   "fit": "cover",
-  "source": "images/6.jpeg"
+  "source": "images/6.jpeg",
+  "captionHole": false
  },
  "II-2": {
   "file": "art/II-2.jpg",
@@ -162,12 +168,20 @@
   "captionHole": false
  },
  "VI-1": {
-  "file": "art/VI-1.png",
-  "scene": "an open chest with something slipping out of it"
+  "file": "art/VI-1.jpg",
+  "scene": "an open chest with something slipping out of it",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/22.jpeg",
+  "captionHole": false
  },
  "VI-2": {
-  "file": "art/VI-2.png",
-  "scene": "a wedding that is a funeral, a wet veil, dancing on ash"
+  "file": "art/VI-2.jpg",
+  "scene": "a wedding that is a funeral, a wet veil, dancing on ash",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/23.jpeg",
+  "captionHole": false
  },
  "VI-3": {
   "file": "art/VI-3.png",
