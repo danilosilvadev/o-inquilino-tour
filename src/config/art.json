@@ -66,36 +66,68 @@
   "captionHole": false
  },
  "III-1": {
-  "file": "art/III-1.png",
-  "scene": "a boy melting, running off the chair into a puddle"
+  "file": "art/III-1.jpg",
+  "scene": "a boy melting, running off the chair into a puddle",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/10.jpeg",
+  "captionHole": false
  },
  "III-2": {
-  "file": "art/III-2.png",
-  "scene": "a pit dug from the inside, footsteps passing overhead, dead stars above"
+  "file": "art/III-2.jpg",
+  "scene": "a pit dug from the inside, footsteps passing overhead, dead stars above",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/11.jpeg",
+  "captionHole": false
  },
  "III-3": {
-  "file": "art/III-3.png",
-  "scene": "one stitch of thread holding a body upright, a puppet by a single suture"
+  "file": "art/III-3.jpg",
+  "scene": "one stitch of thread holding a body upright, a puppet by a single suture",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/12.jpeg",
+  "captionHole": false
  },
  "IV-1": {
-  "file": "art/IV-1.png",
-  "scene": "long hair growing down into a mattress, a shape approaching through the dark"
+  "file": "art/IV-1.jpg",
+  "scene": "long hair growing down into a mattress, a shape approaching through the dark",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/13.jpeg",
+  "captionHole": false
  },
  "IV-2": {
-  "file": "art/IV-2.png",
-  "scene": "an airless room, a boy breathing thick still air, curtains dead flat"
+  "file": "art/IV-2.jpg",
+  "scene": "an airless room, a boy breathing thick still air, curtains dead flat",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/14.jpeg",
+  "captionHole": false
  },
  "IV-3": {
-  "file": "art/IV-3.png",
-  "scene": "an insect in an open mouth, eyes wide, tasting for the first time"
+  "file": "art/IV-3.jpg",
+  "scene": "an insect in an open mouth, eyes wide, tasting for the first time",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/15.jpeg",
+  "captionHole": false
  },
  "IV-4": {
-  "file": "art/IV-4.png",
-  "scene": "a boy drinking from a filthy spring, smiling with bad teeth"
+  "file": "art/IV-4.jpg",
+  "scene": "a boy drinking from a filthy spring, smiling with bad teeth",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/16.jpeg",
+  "captionHole": false
  },
  "IV-5": {
-  "file": "art/IV-5.png",
-  "scene": "a withered field, everything in it already old"
+  "file": "art/IV-5.jpg",
+  "scene": "a withered field, everything in it already old",
+  "medium": "thread",
+  "fit": "cover",
+  "source": "images/17.jpeg",
+  "captionHole": false
  },
  "V-1": {
   "file": "art/V-1.png",

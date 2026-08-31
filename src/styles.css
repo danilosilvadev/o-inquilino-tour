@@ -173,3 +173,27 @@ body[data-font="bodoni"] {
 body[data-font="cormorant"] .stanza { font-size: clamp(1.25rem, 2.25vw, 2.05rem); font-weight: 300; }
 body[data-font="garamond"] .stanza  { font-size: clamp(1.12rem, 2vw, 1.8rem); }
 body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem); }
+
+
+/* ── between cantos ──────────────────────────────────── */
+/* The plate burns away, and then nothing for a while. The next canto is
+   named once, very faintly, and the dark takes it back before it begins. */
+.interlude {
+  position: fixed; inset: 0; z-index: 15;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink);
+  opacity: 0; pointer-events: none;
+  transition: opacity 1600ms ease;
+}
+.interlude.on { opacity: 1; }
+.interlude span {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2.2vw, 1.9rem);
+  letter-spacing: 0.62em;
+  text-transform: uppercase;
+  color: var(--ash);
+  opacity: 0;
+  transform: scale(0.985);
+  transition: opacity 2400ms ease, transform 6000ms ease;
+}
+.interlude.name span { opacity: 0.5; transform: scale(1); }

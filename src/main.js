@@ -2,16 +2,17 @@ import parts from './poem/parts.json';
 import { Stage } from './stage/Stage.js';
 import { Scrubber } from './core/Scrubber.js';
 import { Bed } from './core/Bed.js';
-import scoreMap from './config/score-map.json';
 
 const $ = (id) => document.getElementById(id);
 const els = {
   stage: $('stage'), gate: $('gate'), gateReply: $('gateReply'),
   chrome: $('chrome'), rail: $('rail'), railFill: $('railFill'),
   hint: $('hint'), playBtn: $('playBtn'), playLabel: $('playLabel'),
+  interlude: $('interlude'), interludeName: $('interludeName'),
   soundBtn: $('soundBtn'), soundLabel: $('soundLabel')
 };
 
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const params = new URLSearchParams(location.search);
 let index = Math.max(0, parts.findIndex((p) => p.id === (params.get('part') || 'I-1')));
 let part = parts[index];
@@ -78,8 +79,20 @@ function paintHud() {
 async function goTo(i, { atEnd = false } = {}) {
   if (swapping || i < 0 || i >= parts.length) return;
   swapping = true; running = false;
-  // burn it back down rather than fading it out
-  await stage.unform(850);
+  const crossing = parts[i] && parts[i].canto !== part.canto;
+
+  // burn it back down rather than fading it out; a canto takes longer to go
+  await stage.unform(crossing ? 1900 : 850);
+
+  if (crossing) {
+    els.interlude.classList.add('on');
+    await wait(900);
+    els.interludeName.textContent = parts[i].canto;
+    els.interlude.classList.add('name');
+    await wait(3600);
+    els.interlude.classList.remove('name');
+    await wait(2200);
+  }
 
   stage.dispose();
   part = parts[i]; index = i;
@@ -93,6 +106,11 @@ async function goTo(i, { atEnd = false } = {}) {
   paintHud();
   history.replaceState(null, '', `?part=${part.id}`);
 
+  if (crossing) {
+    els.interlude.classList.remove('on');
+    await wait(1600);
+  }
+
   running = true;
   swapping = false;
   lastT = performance.now() / 1000;
@@ -101,9 +119,13 @@ async function goTo(i, { atEnd = false } = {}) {
 // ── cinema ────────────────────────────────────────────
 // Playing paces the part by its own slice of the Adagio, so the picture is
 // finished exactly as the music for it runs out.
+// The music is one continuous bed now, so nothing outside the poem sets the
+// pace. A part is held for as long as its own text takes to read: more words,
+// more time on screen. Beat windows are already weighted by paragraph length,
+// so the long stanzas inside a part get the larger share of it too.
 function partSeconds() {
-  const e = scoreMap.find((m) => m.id === part.id);
-  return e ? e.duration : 22;
+  const chars = part.beats.reduce((n, b) => n + b.lines.join(' ').length, 0);
+  return Math.max(16, chars / 9.5);
 }
 
 function setPlaying(v) {
