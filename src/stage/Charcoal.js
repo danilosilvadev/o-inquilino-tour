@@ -83,6 +83,11 @@ export class Charcoal {
       // stitch-sized, not charcoal-sized
       minLen: 0.006, maxLen: 0.024, width: 0.007,
       wander: 0.78,
+      // how much of the reveal order is pure scatter. High keeps the gaps fine
+      // and evenly spread rather than clumped into holes.
+      scatter: 0.82,
+      // the gaps do not sit still: which stitches are missing drifts slowly
+      shimmer: 0.055, shimmerRate: 0.16, shimmerStep: 0.28,
       invert: false, fit: 'cover',
       // movement: thread is not a flat surface, so it should not sit still
       drift: 0.018,       // how far the frame wanders, as a share of width
@@ -109,7 +114,9 @@ export class Charcoal {
       // goes darker as it finishes rather than clean.
       // The plate simply stops before it sharpens. No overlay, no filter —
       // what is left is the stitching itself, unfinished.
-      maxReveal: 0.62,
+      // Raised from 0.62 once the gaps stopped clumping: spread evenly, the
+      // same figure reads as a veil over everything rather than a few voids.
+      maxReveal: 0.86,
       ...cfg
     };
     this.progress = 0;
@@ -199,10 +206,14 @@ export class Charcoal {
       const gy = Math.floor(idx / S) + Math.random();
       const x = gx / S, y = gy / h;
 
-      // mostly top to bottom, but wandering enough not to read as a wipe
+      // The order decides what the UNFINISHED plate looks like, not just how it
+      // fills. Ordering by smooth low-frequency noise meant whole regions
+      // shared a score, so stopping early left a few enormous black voids.
+      // Scatter dominates instead: the part never stitched comes out as fine
+      // gaps spread over everything.
       const n = Math.sin(x * 7.1 + y * 3.3) * 0.5 + Math.sin(y * 11.7 - x * 5.2) * 0.5;
-      const score = y * (1 - this.cfg.wander) + (n * 0.5 + 0.5) * this.cfg.wander
-                  + Math.random() * 0.06;
+      const coarse = y * 0.45 + (n * 0.5 + 0.5) * 0.55;
+      const score = coarse * (1 - this.cfg.scatter) + Math.random() * this.cfg.scatter;
 
       strokes.push({
         x, y, score,
@@ -214,7 +225,10 @@ export class Charcoal {
 
     this._placeHoles();
     strokes.sort((p, q) => p.score - q.score);
-    strokes.forEach((st, i) => { st.at = i / (strokes.length - 1); });
+    strokes.forEach((st, i) => {
+      st.at = i / (strokes.length - 1);
+      st.ph = Math.random() * 6.283;
+    });
     this.strokes = strokes;
   }
 
@@ -347,18 +361,34 @@ export class Charcoal {
     this.hot.height = this.canvas.height;
     this.hctx = this.hot.getContext('2d');
     this._painted = 0;
-    this._paintTo(this.progress);
+    this._paintTo(this.progress, this._now || 0);
   }
 
-  _paintTo(p) {
+  _paintTo(p, time = 0) {
     const { strokes, brush, mctx } = this;
     if (!mctx) return;
-    if (p < this._lastP) { mctx.clearRect(0, 0, this.mask.width, this.mask.height); this._painted = 0; }
+    const C = this.cfg;
+
+    // Every so often the whole mask is laid again with the clock moved on, so
+    // the stitches sitting on the threshold swap places and the gaps crawl.
+    // Only a few percent change each time, so it reads as a surface breathing.
+    const due = C.shimmer > 0 && time - (this._shimmerAt ?? -1e9) > C.shimmerStep;
+    if (p < this._lastP || due) {
+      mctx.clearRect(0, 0, this.mask.width, this.mask.height);
+      this.hctx?.clearRect(0, 0, this.mask.width, this.mask.height);
+      this._painted = 0;
+      if (due) this._shimmerAt = time;
+    }
     this._lastP = p;
+    this._now = time;
 
     let batch = 0;
-    while (this._painted < strokes.length && strokes[this._painted].at <= p) {
-      const st = strokes[this._painted++];
+    while (this._painted < strokes.length) {
+      const st = strokes[this._painted];
+      // a stitch near the edge of what is done drifts in and out over time
+      const wobble = Math.sin(this._now * C.shimmerRate + st.ph) * C.shimmer;
+      if (st.at > p + wobble) break;
+      this._painted++;
       batch++;
       const x = this.dx + st.x * this.dw;
       const y = this.dy + st.y * this.dh;
@@ -412,7 +442,7 @@ export class Charcoal {
     this.progress = clamp01(p) * this.cfg.maxReveal;
     if (!this.ready || !this.mctx) return;
     if (!Number.isFinite(time)) time = 0;
-    this._paintTo(this.progress);
+    this._paintTo(this.progress, time);
 
     const C = this.cfg;
     const { ctx } = this;
