@@ -3,7 +3,11 @@
   --bone:  #e8e2d6;
   --ash:   #7d7668;
   --line:  #b9b1a2;
+  /* the plates have an engraved serif stitched into them; the screen type
+     should answer it rather than compete. ?font= switches these live. */
   --serif: "Instrument Serif", Georgia, serif;
+  --serif-weight: 400;
+  --serif-tracking: 0;
   --mono:  "IBM Plex Mono", ui-monospace, monospace;
 }
 
@@ -150,3 +154,22 @@ html, body {
   border-left: 2.5px solid currentColor; border-right: 2.5px solid currentColor;
 }
 .hint { bottom: 3.6rem; }
+
+
+/* ── type options, chosen with ?font= ─────────────────── */
+body[data-font="cormorant"] {
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --serif-tracking: 0.012em;
+}
+body[data-font="garamond"] {
+  --serif: "EB Garamond", Georgia, serif;
+  --serif-tracking: 0.004em;
+}
+body[data-font="bodoni"] {
+  --serif: "Bodoni Moda", Georgia, serif;
+  --serif-tracking: 0.008em;
+}
+.stanza { letter-spacing: var(--serif-tracking); }
+body[data-font="cormorant"] .stanza { font-size: clamp(1.25rem, 2.25vw, 2.05rem); font-weight: 300; }
+body[data-font="garamond"] .stanza  { font-size: clamp(1.12rem, 2vw, 1.8rem); }
+body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem); }

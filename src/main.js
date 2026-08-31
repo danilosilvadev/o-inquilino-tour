@@ -1,7 +1,7 @@
 import parts from './poem/parts.json';
 import { Stage } from './stage/Stage.js';
 import { Scrubber } from './core/Scrubber.js';
-import { Score } from './core/Score.js';
+import { Bed } from './core/Bed.js';
 import scoreMap from './config/score-map.json';
 
 const $ = (id) => document.getElementById(id);
@@ -19,12 +19,13 @@ let stage = new Stage(els.stage, part);
 stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
 
 const scrub = new Scrubber({ wheelScale: 0.00009, touchScale: 0.0011, keyStep: 0.02, ease: 0.07 });
-let ctx = null, master = null, score = null;
+let ctx = null, master = null, bed = null;
 let running = false, swapping = false, muted = false, playing = false;
 let lastT = performance.now() / 1000;
 let t0 = performance.now();
 
 document.title = `O Inquilino — ${part.canto} ${part.mark}`;
+if (params.get('font')) document.body.dataset.font = params.get('font');
 
 // ── the threshold ─────────────────────────────────────
 const REPLIES = { sim: 'mentira. mas entra.', nao: 'nem eu. entra assim mesmo.' };
@@ -50,19 +51,20 @@ function startAudio() {
 async function enter() {
   els.gate.classList.add('out');
   setTimeout(() => els.gate.classList.add('hidden'), 900);
-  await loadScore();
+  await loadBed();
   paintHud();
   els.chrome.classList.remove('hidden');
   document.body.classList.add('in');
   running = true;
-  score?.start();
+  bed?.start();
 }
 
-async function loadScore() {
-  if (!ctx) return;
-  score = new Score(ctx, master, { part: part.id, gain: 0.55 });
-  try { await score.load(); } catch (e) { console.warn('[o inquilino] score:', e.message); score = null; }
-  score?.setMuted(muted);
+// one bed for the whole reading; parts hand over underneath it
+async function loadBed() {
+  if (!ctx || bed) return;
+  bed = new Bed(ctx, master, { gain: 0.5, fade: 5 });
+  try { await bed.load(); } catch (e) { console.warn('[o inquilino] music:', e.message); bed = null; }
+  bed?.setMuted(muted);
 }
 
 function paintHud() {
@@ -85,9 +87,6 @@ async function goTo(i, { atEnd = false } = {}) {
   await stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
   document.title = `O Inquilino — ${part.canto} ${part.mark}`;
 
-  score?.stop();
-  await loadScore();
-
   scrub.target = scrub.value = atEnd ? 0.999 : 0;
   scrub.clearIntent();
   stage.update(scrub.value, (performance.now() - t0) / 1000);
@@ -95,7 +94,6 @@ async function goTo(i, { atEnd = false } = {}) {
   history.replaceState(null, '', `?part=${part.id}`);
 
   running = true;
-  score?.start();
   swapping = false;
   lastT = performance.now() / 1000;
 }
@@ -122,7 +120,7 @@ for (const ev of ['wheel', 'touchstart', 'keydown']) {
 
 els.soundBtn.addEventListener('click', () => {
   muted = !muted;
-  score?.setMuted(muted);
+  bed?.setMuted(muted);
   els.soundBtn.classList.toggle('muted', muted);
   els.soundLabel.textContent = muted ? 'SOM OFF' : 'SOM ON';
 });
@@ -174,7 +172,7 @@ if (params.has('debug')) {
   window.GOTO = goTo;
   window.READY = () => running;
   Object.defineProperty(window, 'PLAYING', { get: () => playing });
-  Object.defineProperty(window, 'SCORE', { get: () => score });
+  Object.defineProperty(window, 'BED', { get: () => bed });
   Object.defineProperty(window, 'CTX', { get: () => ctx });
   window.TICK = (n = 1) => { for (let i = 0; i < n; i++) step((performance.now() - t0) / 1000); return scrub.value; };
   console.log(`[o inquilino] ${part.id} — ${part.canto}, ${part.beats.length} beats`);
