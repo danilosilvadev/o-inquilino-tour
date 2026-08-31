@@ -47,7 +47,9 @@ export class Stage {
     // thread art is full-bleed and already light-on-dark; ink drawings are
     // dark-on-paper and have to be turned over to read on this ground
     const thread = entry.medium === 'thread';
+    const seed = [...this.part.id].reduce((a, c) => a + c.charCodeAt(0), 0);
     this.charcoal = new Charcoal(this.canvas, {
+      seed,
       strokes: thread ? 14000 : 6000,
       invert: !thread,
       fit: entry.fit || (thread ? 'cover' : 'contain')

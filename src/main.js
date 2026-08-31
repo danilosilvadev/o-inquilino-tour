@@ -2,12 +2,13 @@ import parts from './poem/parts.json';
 import { Stage } from './stage/Stage.js';
 import { Scrubber } from './core/Scrubber.js';
 import { Score } from './core/Score.js';
+import scoreMap from './config/score-map.json';
 
 const $ = (id) => document.getElementById(id);
 const els = {
   stage: $('stage'), gate: $('gate'), gateReply: $('gateReply'),
   chrome: $('chrome'), rail: $('rail'), railFill: $('railFill'),
-  hint: $('hint'),
+  hint: $('hint'), playBtn: $('playBtn'), playLabel: $('playLabel'),
   soundBtn: $('soundBtn'), soundLabel: $('soundLabel')
 };
 
@@ -19,7 +20,8 @@ stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
 
 const scrub = new Scrubber({ wheelScale: 0.00009, touchScale: 0.0011, keyStep: 0.02, ease: 0.07 });
 let ctx = null, master = null, score = null;
-let running = false, swapping = false, muted = false;
+let running = false, swapping = false, muted = false, playing = false;
+let lastT = performance.now() / 1000;
 let t0 = performance.now();
 
 document.title = `O Inquilino — ${part.canto} ${part.mark}`;
@@ -96,6 +98,27 @@ async function goTo(i, { atEnd = false } = {}) {
   running = true;
   score?.start();
   swapping = false;
+  lastT = performance.now() / 1000;
+}
+
+// ── cinema ────────────────────────────────────────────
+// Playing paces the part by its own slice of the Adagio, so the picture is
+// finished exactly as the music for it runs out.
+function partSeconds() {
+  const e = scoreMap.find((m) => m.id === part.id);
+  return e ? e.duration : 22;
+}
+
+function setPlaying(v) {
+  playing = v;
+  els.playBtn.classList.toggle('on', v);
+  els.playLabel.textContent = v ? 'PAUSAR' : 'TOCAR';
+}
+
+els.playBtn.addEventListener('click', () => setPlaying(!playing));
+// any hand on the wheel takes it back
+for (const ev of ['wheel', 'touchstart', 'keydown']) {
+  window.addEventListener(ev, () => { if (playing) setPlaying(false); }, { passive: true });
 }
 
 els.soundBtn.addEventListener('click', () => {
@@ -109,6 +132,17 @@ els.soundBtn.addEventListener('click', () => {
 let hintGone = false;
 
 function step(time) {
+  const dt = Math.min(time - lastT, 0.05);
+  lastT = time;
+
+  if (playing && running && !swapping) {
+    scrub.target = Math.min(1, scrub.target + dt / partSeconds());
+    if (scrub.target >= 1 && scrub.value > 0.995) {
+      if (index < parts.length - 1) goTo(index + 1);
+      else setPlaying(false);
+    }
+  }
+
   const t = scrub.update();
   stage.update(t, time);
 
@@ -140,6 +174,7 @@ if (params.has('debug')) {
   window.SCRUB = scrub;
   window.GOTO = goTo;
   window.READY = () => running;
+  Object.defineProperty(window, 'PLAYING', { get: () => playing });
   Object.defineProperty(window, 'SCORE', { get: () => score });
   Object.defineProperty(window, 'CTX', { get: () => ctx });
   window.TICK = (n = 1) => { for (let i = 0; i < n; i++) step((performance.now() - t0) / 1000); return scrub.value; };

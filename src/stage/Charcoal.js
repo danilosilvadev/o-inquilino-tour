@@ -37,6 +37,63 @@ function makeBrush(size = 64) {
   return c;
 }
 
+/** an irregular soft-edged tear, not a clean circle */
+function makeHole(size = 256, seed = 1) {
+  const c = document.createElement('canvas');
+  c.width = c.height = size;
+  const g = c.getContext('2d');
+  const r = size / 2;
+  const rnd = (i) => {
+    const x = Math.sin(seed * 97.13 + i * 41.7) * 43758.5453;
+    return x - Math.floor(x);
+  };
+  // a wobbling outline so the edge reads as torn thread, not a punched dot
+  g.beginPath();
+  const N = 26;
+  for (let i = 0; i <= N; i++) {
+    const a = (i / N) * Math.PI * 2;
+    const k = 0.58 + rnd(i) * 0.34 + Math.sin(a * 3 + seed) * 0.07;
+    const x = r + Math.cos(a) * r * k;
+    const y = r + Math.sin(a) * r * k;
+    i ? g.lineTo(x, y) : g.moveTo(x, y);
+  }
+  g.closePath();
+  g.fillStyle = '#fff';
+  g.fill();
+
+  // frayed edge
+  const img = g.getImageData(0, 0, size, size);
+  const d = img.data;
+  for (let i = 0; i < d.length; i += 4) {
+    if (d[i + 3] > 0) d[i + 3] *= 0.6 + Math.random() * 0.4;
+  }
+  g.putImageData(img, 0, 0);
+  g.filter = 'blur(9px)';
+  g.drawImage(c, 0, 0);
+  g.filter = 'none';
+  return c;
+}
+
+/** a few tiles of grain, cycled, so nothing is ever perfectly still */
+function makeGrain(size = 160, tiles = 4) {
+  const out = [];
+  for (let t = 0; t < tiles; t++) {
+    const c = document.createElement('canvas');
+    c.width = c.height = size;
+    const g = c.getContext('2d');
+    const img = g.createImageData(size, size);
+    const d = img.data;
+    for (let i = 0; i < d.length; i += 4) {
+      const v = 110 + Math.random() * 145;
+      d[i] = d[i + 1] = d[i + 2] = v;
+      d[i + 3] = 255;
+    }
+    g.putImageData(img, 0, 0);
+    out.push(c);
+  }
+  return out;
+}
+
 export class Charcoal {
   constructor(canvas, cfg = {}) {
     this.canvas = canvas;
@@ -58,6 +115,13 @@ export class Charcoal {
       ripple: 0.0055,     // sideways travel of a band, as a share of width
       rippleBands: 84,
       rippleSpeed: 0.42,
+      // holes: places the stitching never reaches. one of them sits over the
+      // caption worked into the plate, so that text is torn out rather than
+      // competing with the stanza on screen
+      holes: 3, holeMin: 0.035, holeMax: 0.075, holeDepth: 0.82,
+      captionHole: true,
+      // the finish is never dead still
+      grain: 0.055, grainRate: 7,
       ...cfg
     };
     this.progress = 0;
@@ -73,6 +137,8 @@ export class Charcoal {
       im.src = src;
     });
     this.brush = makeBrush(this.cfg.brush);
+    this.holeSprite = makeHole(320, 7);
+    this.grainTiles = makeGrain();
     // The embroidery is already light thread on dark fabric. Only the ink
     // drawings, which are dark on pale paper, need turning over.
     this.plate = this.cfg.invert ? this._invert(this.img) : this.img;
@@ -125,6 +191,8 @@ export class Charcoal {
       total += w;
     }
 
+    this._weight = weight; this._wS = S; this._wH = h;
+
     const cum = new Float32Array(S * h);
     let acc = 0;
     for (let i = 0; i < S * h; i++) { acc += weight[i]; cum[i] = acc / total; }
@@ -156,9 +224,80 @@ export class Charcoal {
       });
     }
 
+    this._placeHoles();
     strokes.sort((p, q) => p.score - q.score);
     strokes.forEach((st, i) => { st.at = i / (strokes.length - 1); });
     this.strokes = strokes;
+  }
+
+  /**
+   * Where the stitching never reaches. One tear always covers the caption
+   * worked into the top of the plate, so the poem is read on screen instead of
+   * twice. The rest are scattered, and seeded so a plate tears the same way
+   * every time it is opened.
+   */
+  _placeHoles() {
+    const C = this.cfg;
+    const seed = this.cfg.seed || 1;
+    const rnd = (i) => {
+      const x = Math.sin(seed * 12.9898 + i * 78.233) * 43758.5453;
+      return x - Math.floor(x);
+    };
+    const list = [];
+    if (C.captionHole) {
+      // big enough to actually take the whole caption off the plate
+      list.push({ x: 0.845, y: 0.095, r: 0.32, sx: 1.55, sy: 0.66, depth: 1, twice: true });
+    }
+
+    // The rest go on the empty ground, never on the figure. The ink map built
+    // for the stitches already knows where the subject is, so read it backwards:
+    // a hole is allowed only where there is almost nothing to lose.
+    const W = this._wS, H = this._wH, wt = this._weight;
+    let placed = 0;
+    for (let i = 0; placed < C.holes && i < 400; i++) {
+      const x = 0.06 + rnd(i * 3) * 0.88;
+      const y = 0.10 + rnd(i * 3 + 1) * 0.80;
+      if (wt) {
+        const gx = Math.min(W - 1, Math.floor(x * W));
+        const gy = Math.min(H - 1, Math.floor(y * H));
+        let local = 0;
+        for (let dy = -2; dy <= 2; dy++)
+          for (let dx = -2; dx <= 2; dx++) {
+            const j = Math.min(W * H - 1, Math.max(0, (gy + dy) * W + gx + dx));
+            local = Math.max(local, wt[j]);
+          }
+        if (local > 0.46) continue;      // that is the subject: leave it alone
+      }
+      list.push({
+        x, y,
+        r: C.holeMin + rnd(i * 3 + 2) * (C.holeMax - C.holeMin),
+        sx: 0.8 + rnd(i * 5) * 0.6,
+        sy: 0.8 + rnd(i * 7) * 0.6,
+        depth: C.holeDepth
+      });
+      placed++;
+    }
+    this.holes = list;
+  }
+
+  _punchHoles(ctx, time) {
+    if (!this.holes) return;
+    const W = this.canvas.width, H = this.canvas.height;
+    const base = Math.min(W, H);
+    ctx.globalCompositeOperation = 'destination-out';
+    for (let i = 0; i < this.holes.length; i++) {
+      const o = this.holes[i];
+      // the edges of a tear are never quite still either
+      const br = 1 + Math.sin(time * 0.23 + i * 1.7) * 0.02;
+      const w = base * o.r * o.sx * 2 * br;
+      const h = base * o.r * o.sy * 2 * br;
+      ctx.globalAlpha = o.depth ?? 1;
+      ctx.drawImage(this.holeSprite, o.x * W - w / 2, o.y * H - h / 2, w, h);
+      // a feathered sprite only thins what it covers; the caption has to go
+      if (o.twice) ctx.drawImage(this.holeSprite, o.x * W - w / 2, o.y * H - h / 2, w, h);
+      ctx.globalAlpha = 1;
+    }
+    ctx.globalCompositeOperation = 'source-over';
   }
 
   resize(w, h) {
@@ -327,6 +466,19 @@ export class Charcoal {
       ctx.globalCompositeOperation = 'lighter';
       ctx.globalAlpha = C.freshGlow * (1 - settle);
       ctx.drawImage(this.hot, 0, 0);
+      ctx.globalAlpha = 1;
+    }
+
+    this._punchHoles(ctx, time);
+
+    // grain, last: the plate keeps breathing even once it is finished
+    if (C.grain > 0 && this.grainTiles) {
+      const tile = this.grainTiles[Math.floor(time * C.grainRate) % this.grainTiles.length];
+      const pat = ctx.createPattern(tile, 'repeat');
+      ctx.globalCompositeOperation = 'overlay';
+      ctx.globalAlpha = C.grain;
+      ctx.fillStyle = pat;
+      ctx.fillRect(0, 0, W, H);
       ctx.globalAlpha = 1;
     }
 
