@@ -259,47 +259,48 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
   background: radial-gradient(ellipse at 50% 48%, transparent 34%, var(--ink) 82%);
 }
 .title-lens {
-  perspective: 820px;
-  perspective-origin: 50% 48%;
+  perspective: 620px;
+  perspective-origin: 50% 46%;
   will-change: filter;
+  filter: blur(17px);              /* the resting state, so nothing flashes sharp */
 }
-.title-lens.run { animation: title-focus 9600ms cubic-bezier(.32,.12,.62,1) forwards; }
+.title-lens.run { animation: title-focus 15000ms cubic-bezier(.17,.63,.39,1) both; }
 .title-space {
-  position: relative;
+  display: grid;
+  place-items: center;
   transform-style: preserve-3d;
   will-change: transform, opacity;
+  opacity: 0;                      /* the words do not exist until they drift in */
 }
-.title-space.run { animation: title-approach 9600ms cubic-bezier(.32,.12,.62,1) forwards; }
+.title-space.run { animation: title-approach 15000ms cubic-bezier(.17,.63,.39,1) both; }
 .title-layer {
-  position: absolute; top: 50%; left: 50%;
+  grid-area: 1 / 1;
   margin: 0; white-space: nowrap;
   font-family: var(--serif); font-weight: 400;
   font-size: clamp(2.6rem, 12vw, 10rem);
   letter-spacing: 0.015em;
   color: var(--bone);
 }
-.title-layer:first-child { position: relative; top: auto; left: auto; }
 
-/* The word floats out of a black void, turned away from the reader, soft and
-   unresolved. It swings slowly square as it comes, sharpens near the middle,
-   and goes soft again as it passes too close to hold focus. */
+/* Turned hard away from the reader and rolled over, the way the reference
+   holds it — we are looking along the side walls of the letters, not at their
+   faces. It swings towards square as it drifts across the frame and passes,
+   and it is never allowed to come properly into focus. */
 @keyframes title-approach {
-  0%   { transform: translateZ(-1600px) rotateY(-33deg) rotateX(13deg) rotateZ(-2.2deg);
+  0%   { transform: translate3d(-8%, 7%, -1400px) rotateZ(-27deg) rotateY(-66deg) rotateX(25deg);
          opacity: 0; }
-  15%  { opacity: 1; }
-  72%  { transform: translateZ(140px) rotateY(-5deg) rotateX(2deg) rotateZ(-0.4deg);
-         opacity: 1; }
-  88%  { opacity: 1; }
-  100% { transform: translateZ(700px) rotateY(10deg) rotateX(-6deg) rotateZ(1.8deg);
+  9%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate3d(10%, -7%, 430px) rotateZ(-3deg) rotateY(-13deg) rotateX(3deg);
          opacity: 0; }
 }
 
 /* focus is the lens's job, not the stack's */
 @keyframes title-focus {
-  0%   { filter: blur(13px); }
-  46%  { filter: blur(3.4px); }
-  72%  { filter: blur(1.6px); }
-  100% { filter: blur(8px); }
+  0%   { filter: blur(17px); }
+  40%  { filter: blur(7px); }
+  76%  { filter: blur(3.2px); }
+  100% { filter: blur(12px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

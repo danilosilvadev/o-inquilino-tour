@@ -78,13 +78,26 @@ function startAudio() {
 // reader carries them through the letters instead of at them.
 function buildTitle() {
   if (els.titleSpace.childElementCount) return;
-  const LAYERS = 18;
+  const LAYERS = 30;
+  // Built back to front. The deepest slab is written first and the lit face
+  // last, so the order they are painted in and the order they sit in depth
+  // agree — with a bright face written first, the dark wall behind it was
+  // landing on top and the whole title came out nearly black.
   for (let i = 0; i < LAYERS; i++) {
+    const depth = LAYERS - 1 - i;            // 25 at the back, 0 at the face
+    const k = depth / (LAYERS - 1);
     const d = document.createElement('div');
     d.className = 'title-layer';
     d.textContent = 'O Inquilino';
-    d.style.transform = i ? `translate(-50%, -50%) translateZ(${-i * 13}px)` : '';
-    d.style.opacity = (1 - (i / LAYERS) * 0.94).toFixed(3);
+    // shallow on purpose: 11px a slab put 275px of depth on the stack, and up
+    // close each slab projected at its own scale, so the word came apart into
+    // ghosts of itself. A tight wall holds together at any distance.
+    d.style.transform = depth ? `translateZ(${-depth * 5}px)` : '';
+    // a lit face over a solid grey wall falling into the dark, so the letters
+    // read as cut out of something rather than printed on it
+    const v = Math.round(236 - 200 * k);
+    d.style.color = `rgb(${v}, ${v - 2}, ${Math.round(v * 0.96)})`;
+    d.style.opacity = (1 - k * 0.22).toFixed(3);
     els.titleSpace.appendChild(d);
   }
 }
@@ -102,21 +115,23 @@ const SKIPS = ['wheel', 'touchstart', 'keydown', 'click'];
 
 async function intro() {
   buildTitle();
+  // wait for the face itself, or the words reflow mid-drift
+  await Promise.race([document.fonts.ready, wait(2500)]);
   els.intro.classList.remove('hidden');
-  await wait(60);                       // let it paint before the animation starts
+  await wait(50);
   els.titleSpace.classList.add('run');
   els.titleLens.classList.add('run');
-  await holdFor(8200);
-  els.intro.classList.add('out');
-  await wait(1200);
-  els.intro.classList.add('hidden');
+  await holdFor(15000);
 
-  // and then the canto, in the same hand as every other canto in the poem
+  // the canto comes up behind the title going out, rather than after a stretch
+  // of nothing — that gap read as the piece having stalled
+  els.intro.classList.add('out');
   els.interlude.classList.add('on');
-  await wait(700);
+  await wait(1300);
+  els.intro.classList.add('hidden');
   els.interludeName.textContent = part.canto;
   els.interlude.classList.add('name');
-  await holdFor(3400);
+  await holdFor(3600);
   els.interlude.classList.remove('name');
   await wait(1800);
   els.interlude.classList.remove('on');
