@@ -155,16 +155,20 @@ export class Stage {
    * on a timer, because a hidden tab suspends rAF and a half-burnt plate that
    * never finishes is worse than one that does.
    */
-  unform(ms = 900) {
+  unform(ms = 2600) {
     if (!this.charcoal) return Promise.resolve();
-    const from = this._progress ?? 1;
+    // The plate is not rewound. It is burnt away along its own front, the same
+    // way it arrived along the other one, so leaving looks like the paper
+    // catching rather than the drawing being undone.
+    const held = this._progress ?? 1;
+    const base = this.charcoal._now || 0;
     const t0 = performance.now();
     return new Promise((res) => {
       const id = setInterval(() => {
-        const k = Math.min(1, (performance.now() - t0) / ms);
-        const v = from * (1 - k);
-        this._progress = v;
-        this.charcoal.setProgress(v, (performance.now() - t0) / 1000);
+        const e = (performance.now() - t0) / ms;
+        const k = Math.min(1, e);
+        this.charcoal.setErase(k);
+        this.charcoal.setProgress(held, base + (performance.now() - t0) / 1000);
         if (k >= 1) { clearInterval(id); res(); }
       }, 33);
     });
@@ -181,14 +185,14 @@ export class Stage {
       const local = beatProgress(t, this.part.beats[i]);
       // the words clear off the end of the part, so it finishes on the
       // finished picture rather than on a picture with writing over it
-      const clear = 1 - smoothstep(0.86, 0.99, t);
+      const clear = 1 - smoothstep(0.74, 0.99, t);
       const b = this.blocks[i];
 
       // arriving is a fade; leaving is a burn, the same as the plate. The mask
       // slides across so the words are eaten from one side with a ragged edge
       // instead of dissolving evenly.
       const arriving = smoothstep(0, 0.14, local);
-      const leaving = Math.max(smoothstep(0.82, 1, local), 1 - clear);
+      const leaving = Math.max(smoothstep(0.68, 1, local), 1 - clear);
       const a = arriving * (leaving < 1 ? 1 : 0);
       const pos = `${(leaving * 100).toFixed(1)}%`;
       b.style.maskPosition = pos;

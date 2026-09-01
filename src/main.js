@@ -126,7 +126,7 @@ async function goTo(i, { atEnd = false } = {}) {
   const crossing = parts[i] && parts[i].canto !== part.canto;
 
   // burn it back down rather than fading it out; a canto takes longer to go
-  await stage.unform(crossing ? 1900 : 850);
+  await stage.unform(crossing ? 4200 : 2800);
 
   if (crossing) {
     els.interlude.classList.add('on');
@@ -180,7 +180,7 @@ async function finish() {
   setPlaying(false);
   running = false;
   bed?.fadeOut(12);
-  await stage.unform(2600);
+  await stage.unform(5200);
   els.chrome.classList.add('hidden');
   els.end.classList.remove('hidden');
   els.end.classList.add('out');

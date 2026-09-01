@@ -120,6 +120,7 @@ export class Charcoal {
       ...cfg
     };
     this.progress = 0;
+    this.erase = 0;
     this._painted = 0;
     this.ready = false;
   }
@@ -146,6 +147,13 @@ export class Charcoal {
     this.maxDist = Math.max(
       ...[[0, 0], [1, 0], [0, 1], [1, 1]].map(([ox, oy]) =>
         Math.hypot((ox - this.origin[0]) * this.aspect, oy - this.origin[1])));
+    // The plate does not leave the way it came. A second fire is lit somewhere
+    // else and eats it away along its own front, so the end reads as burning
+    // rather than as the forming run backwards.
+    this.origin2 = [hash1(so * 23.9), hash1(so * 31.1)];
+    this.maxDist2 = Math.max(
+      ...[[0, 0], [1, 0], [0, 1], [1, 1]].map(([ox, oy]) =>
+        Math.hypot((ox - this.origin2[0]) * this.aspect, oy - this.origin2[1])));
     this._buildStrokes();
     this.ready = true;
   }
@@ -228,8 +236,17 @@ export class Charcoal {
         Math.sin(x * 34.1 + y * 27.3 + s3) * 0.18;
       const score = dist + fingers * this.cfg.burnRagged;
 
+      const ex = (x - this.origin2[0]) * this.aspect;
+      const ey = y - this.origin2[1];
+      const edist = Math.sqrt(ex * ex + ey * ey) / this.maxDist2;
+      const efingers =
+        Math.sin(x * 6.1 - y * 9.4 + s2) * 0.52 +
+        Math.sin(x * 15.3 + y * 19.7 + s3) * 0.30 +
+        Math.sin(x * 31.7 - y * 23.9 + s1) * 0.18;
+      const outScore = edist + efingers * this.cfg.burnRagged;
+
       strokes.push({
-        x, y, score,
+        x, y, score, outScore,
         sv: Math.random(),          // whether this one is ever laid at all
         a: (Math.random() - 0.5) * 2.4 + (y - 0.5) * 0.8,   // roughly follows the body
         len: this.cfg.minLen + Math.random() * (this.cfg.maxLen - this.cfg.minLen),
@@ -243,6 +260,11 @@ export class Charcoal {
       st.at = i / (strokes.length - 1);
       st.ph = Math.random() * 6.283;
     });
+    // rank along the leaving front, independent of the order they arrived in
+    const byOut = strokes.slice().sort((p, q) => p.outScore - q.outScore);
+    byOut.forEach((st, i) => { st.out = i / (byOut.length - 1); });
+    this.outOrder = byOut;
+    this._erased = 0;
     this.strokes = strokes;
   }
 
@@ -387,10 +409,15 @@ export class Charcoal {
     // the stitches sitting on the threshold swap places and the gaps crawl.
     // Only a few percent change each time, so it reads as a surface breathing.
     const due = C.shimmer > 0 && time - (this._shimmerAt ?? -1e9) > C.shimmerStep;
-    if (p < this._lastP || due) {
+    // strokes only ever get added on a forward pass, so taking any away means
+    // laying the whole mask again
+    // while the plate is burning the mask is never relaid — the shimmer would
+    // put back what the fire has already taken
+    if (p < this._lastP || (due && !(this.erase > 0))) {
       mctx.clearRect(0, 0, this.mask.width, this.mask.height);
       this.hctx?.clearRect(0, 0, this.mask.width, this.mask.height);
       this._painted = 0;
+      if (this.erase > 0) this._erased = 0;   // relaid, so the fire eats it again
       if (due) this._shimmerAt = time;
     }
     this._lastP = p;
@@ -424,6 +451,33 @@ export class Charcoal {
         this.hctx.restore();
       }
     }
+
+    // the leaving front, lifting stitches off the mask as it reaches them
+    const e = this.erase ?? 0;
+    if (e < (this._lastErase ?? 0)) this._erased = 0;
+    this._lastErase = e;
+    if (e > 0) {
+      mctx.save();
+      mctx.globalCompositeOperation = 'destination-out';
+      mctx.fillStyle = '#000';
+      while (this._erased < this.outOrder.length) {
+        const st = this.outOrder[this._erased];
+        if (st.out > e) break;
+        this._erased++;
+        const ex = this.dx + st.x * this.dw;
+        const ey = this.dy + st.y * this.dh;
+        const elen = st.len * this.dw * 1.25;   // a touch wider, so nothing is left behind
+        const ewid = st.w * this.dw * 1.6;
+        mctx.translate(ex, ey);
+        mctx.rotate(st.a);
+        // A soft brush only lifts a fraction of the alpha that forming piled
+        // up, so the plate lingered half-there. The fire takes what it reaches.
+        // The ragged edge comes from the stitches themselves, not from this.
+        mctx.fillRect(-elen / 2, -ewid / 2, elen, ewid);
+        mctx.setTransform(1, 0, 0, 1, 0, 0);
+      }
+      mctx.restore();
+    }
   }
 
   /**
@@ -450,6 +504,11 @@ export class Charcoal {
         x + off, y + i * dh, w, dh + 1
       );
     }
+  }
+
+  /** how much of the plate the leaving front has eaten, 0..1 */
+  setErase(e) {
+    this.erase = clamp01(e);
   }
 
   setProgress(p, time = 0) {
