@@ -11,7 +11,8 @@ const els = {
   hint: $('hint'), playBtn: $('playBtn'), playLabel: $('playLabel'),
   interlude: $('interlude'), interludeName: $('interludeName'),
   soundBtn: $('soundBtn'), soundLabel: $('soundLabel'), rotate: $('rotate'),
-  end: $('end'), endLinks: $('endLinks')
+  end: $('end'), endLinks: $('endLinks'),
+  intro: $('intro'), titleSpace: $('titleSpace')
 };
 
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -72,9 +73,61 @@ function startAudio() {
   master.connect(ctx.destination);
 }
 
+// The title is given a body: the same words stacked backwards in depth, the
+// front face lit and each one behind it dimmer, so flying the stack past the
+// reader carries them through the letters instead of at them.
+function buildTitle() {
+  if (els.titleSpace.childElementCount) return;
+  const LAYERS = 18;
+  for (let i = 0; i < LAYERS; i++) {
+    const d = document.createElement('div');
+    d.className = 'title-layer';
+    d.textContent = 'O Inquilino';
+    d.style.transform = i ? `translate(-50%, -50%) translateZ(${-i * 13}px)` : '';
+    d.style.opacity = (1 - (i / LAYERS) * 0.94).toFixed(3);
+    els.titleSpace.appendChild(d);
+  }
+}
+
+/** wait, unless the reader would rather get on with it */
+function holdFor(ms) {
+  return new Promise((res) => {
+    const done = () => { clearTimeout(id); off(); res(); };
+    const id = setTimeout(done, ms);
+    const off = () => { for (const e of SKIPS) window.removeEventListener(e, done); };
+    for (const e of SKIPS) window.addEventListener(e, done, { once: true, passive: true });
+  });
+}
+const SKIPS = ['wheel', 'touchstart', 'keydown', 'click'];
+
+async function intro() {
+  buildTitle();
+  els.intro.classList.remove('hidden');
+  await wait(60);                       // let it paint before the animation starts
+  els.titleSpace.classList.add('run');
+  await holdFor(8200);
+  els.intro.classList.add('out');
+  await wait(1200);
+  els.intro.classList.add('hidden');
+
+  // and then the canto, in the same hand as every other canto in the poem
+  els.interlude.classList.add('on');
+  await wait(700);
+  els.interludeName.textContent = part.canto;
+  els.interlude.classList.add('name');
+  await holdFor(3400);
+  els.interlude.classList.remove('name');
+  await wait(1800);
+  els.interlude.classList.remove('on');
+  await wait(1600);
+}
+
 async function enter() {
   els.gate.classList.add('out');
   setTimeout(() => els.gate.classList.add('hidden'), 900);
+  // the music starts under the title, and the first plate loads behind it
+  loadBed();
+  if (!params.has('still') && !params.has('part')) await intro();
   paintHud();
   els.chrome.classList.remove('hidden');
   document.body.classList.add('in');
@@ -85,8 +138,6 @@ async function enter() {
   await firstPlate;
   els.hint.textContent = 'role para atravessar';
   if (!params.has('still')) setPlaying(true);
-  // the music joins when it arrives; on a phone it is megabytes away
-  loadBed();
 }
 
 // The poem changes register at Canto V, where the other person arrives, and
