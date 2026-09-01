@@ -185,16 +185,19 @@ export class Stage {
 
     for (let i = 0; i < this.blocks.length; i++) {
       const local = beatProgress(t, this.part.beats[i]);
-      // the words clear off the end of the part, so it finishes on the
-      // finished picture rather than on a picture with writing over it
-      const clear = 1 - smoothstep(0.74, 0.99, t);
       const b = this.blocks[i];
 
       // arriving is a fade; leaving is a burn, the same as the plate. The mask
       // slides across so the words are eaten from one side with a ragged edge
       // instead of dissolving evenly.
-      const arriving = smoothstep(0, 0.14, local);
-      const leaving = Math.max(smoothstep(0.68, 1, local), 1 - clear);
+      // the builder sizes these in seconds and hands down the fractions, so a
+      // short stanza is not burnt away three times faster than a long one
+      const beat = this.part.beats[i];
+      const arriving = smoothstep(0, beat.fadeIn ?? 0.14, local);
+      // burns on its own window only. A part-wide clear used to be maxed in
+      // here, which ate the last stanza of most parts before it had finished
+      // arriving; the builder now reserves plate-only time at the end instead.
+      const leaving = smoothstep(1 - (beat.burnOut ?? 0.32), 1, local);
       const a = arriving * (leaving < 1 ? 1 : 0);
       const pos = `${(leaving * 100).toFixed(1)}%`;
       b.style.maskPosition = pos;

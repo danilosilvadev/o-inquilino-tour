@@ -69,15 +69,25 @@ MEASURES = [
     (10**9, 54, 56),
 ]
 
-# A stanza is only properly legible between its fade-in finishing and its burn
-# starting — 0.14 to 0.68 of its window in Stage.js — so a little over half of
-# the time it is on screen. Pacing the whole window against a reading rate
-# therefore runs about twice as fast as it reads. LEGIBLE carries that, and
-# CALM_RATE is the pace during it: 11 characters a second is roughly 130 words
-# a minute, unhurried, with room to look at the plate as well.
-LEGIBLE = 0.60
+# A stanza arrives, holds long enough to be read, then burns off. ARRIVE and
+# BURN are wall time and do not scale with how much text there is: as fractions
+# of the window they came out at 1.3s and 2.9s on a short stanza against 9.3s
+# and 21.2s on a long one, so the short ones read as being snatched away while
+# the long ones smouldered. The window is the reading time plus those two.
+# CALM_RATE is the pace of the reading itself — 11 characters a second, roughly
+# 130 words a minute, unhurried, with room to look at the plate as well.
 CALM_RATE = 11.0
-MIN_BEAT = 9.0
+ARRIVE = 1.8
+BURN = 5.0
+MIN_BEAT = 11.5
+
+# A stretch at the end of every part with no words on it, so the part finishes
+# on the finished plate. This used to be done in Stage.js by forcing every
+# stanza to burn off between t=0.74 and t=0.99 of the part — but a last stanza
+# that only begins at t=0.87 was already 55% eaten the moment it appeared, and
+# in II-4 it was 84% eaten. Fifteen of the twenty-four parts were doing this.
+# Giving the tail its own time instead means no stanza ever fights the clock.
+TAIL = 3.0
 
 
 def measure(para):
@@ -107,8 +117,9 @@ def build():
             # needs a moment to land whatever else is in the part, and
             # proportional shares were giving a seven-character stanza three
             # seconds because the part around it happened to be short.
-            secs = [max(MIN_BEAT, len(para) / (CALM_RATE * LEGIBLE)) for para in paras]
-            total = sum(secs)
+            secs = [max(MIN_BEAT, len(para) / CALM_RATE + ARRIVE + BURN) for para in paras]
+            reading = sum(secs)
+            total = reading + TAIL
 
             beats, acc = [], 0.0
             for i, (para, sec) in enumerate(zip(paras, secs)):
@@ -120,13 +131,19 @@ def build():
                     "seconds": round(sec, 1),
                     "lines": wrap_lines(para),
                     "width": measure(para)[1],
+                    # handed to Stage.js rather than restated there, so the
+                    # shape of a stanza and the time it is given cannot drift
+                    "fadeIn": round(min(0.30, ARRIVE / sec), 4),
+                    "burnOut": round(min(0.50, BURN / sec), 4),
                     # alternate which side of the corridor the words hang on
                     "x": 0.30 if i % 2 == 0 else -3.45,
                     "y": 1.55 + (0.30 if len(wrap_lines(para)) > 4 else 0.0),
                     "anchor": "left",
                 })
                 acc += frac
-            beats[-1]["to"] = 1.0
+            # the last stanza finishes its own burn where the words run out;
+            # the rest of the part is plate alone
+            beats[-1]["to"] = round(reading / total, 4)
 
             # the camera crosses the corridor once per part, dwelling per beat
             stations = [5.0]
