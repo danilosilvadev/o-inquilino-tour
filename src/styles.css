@@ -221,14 +221,21 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
 /* ── turn the phone ──────────────────────────────────── */
 /* orientation lock is refused on iOS, so ask instead of pretending */
 .rotate { display: none; }
+/* only once the reader is through the gate — before that it would cover the
+   gate itself, and the landscape lock is what the gate tap is for */
 @media (max-width: 900px) and (orientation: portrait) {
-  .rotate {
+  body.in:not([data-portrait="ok"]) .rotate {
     position: fixed; inset: 0; z-index: 40;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--ink);
+    display: flex; flex-direction: column; gap: 1.4rem;
+    align-items: center; justify-content: center;
+    background: var(--ink); cursor: pointer;
   }
   .rotate span {
     font-family: var(--mono); font-size: 0.66rem;
     letter-spacing: 0.34em; text-transform: uppercase; color: var(--ash);
+  }
+  .rotate em {
+    font-family: var(--serif); font-style: italic; font-size: 0.95rem;
+    color: var(--ash); opacity: 0.5;
   }
 }

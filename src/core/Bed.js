@@ -29,10 +29,13 @@ export class Bed {
     gain.gain.value = 0;
     gain.connect(this.bus);
     this.tracks.set(name, { buffer, gain, timer: null, live: [] });
+    // the poem may already have crossed into this piece while it was loading
+    if (this.wanted === name) this.switchTo(name);
   }
 
   /** bring a piece up, take the other down; a no-op if it is already playing */
   switchTo(name) {
+    this.wanted = name;
     const next = this.tracks.get(name);
     if (!next || this.current === name) return;
     const now = this.ctx.currentTime;

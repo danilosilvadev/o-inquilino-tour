@@ -10,7 +10,7 @@ const els = {
   chrome: $('chrome'), rail: $('rail'), railFill: $('railFill'),
   hint: $('hint'), playBtn: $('playBtn'), playLabel: $('playLabel'),
   interlude: $('interlude'), interludeName: $('interludeName'),
-  soundBtn: $('soundBtn'), soundLabel: $('soundLabel'),
+  soundBtn: $('soundBtn'), soundLabel: $('soundLabel'), rotate: $('rotate'),
   end: $('end'), endLinks: $('endLinks')
 };
 
@@ -19,7 +19,7 @@ const params = new URLSearchParams(location.search);
 let index = Math.max(0, parts.findIndex((p) => p.id === (params.get('part') || 'I-1')));
 let part = parts[index];
 let stage = new Stage(els.stage, part);
-stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
+const firstPlate = stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
 
 const scrub = new Scrubber({ wheelScale: 0.00009, touchScale: 0.0011, keyStep: 0.02, ease: 0.07 });
 let ctx = null, master = null, bed = null;
@@ -54,6 +54,15 @@ async function immerse() {
   catch (e) { /* unsupported on iOS Safari — .rotate asks instead */ }
 }
 
+els.rotate.addEventListener('click', async () => {
+  await immerse();
+  await wait(450);
+  if (matchMedia('(orientation: portrait)').matches) document.body.dataset.portrait = 'ok';
+  stage.resize();
+});
+
+window.addEventListener('orientationchange', () => setTimeout(() => stage.resize(), 300));
+
 function startAudio() {
   const AC = window.AudioContext || window.webkitAudioContext;
   if (!AC || ctx) return;
@@ -66,13 +75,18 @@ function startAudio() {
 async function enter() {
   els.gate.classList.add('out');
   setTimeout(() => els.gate.classList.add('hidden'), 900);
-  await loadBed();
   paintHud();
   els.chrome.classList.remove('hidden');
   document.body.classList.add('in');
   running = true;
-  bed?.switchTo(bedFor(part));
+  // the plate is ~1.6MB; on a phone it may not be here yet, and starting the
+  // playhead over a blank screen would spend the opening stanzas on nothing
+  els.hint.textContent = 'carregando';
+  await firstPlate;
+  els.hint.textContent = 'role para atravessar';
   if (!params.has('still')) setPlaying(true);
+  // the music joins when it arrives; on a phone it is megabytes away
+  loadBed();
 }
 
 // The poem changes register at Canto V, where the other person arrives, and
@@ -83,13 +97,19 @@ const bedFor = (p) => (['Canto V', 'Canto VI'].includes(p.canto) ? 'late' : 'ear
 async function loadBed() {
   if (!ctx || bed) return;
   bed = new Bed(ctx, master, { gain: 0.5, loopFade: 5, switchFade: 7 });
+  const first = bedFor(part);
+  bed.setMuted(muted);
+  bed.switchTo(first);          // recorded now, heard once the buffer lands
   try {
-    await Promise.all(Object.entries(BEDS).map(([k, f]) => bed.load(k, f)));
+    await bed.load(first, BEDS[first]);
   } catch (e) {
     console.warn('[o inquilino] music:', e.message);
     bed = null;
+    return;
   }
-  bed?.setMuted(muted);
+  // the second piece is not wanted before Canto V — fetch it behind the poem
+  const other = first === 'early' ? 'late' : 'early';
+  bed.load(other, BEDS[other]).catch((e) => console.warn('[o inquilino] music:', e.message));
 }
 
 function paintHud() {
