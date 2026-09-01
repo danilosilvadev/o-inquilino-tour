@@ -12,7 +12,7 @@ const els = {
   interlude: $('interlude'), interludeName: $('interludeName'),
   soundBtn: $('soundBtn'), soundLabel: $('soundLabel'), rotate: $('rotate'),
   end: $('end'), endLinks: $('endLinks'),
-  intro: $('intro'), titleSpace: $('titleSpace')
+  intro: $('intro'), titleSpace: $('titleSpace'), titleLens: $('titleLens')
 };
 
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -105,6 +105,7 @@ async function intro() {
   els.intro.classList.remove('hidden');
   await wait(60);                       // let it paint before the animation starts
   els.titleSpace.classList.add('run');
+  els.titleLens.classList.add('run');
   await holdFor(8200);
   els.intro.classList.add('out');
   await wait(1200);
