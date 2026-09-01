@@ -57,19 +57,39 @@ MOVES = {
     "VI-3": {"stretch": 1.0, "erase": 0.7, "pulse": 0.8},
 }
 
-# where the reader ends the part: the last line of VI-3 is "Me fiz."
-# 36 characters overran a 16:9 frame: the visible half-width at reading
-# distance is 3.92 units and a 36-character line is 3.55, so a stanza starting
-# at x=0.5 ended 0.13 units past the edge. 31 leaves a real margin.
-WRAP = 31
+# How wide a stanza is allowed to run, by how much of it there is. A single
+# narrow measure turned the long paragraphs into tall thin ribbons twelve and
+# fifteen lines deep, which then had to be shrunk to fit the height. Letting
+# the long ones run wider keeps them a readable block instead.
+#   (chars up to, wrap column, max width in ch)
+MEASURES = [
+    (70,  30, 32),
+    (150, 38, 40),
+    (260, 46, 48),
+    (10**9, 54, 56),
+]
 
-# reading pace, and the least time any stanza is allowed on screen
-READ_RATE = 9.5
-MIN_BEAT = 7.0
+# A stanza is only properly legible between its fade-in finishing and its burn
+# starting — 0.14 to 0.68 of its window in Stage.js — so a little over half of
+# the time it is on screen. Pacing the whole window against a reading rate
+# therefore runs about twice as fast as it reads. LEGIBLE carries that, and
+# CALM_RATE is the pace during it: 11 characters a second is roughly 130 words
+# a minute, unhurried, with room to look at the plate as well.
+LEGIBLE = 0.60
+CALM_RATE = 11.0
+MIN_BEAT = 9.0
+
+
+def measure(para):
+    n = len(para)
+    for cap, wrap, width in MEASURES:
+        if n <= cap:
+            return wrap, width
+    return MEASURES[-1][1], MEASURES[-1][2]
 
 
 def wrap_lines(para):
-    return textwrap.wrap(para, WRAP, break_long_words=False) or [para]
+    return textwrap.wrap(para, measure(para)[0], break_long_words=False) or [para]
 
 
 def build():
@@ -87,7 +107,7 @@ def build():
             # needs a moment to land whatever else is in the part, and
             # proportional shares were giving a seven-character stanza three
             # seconds because the part around it happened to be short.
-            secs = [max(MIN_BEAT, len(para) / READ_RATE) for para in paras]
+            secs = [max(MIN_BEAT, len(para) / (CALM_RATE * LEGIBLE)) for para in paras]
             total = sum(secs)
 
             beats, acc = [], 0.0
@@ -99,6 +119,7 @@ def build():
                     "to": round(acc + frac, 4),
                     "seconds": round(sec, 1),
                     "lines": wrap_lines(para),
+                    "width": measure(para)[1],
                     # alternate which side of the corridor the words hang on
                     "x": 0.30 if i % 2 == 0 else -3.45,
                     "y": 1.55 + (0.30 if len(wrap_lines(para)) > 4 else 0.0),

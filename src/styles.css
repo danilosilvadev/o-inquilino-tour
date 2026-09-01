@@ -56,7 +56,9 @@ html, body {
   top: 50%;
   left: 6vw;
   transform: translateY(-50%);
-  max-width: min(30ch, 34vw);
+  /* set per stanza by its length: a long paragraph gets a wider measure
+     rather than becoming a tall ribbon */
+  max-width: min(var(--w, 30ch), 44vw);
   padding: 1.6rem 2rem;
   text-shadow: 0 1px 14px rgba(0,0,0,0.95), 0 0 34px rgba(0,0,0,0.8);
   background: radial-gradient(ellipse at center,
@@ -130,7 +132,7 @@ html, body {
 @media (max-width: 760px) {
   .tl, .tr { top: 1.2rem; } .tl { left: 1.2rem; } .tr { right: 1.2rem; }
   .bl { left: 1.2rem; bottom: 1.2rem; } .br { right: 1.2rem; bottom: 1.2rem; }
-  .stanza { left: 6vw; max-width: 74vw; }
+  .stanza { left: 6vw; max-width: min(var(--w, 30ch), 82vw); }
   .stanza.right { right: 6vw; }
 }
 
@@ -264,7 +266,7 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
   will-change: filter;
   filter: blur(17px);              /* the resting state, so nothing flashes sharp */
 }
-.title-lens.run { animation: title-focus 15000ms cubic-bezier(.17,.63,.39,1) both; }
+.title-lens.run { animation: title-focus 17000ms both; }
 .title-space {
   display: grid;
   place-items: center;
@@ -272,7 +274,7 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
   will-change: transform, opacity;
   opacity: 0;                      /* the words do not exist until they drift in */
 }
-.title-space.run { animation: title-approach 15000ms cubic-bezier(.17,.63,.39,1) both; }
+.title-space.run { animation: title-approach 17000ms both; }
 .title-layer {
   grid-area: 1 / 1;
   margin: 0; white-space: nowrap;
@@ -288,19 +290,26 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
    and it is never allowed to come properly into focus. */
 @keyframes title-approach {
   0%   { transform: translate3d(-8%, 7%, -1400px) rotateZ(-27deg) rotateY(-66deg) rotateX(25deg);
-         opacity: 0; }
+         opacity: 0;
+         animation-timing-function: cubic-bezier(.17,.63,.39,1); }
   9%   { opacity: 1; }
-  92%  { opacity: 1; }
-  100% { transform: translate3d(10%, -7%, 430px) rotateZ(-3deg) rotateY(-13deg) rotateX(3deg);
+  /* the approach settles here, and then it keeps going: the easing above ends
+     at this keyframe rather than at the end of the animation, so the word does
+     not coast to a halt and switch off. From here it drifts on, still turning,
+     and fades while it is moving. */
+  74%  { transform: translate3d(6%, -4%, 372px) rotateZ(-5deg) rotateY(-17deg) rotateX(5deg);
+         opacity: 1;
+         animation-timing-function: linear; }
+  100% { transform: translate3d(13%, -10%, 476px) rotateZ(4deg) rotateY(3deg) rotateX(-6deg);
          opacity: 0; }
 }
 
 /* focus is the lens's job, not the stack's */
 @keyframes title-focus {
-  0%   { filter: blur(17px); }
+  0%   { filter: blur(17px); animation-timing-function: cubic-bezier(.17,.63,.39,1); }
   40%  { filter: blur(7px); }
-  76%  { filter: blur(3.2px); }
-  100% { filter: blur(12px); }
+  74%  { filter: blur(3.2px); animation-timing-function: linear; }
+  100% { filter: blur(9px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

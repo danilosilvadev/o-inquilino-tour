@@ -121,7 +121,7 @@ async function intro() {
   await wait(50);
   els.titleSpace.classList.add('run');
   els.titleLens.classList.add('run');
-  await holdFor(15000);
+  await holdFor(17000);
 
   // the canto comes up behind the title going out, rather than after a stretch
   // of nothing — that gap read as the piece having stalled

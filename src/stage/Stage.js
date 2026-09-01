@@ -71,6 +71,8 @@ export class Stage {
     this.blocks = part.beats.map((beat, i) => {
       const b = document.createElement('div');
       b.className = 'stanza' + (i % 2 ? ' right' : '');
+      // longer paragraphs are given a wider measure by the builder
+      b.style.setProperty('--w', `${beat.width || 30}ch`);
       b.innerHTML = beat.lines
         .map((l) => `<span>${l.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>`)
         .join('');

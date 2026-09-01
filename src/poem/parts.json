@@ -7,63 +7,62 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.2041,
-    "seconds": 9.9,
+    "to": 0.2073,
+    "seconds": 14.2,
     "lines": [
-     "Hoje eu acordei estranho. Como",
-     "se meu corpo fosse alugado, e",
-     "Eu um intruso. Um corpo",
-     "estranho."
+     "Hoje eu acordei estranho. Como se meu",
+     "corpo fosse alugado, e Eu um intruso.",
+     "Um corpo estranho."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.2041,
-    "to": 0.3485,
-    "seconds": 7.0,
+    "from": 0.2073,
+    "to": 0.3383,
+    "seconds": 9.0,
     "lines": [
      "O meu coração não era meu. Eu",
      "só carregava ele."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.3485,
-    "to": 0.6678,
-    "seconds": 15.5,
+    "from": 0.3383,
+    "to": 0.6625,
+    "seconds": 22.3,
     "lines": [
-     "E como tremia diante da",
-     "lucidez. Ela foi meu horror",
-     "maior. Eu daria tudo para não",
-     "hospedá-la. Mas mesmo assim",
-     "arranhava as paredes da minha",
-     "cabeça."
+     "E como tremia diante da lucidez. Ela",
+     "foi meu horror maior. Eu daria tudo",
+     "para não hospedá-la. Mas mesmo assim",
+     "arranhava as paredes da minha cabeça."
     ],
+    "width": 40,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.6678,
+    "from": 0.6625,
     "to": 1.0,
-    "seconds": 16.1,
+    "seconds": 23.2,
     "lines": [
-     "A lucidez fez do meu coração um",
-     "estorvo. Uma bolsa de carne nas",
-     "costas. E quanto mais",
-     "arrastava, mais pesado ficava o",
-     "rastro de terra, de brita, de",
-     "chão."
+     "A lucidez fez do meu coração um estorvo. Uma",
+     "bolsa de carne nas costas. E quanto mais",
+     "arrastava, mais pesado ficava o rastro de",
+     "terra, de brita, de chão."
     ],
+    "width": 48,
     "x": -3.45,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    }
   ],
@@ -80,7 +79,7 @@
    "erase": 0.4,
    "afterimage": 0.5
   },
-  "seconds": 48.5
+  "seconds": 68.7
  },
  {
   "id": "I-2",
@@ -90,53 +89,57 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.2508,
-    "seconds": 8.4,
+    "to": 0.2602,
+    "seconds": 12.1,
     "lines": [
-     "Quanto mais eu penso sobre o",
-     "que faz de mim, eu. Menos",
-     "entendo dessa substância."
+     "Quanto mais eu penso sobre o que faz",
+     "de mim, eu. Menos entendo dessa",
+     "substância."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.2508,
-    "to": 0.5831,
-    "seconds": 11.2,
+    "from": 0.2602,
+    "to": 0.6051,
+    "seconds": 16.1,
     "lines": [
-     "Eu sei que sinto mais do que",
-     "aguento. Mas minha carne divisa",
-     "fronteiras distantes demais",
-     "para eu alcançar."
+     "Eu sei que sinto mais do que aguento.",
+     "Mas minha carne divisa fronteiras",
+     "distantes demais para eu alcançar."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.5831,
-    "to": 0.7915,
-    "seconds": 7.0,
+    "from": 0.6051,
+    "to": 0.8068,
+    "seconds": 9.4,
     "lines": [
-     "E me tranco dentro de fora. Não",
-     "tenho casa. Sou um hospedeiro."
+     "E me tranco dentro de fora.",
+     "Não tenho casa. Sou um",
+     "hospedeiro."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.7915,
+    "from": 0.8068,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Um verdadeiro parasita."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -154,7 +157,7 @@
    "press": 0.6,
    "stretch": 0.3
   },
-  "seconds": 33.6
+  "seconds": 46.6
  },
  {
   "id": "I-3",
@@ -164,68 +167,72 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.3163,
-    "seconds": 14.3,
+    "to": 0.3271,
+    "seconds": 20.6,
     "lines": [
-     "Eu deito quente, mas vou",
-     "lentamente esfriando. E mesmo",
-     "quando o inverno acaba. E o",
-     "frio me deixa. Eu seguro sua",
-     "capa. Eu o proibo de ir."
+     "Eu deito quente, mas vou lentamente",
+     "esfriando. E mesmo quando o inverno",
+     "acaba. E o frio me deixa. Eu seguro",
+     "sua capa. Eu o proibo de ir."
     ],
+    "width": 40,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.3163,
-    "to": 0.5,
-    "seconds": 8.3,
+    "from": 0.3271,
+    "to": 0.5171,
+    "seconds": 12.0,
     "lines": [
-     "Espalho pelo meu corpo suas",
-     "agulhas. E no arrepio de cada",
-     "furo, eu me esquento."
+     "Espalho pelo meu corpo suas agulhas. E",
+     "no arrepio de cada furo, eu me",
+     "esquento."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.5,
-    "to": 0.6907,
-    "seconds": 8.6,
+    "from": 0.5171,
+    "to": 0.7143,
+    "seconds": 12.4,
     "lines": [
-     "Faço o gelo cobrir o sol. Até a",
-     "luz esfriar. Sobrando apenas",
-     "uma carne conservada."
+     "Faço o gelo cobrir o sol. Até a luz",
+     "esfriar. Sobrando apenas uma carne",
+     "conservada."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.6907,
-    "to": 0.8453,
-    "seconds": 7.0,
+    "from": 0.7143,
+    "to": 0.8571,
+    "seconds": 9.0,
     "lines": [
      "Mas ele não me obedece. Escapa",
      "entre meus dedos."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b5",
-    "from": 0.8453,
+    "from": 0.8571,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Me rejeita."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -244,7 +251,7 @@
    "swarm": 0.7,
    "erase": 0.3
   },
-  "seconds": 45.3
+  "seconds": 63.0
  },
  {
   "id": "I-4",
@@ -254,40 +261,42 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.3455,
-    "seconds": 7.5,
+    "to": 0.3579,
+    "seconds": 10.8,
     "lines": [
-     "E dentro dessa carne existe",
-     "terra. Onde comem vermes no",
-     "útero da morte."
+     "E dentro dessa carne existe terra.",
+     "Onde comem vermes no útero da morte."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.3455,
-    "to": 0.6691,
-    "seconds": 7.0,
+    "from": 0.3579,
+    "to": 0.6573,
+    "seconds": 9.0,
     "lines": [
      "Fazem lama onde afundo. É meu",
      "ecossistema."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.6691,
+    "from": 0.6573,
     "to": 1.0,
-    "seconds": 7.2,
+    "seconds": 10.3,
     "lines": [
      "Uma sombra líquida que se",
      "infiltra no solo e não deixa",
      "nada crescer."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -304,7 +313,7 @@
    "swarm": 0.8,
    "press": 0.4
   },
-  "seconds": 21.6
+  "seconds": 30.1
  },
  {
   "id": "I-5",
@@ -314,53 +323,56 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.25,
-    "seconds": 7.8,
+    "to": 0.2626,
+    "seconds": 11.2,
     "lines": [
-     "E quando minha garganta vibra",
-     "no vácuo como a corda de um",
-     "violão satânico."
+     "E quando minha garganta vibra no vácuo",
+     "como a corda de um violão satânico."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.25,
-    "to": 0.5507,
-    "seconds": 9.4,
+    "from": 0.2626,
+    "to": 0.5784,
+    "seconds": 13.5,
     "lines": [
      "Me perseguem palavras que nunca",
-     "poderei dizer. Algo está a se",
-     "perder. A ficar mais longe."
+     "poderei dizer. Algo está a se perder.",
+     "A ficar mais longe."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.5507,
-    "to": 0.7753,
-    "seconds": 7.0,
+    "from": 0.5784,
+    "to": 0.7892,
+    "seconds": 9.0,
     "lines": [
      "E a amnésia me seduz, me deixa",
      "sonolento."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.7753,
+    "from": 0.7892,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Faz meus olhos se fecharem",
      "dentro de mim."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -378,7 +390,7 @@
    "stretch": 0.6,
    "cold": 0.3
   },
-  "seconds": 31.2
+  "seconds": 42.7
  },
  {
   "id": "II-1",
@@ -389,11 +401,12 @@
     "id": "b1",
     "from": 0.0,
     "to": 0.3333,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Fui expulso do meu corpo. De",
      "onde eu chupo a vida."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -402,11 +415,12 @@
     "id": "b2",
     "from": 0.3333,
     "to": 0.6667,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
-     "Suicidando o homem pelo menino.",
-     "Abandono a verdade."
+     "Suicidando o homem pelo",
+     "menino. Abandono a verdade."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -415,10 +429,11 @@
     "id": "b3",
     "from": 0.6667,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Abandono-me."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -435,7 +450,7 @@
    "erase": 0.6,
    "tilt": 0.3
   },
-  "seconds": 21.0
+  "seconds": 27.0
  },
  {
   "id": "II-2",
@@ -445,82 +460,86 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.173,
-    "seconds": 8.4,
+    "to": 0.1813,
+    "seconds": 12.1,
     "lines": [
-     "Passo os dias preso no meu",
-     "quarto. vendo minha carne se",
-     "misturar com as paredes."
+     "Passo os dias preso no meu quarto.",
+     "vendo minha carne se misturar com as",
+     "paredes."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.173,
-    "to": 0.3168,
-    "seconds": 7.0,
+    "from": 0.1813,
+    "to": 0.316,
+    "seconds": 9.0,
     "lines": [
      "Lágrimas escorrem da tinta",
      "descascada."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.3168,
-    "to": 0.4605,
-    "seconds": 7.0,
+    "from": 0.316,
+    "to": 0.4506,
+    "seconds": 9.0,
     "lines": [
      "Não existe fora. Só existe",
      "fome. Numa escuridão",
      "esverdeada."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.4605,
-    "to": 0.6508,
-    "seconds": 9.3,
+    "from": 0.4506,
+    "to": 0.65,
+    "seconds": 13.3,
     "lines": [
-     "E as hienas, crocodilos e",
-     "urubus comem ali. Mas meu",
-     "sangue já secou. Mesmo assim",
-     "mordem."
+     "E as hienas, crocodilos e urubus comem",
+     "ali. Mas meu sangue já secou. Mesmo",
+     "assim mordem."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b5",
-    "from": 0.6508,
-    "to": 0.8562,
-    "seconds": 10.0,
+    "from": 0.65,
+    "to": 0.8654,
+    "seconds": 14.4,
     "lines": [
-     "Cortam as fibras para não",
-     "esquecer. Cravando os caninos",
-     "até que morram eles, até se",
-     "esquecerem."
+     "Cortam as fibras para não esquecer.",
+     "Cravando os caninos até que morram",
+     "eles, até se esquecerem."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b6",
-    "from": 0.8562,
+    "from": 0.8654,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "A fome vai vencer."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -540,7 +559,7 @@
    "swarm": 0.8,
    "erase": 0.4
   },
-  "seconds": 48.7
+  "seconds": 66.8
  },
  {
   "id": "II-3",
@@ -550,45 +569,45 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.5903,
-    "seconds": 22.5,
+    "to": 0.6021,
+    "seconds": 32.4,
     "lines": [
-     "Embaixo do cobertor por duas",
-     "eternidades. Acordo sem",
-     "levantar. Crucificado no leito.",
-     "Não há céu. Há somente o",
-     "inferno alto. A cama abre a",
-     "boca, e o travesseiro morde.",
-     "Fura meu crânio que escorre um",
-     "líquido insosso."
+     "Embaixo do cobertor por duas eternidades.",
+     "Acordo sem levantar. Crucificado no leito. Não",
+     "há céu. Há somente o inferno alto. A cama abre",
+     "a boca, e o travesseiro morde. Fura meu crânio",
+     "que escorre um líquido insosso."
     ],
+    "width": 48,
     "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.5903,
-    "to": 0.8166,
-    "seconds": 8.6,
+    "from": 0.6021,
+    "to": 0.8329,
+    "seconds": 12.4,
     "lines": [
      "Todas as vértebras, vísceras e",
-     "costelas são um acúmulo de",
-     "peças que não funcionam."
+     "costelas são um acúmulo de peças que",
+     "não funcionam."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.8166,
+    "from": 0.8329,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "E meu coração não bate, ele",
      "tosse."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -605,7 +624,7 @@
    "press": 0.7,
    "sink": 0.5
   },
-  "seconds": 38.2
+  "seconds": 53.8
  },
  {
   "id": "II-4",
@@ -615,128 +634,133 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.0885,
-    "seconds": 7.8,
+    "to": 0.0905,
+    "seconds": 11.2,
     "lines": [
-     "A baba se acumula, envenenando",
-     "toda a calma que só os",
-     "solitários conhecem."
+     "A baba se acumula, envenenando toda a",
+     "calma que só os solitários conhecem."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.0885,
-    "to": 0.2141,
-    "seconds": 11.1,
+    "from": 0.0905,
+    "to": 0.2189,
+    "seconds": 15.9,
     "lines": [
-     "A doença que contraí no útero",
-     "não tem remédio, mas a cada dia",
-     "que passa eu caminho em direção",
-     "a uma cura."
+     "A doença que contraí no útero não tem",
+     "remédio, mas a cada dia que passa eu",
+     "caminho em direção a uma cura."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.2141,
-    "to": 0.2937,
-    "seconds": 7.0,
+    "from": 0.2189,
+    "to": 0.2971,
+    "seconds": 9.7,
     "lines": [
      "Deixo a sombra andar na minha",
      "frente. Os pés namorarem o",
      "escuro."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.2937,
-    "to": 0.4384,
-    "seconds": 12.7,
+    "from": 0.2971,
+    "to": 0.4451,
+    "seconds": 18.3,
     "lines": [
-     "E nessa encruzilhada, encontro",
-     "Satan no meio da estrada tendo",
-     "perdido seu caminho. Caminhamos",
-     "de mãos dadas, rumo à cura."
+     "E nessa encruzilhada, encontro Satan",
+     "no meio da estrada tendo perdido seu",
+     "caminho. Caminhamos de mãos dadas,",
+     "rumo à cura."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b5",
-    "from": 0.4384,
-    "to": 0.5532,
-    "seconds": 10.1,
+    "from": 0.4451,
+    "to": 0.5625,
+    "seconds": 14.5,
     "lines": [
-     "O caixão é a minha cama. É a",
-     "cruz que hesito em chamar de",
-     "minha. Mas me deito de braços",
-     "abertos."
+     "O caixão é a minha cama. É a cruz que",
+     "hesito em chamar de minha. Mas me",
+     "deito de braços abertos."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b6",
-    "from": 0.5532,
-    "to": 0.7614,
-    "seconds": 18.3,
+    "from": 0.5625,
+    "to": 0.7753,
+    "seconds": 26.4,
     "lines": [
-     "Uma fresta vem enganar a luz.",
-     "Ela refrata de longe numa",
-     "imensidão sombria como uma",
-     "garotinha tímida. Arranha",
-     "entranhas da madeira! tenta!",
-     "Mas estou tão sedento que bebo",
+     "Uma fresta vem enganar a luz. Ela refrata de",
+     "longe numa imensidão sombria como uma",
+     "garotinha tímida. Arranha entranhas da",
+     "madeira! tenta! Mas estou tão sedento que bebo",
      "sede."
     ],
+    "width": 48,
     "x": -3.45,
     "y": 1.85,
     "anchor": "left"
    },
    {
     "id": "b7",
-    "from": 0.7614,
-    "to": 0.8409,
-    "seconds": 7.0,
+    "from": 0.7753,
+    "to": 0.8479,
+    "seconds": 9.0,
     "lines": [
      "Sede é minha água."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b8",
-    "from": 0.8409,
-    "to": 0.9205,
-    "seconds": 7.0,
+    "from": 0.8479,
+    "to": 0.9274,
+    "seconds": 9.8,
     "lines": [
      "A cabeça tenta subir, o corpo",
      "não deixa. Rasgam a matéria",
      "escura."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b9",
-    "from": 0.9205,
+    "from": 0.9274,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
-     "Metade é morte, a outra também."
+     "Metade é morte, a outra",
+     "também."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -760,7 +784,7 @@
    "cold": 0.5,
    "double": 0.4
   },
-  "seconds": 88.0
+  "seconds": 123.9
  },
  {
   "id": "III-1",
@@ -771,18 +795,16 @@
     "id": "b1",
     "from": 0.0,
     "to": 1.0,
-    "seconds": 18.8,
+    "seconds": 27.1,
     "lines": [
-     "Estou escorrendo. Escorrendo de",
-     "mim. Eu não sou coisa humana.",
-     "Sou um caldo. Um caldo ralo.",
-     "Dois. Nenhum. Sovado de uma",
-     "substância minha, mas",
-     "desconhecida. Infiltrando a mim",
-     "mesmo."
+     "Estou escorrendo. Escorrendo de mim. Eu não",
+     "sou coisa humana. Sou um caldo. Um caldo ralo.",
+     "Dois. Nenhum. Sovado de uma substância minha,",
+     "mas desconhecida. Infiltrando a mim mesmo."
     ],
+    "width": 48,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    }
   ],
@@ -794,7 +816,7 @@
    "sink": 1.0,
    "erase": 0.8
   },
-  "seconds": 18.8
+  "seconds": 27.1
  },
  {
   "id": "III-2",
@@ -804,43 +826,43 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.2944,
-    "seconds": 10.2,
+    "to": 0.3009,
+    "seconds": 14.7,
     "lines": [
-     "Cavo para caber, ao som de",
-     "passos do mundo superior.",
-     "Seguem alguma coisa que eu não",
-     "posso seguir."
+     "Cavo para caber, ao som de passos do",
+     "mundo superior. Seguem alguma coisa",
+     "que eu não posso seguir."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.2944,
-    "to": 0.7982,
-    "seconds": 17.5,
+    "from": 0.3009,
+    "to": 0.8158,
+    "seconds": 25.2,
     "lines": [
-     "E quando o som das pegadas vai",
-     "adormecendo. Eu tenho medo de",
-     "fechar os olhos. Aqui onde",
-     "estrelas morrem, e o espaço se",
-     "estica. A luz é mole. É o",
-     "retrato de um buraco."
+     "E quando o som das pegadas vai adormecendo. Eu",
+     "tenho medo de fechar os olhos. Aqui onde",
+     "estrelas morrem, e o espaço se estica. A luz é",
+     "mole. É o retrato de um buraco."
     ],
+    "width": 48,
     "x": -3.45,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.7982,
+    "from": 0.8158,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "E nada toca nada."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -857,7 +879,7 @@
    "cold": 0.8,
    "swarm": 0.4
   },
-  "seconds": 34.7
+  "seconds": 48.8
  },
  {
   "id": "III-3",
@@ -867,26 +889,29 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.5611,
-    "seconds": 8.9,
+    "to": 0.5886,
+    "seconds": 12.9,
     "lines": [
-     "E já não sou eu quem age. Vivo",
-     "dentro de uma idéia. Uma",
-     "costura no lóbulo do cadáver."
+     "E já não sou eu quem age. Vivo dentro",
+     "de uma idéia. Uma costura no lóbulo do",
+     "cadáver."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.5611,
+    "from": 0.5886,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
-     "Essa sutura é a única coisa que",
-     "me prende ao legítimo dono."
+     "Essa sutura é a única coisa",
+     "que me prende ao legítimo",
+     "dono."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -902,7 +927,7 @@
    "double": 0.6,
    "stretch": 0.4
   },
-  "seconds": 15.9
+  "seconds": 21.9
  },
  {
   "id": "IV-1",
@@ -912,72 +937,72 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.4783,
-    "seconds": 29.6,
+    "to": 0.4963,
+    "seconds": 42.6,
     "lines": [
-     "E quando a terra pulsa.",
-     "Engolindo saudade fina. Sinto",
-     "saudade de ter saudade. Mas a",
-     "memória é branca. É estranha.",
-     "Emprestada de um outro do qual",
-     "tenho medo. A lembrança vem de",
-     "madrugada enquanto meus cabelos",
-     "se fundem aos fios do colchão,",
-     "e geme perto de mim como um",
-     "animal no cio."
+     "E quando a terra pulsa. Engolindo saudade fina. Sinto",
+     "saudade de ter saudade. Mas a memória é branca. É",
+     "estranha. Emprestada de um outro do qual tenho medo. A",
+     "lembrança vem de madrugada enquanto meus cabelos se",
+     "fundem aos fios do colchão, e geme perto de mim como",
+     "um animal no cio."
     ],
+    "width": 56,
     "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.4783,
-    "to": 0.6604,
-    "seconds": 11.3,
+    "from": 0.4963,
+    "to": 0.6853,
+    "seconds": 16.2,
     "lines": [
-     "Enquanto ele dorme, eu posso",
-     "enxergar o escuro. E tentar",
-     "alcançar alguma coisa que",
-     "estava vindo lentamente."
+     "Enquanto ele dorme, eu posso enxergar",
+     "o escuro. E tentar alcançar alguma",
+     "coisa que estava vindo lentamente."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.6604,
-    "to": 0.7736,
-    "seconds": 7.0,
+    "from": 0.6853,
+    "to": 0.7902,
+    "seconds": 9.0,
     "lines": [
      "Mas ele acorda, antes de eu",
      "chegar. E não enxergo mais."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.7736,
-    "to": 0.8868,
-    "seconds": 7.0,
+    "from": 0.7902,
+    "to": 0.8951,
+    "seconds": 9.0,
     "lines": [
      "Não vejo nada."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b5",
-    "from": 0.8868,
+    "from": 0.8951,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Nem mesmo nada."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -996,7 +1021,7 @@
    "cold": 0.5,
    "stretch": 0.4
   },
-  "seconds": 61.8
+  "seconds": 85.8
  },
  {
   "id": "IV-2",
@@ -1006,26 +1031,27 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.5908,
-    "seconds": 10.1,
+    "to": 0.6178,
+    "seconds": 14.5,
     "lines": [
-     "O vício em oxigênio me deixa",
-     "sem ar. A brisa morta que",
-     "engulo seco, faz do vento",
-     "parado, grosso."
+     "O vício em oxigênio me deixa sem ar. A",
+     "brisa morta que engulo seco, faz do",
+     "vento parado, grosso."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.5908,
+    "from": 0.6178,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Um veneno translúcido."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -1041,7 +1067,7 @@
    "cold": 0.7,
    "swarm": 0.3
   },
-  "seconds": 17.1
+  "seconds": 23.5
  },
  {
   "id": "IV-3",
@@ -1052,13 +1078,13 @@
     "id": "b1",
     "from": 0.0,
     "to": 0.1659,
-    "seconds": 11.6,
+    "seconds": 16.7,
     "lines": [
-     "E dessa vez acaricio dedos",
-     "encharcados de delírio. Delírio",
-     "chupa minha alma. Posso secar,",
-     "parar a infiltração."
+     "E dessa vez acaricio dedos encharcados",
+     "de delírio. Delírio chupa minha alma.",
+     "Posso secar, parar a infiltração."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -1067,39 +1093,33 @@
     "id": "b2",
     "from": 0.1659,
     "to": 0.4359,
-    "seconds": 18.8,
+    "seconds": 27.1,
     "lines": [
-     "Mordo lábios cheios de trapaça.",
-     "Dreno a baba com um beijo no",
-     "meu rosto. Até nada mais fazer",
-     "palavra. O delírio fez do nada,",
-     "um algo. E como é gostosa a",
-     "carne macia de um fantasma."
+     "Mordo lábios cheios de trapaça. Dreno a baba",
+     "com um beijo no meu rosto. Até nada mais fazer",
+     "palavra. O delírio fez do nada, um algo. E",
+     "como é gostosa a carne macia de um fantasma."
     ],
+    "width": 48,
     "x": -3.45,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
     "from": 0.4359,
     "to": 1.0,
-    "seconds": 39.4,
+    "seconds": 56.7,
     "lines": [
-     "Mas minha fome não sacia.",
-     "Deforma meu cérebro. Enverga",
-     "meus nervos. Me faz comer os",
-     "restos de um inseto. Ele caiu",
-     "na minha boca enquanto dormia.",
-     "Mergulhou num escuro profundo.",
-     "Suas larvas vão morrer em",
-     "breve. Que culpa sentiria? Mas",
-     "sinto. Diante do podre absoluto",
-     "não consigo não sentir. Comi um",
-     "inseto. Esmaguei entre os",
-     "dentes, engoli sua gosma, e",
-     "finalmente senti sabor."
+     "Mas minha fome não sacia. Deforma meu cérebro. Enverga",
+     "meus nervos. Me faz comer os restos de um inseto. Ele",
+     "caiu na minha boca enquanto dormia. Mergulhou num",
+     "escuro profundo. Suas larvas vão morrer em breve. Que",
+     "culpa sentiria? Mas sinto. Diante do podre absoluto",
+     "não consigo não sentir. Comi um inseto. Esmaguei entre",
+     "os dentes, engoli sua gosma, e finalmente senti sabor."
     ],
+    "width": 56,
     "x": 0.3,
     "y": 1.85,
     "anchor": "left"
@@ -1116,7 +1136,7 @@
    "pulse": 0.6,
    "tilt": 0.4
   },
-  "seconds": 69.8
+  "seconds": 100.5
  },
  {
   "id": "IV-4",
@@ -1126,38 +1146,34 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.8679,
-    "seconds": 46.0,
+    "to": 0.8803,
+    "seconds": 66.2,
     "lines": [
-     "E hoje me apaixono pela feiura.",
-     "Nunca entendi por que os outros",
-     "tem tanto medo dela. A feiura",
-     "não é feia. Se amar fosse",
-     "bonito, bonito seria feio. Amar",
-     "algo é grotesco. É belo. Na",
-     "feiura é que encontro amor. E",
-     "eu não tenho medo. Tenho",
-     "paixão. Numa imensidão de",
-     "horror. Eu amo ser horrível.",
-     "Sorrio com dentes amarelos, e",
-     "bebo de uma fonte suja. Bebo",
-     "feio. E mesmo que ninguém me",
-     "ame, eu escolho a feiura. Uma",
-     "coisa feia mas que reconheço."
+     "E hoje me apaixono pela feiura. Nunca entendi por que",
+     "os outros tem tanto medo dela. A feiura não é feia. Se",
+     "amar fosse bonito, bonito seria feio. Amar algo é",
+     "grotesco. É belo. Na feiura é que encontro amor. E eu",
+     "não tenho medo. Tenho paixão. Numa imensidão de",
+     "horror. Eu amo ser horrível. Sorrio com dentes",
+     "amarelos, e bebo de uma fonte suja. Bebo feio. E mesmo",
+     "que ninguém me ame, eu escolho a feiura. Uma coisa",
+     "feia mas que reconheço."
     ],
+    "width": 56,
     "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.8679,
+    "from": 0.8803,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
-     "Há algo de divino no feio. Como",
-     "um escuro nítido."
+     "Há algo de divino no feio.",
+     "Como um escuro nítido."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -1172,7 +1188,7 @@
    "pulse": 0.8,
    "erase": 0.3
   },
-  "seconds": 53.0
+  "seconds": 75.2
  },
  {
   "id": "IV-5",
@@ -1183,17 +1199,16 @@
     "id": "b1",
     "from": 0.0,
     "to": 1.0,
-    "seconds": 15.1,
+    "seconds": 21.7,
     "lines": [
-     "E tudo que era novo, ficou um",
-     "pouco menos novo. Tenho medo",
-     "que não sobre mais nada",
-     "recente. Que eu me torne o",
-     "passado estéril de pais e",
-     "filhos."
+     "E tudo que era novo, ficou um pouco",
+     "menos novo. Tenho medo que não sobre",
+     "mais nada recente. Que eu me torne o",
+     "passado estéril de pais e filhos."
     ],
+    "width": 40,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    }
   ],
@@ -1206,7 +1221,7 @@
    "stretch": 0.5,
    "cold": 0.4
   },
-  "seconds": 15.1
+  "seconds": 21.7
  },
  {
   "id": "V-1",
@@ -1216,116 +1231,120 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.1011,
-    "seconds": 8.3,
+    "to": 0.1018,
+    "seconds": 12.0,
     "lines": [
-     "Mas um sonho lúcido também",
-     "acaba. E um dia a fricção do ar",
-     "esquentou meu rosto."
+     "Mas um sonho lúcido também acaba. E um",
+     "dia a fricção do ar esquentou meu",
+     "rosto."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.1011,
-    "to": 0.2022,
-    "seconds": 8.3,
+    "from": 0.1018,
+    "to": 0.2036,
+    "seconds": 12.0,
     "lines": [
-     "Pela primeira vez minha testa",
-     "esfregou o asfalto que antes só",
-     "meus pés tocavam."
+     "Pela primeira vez minha testa esfregou",
+     "o asfalto que antes só meus pés",
+     "tocavam."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.2022,
-    "to": 0.2873,
-    "seconds": 7.0,
+    "from": 0.2036,
+    "to": 0.2822,
+    "seconds": 9.2,
     "lines": [
      "Antes eu não sangrava. Nem uma",
      "gota. Mas tudo mudou com você."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.2873,
-    "to": 0.4626,
-    "seconds": 14.4,
+    "from": 0.2822,
+    "to": 0.4588,
+    "seconds": 20.8,
     "lines": [
-     "Socava farelos do meu espírito.",
-     "De massa desnutrida. Na boca da",
-     "minha irmã parasita. Jantávamos",
-     "no útero seco, encharcados de",
-     "corrimento."
+     "Socava farelos do meu espírito. De",
+     "massa desnutrida. Na boca da minha",
+     "irmã parasita. Jantávamos no útero",
+     "seco, encharcados de corrimento."
     ],
+    "width": 40,
     "x": -3.45,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b5",
-    "from": 0.4626,
-    "to": 0.6353,
-    "seconds": 14.2,
+    "from": 0.4588,
+    "to": 0.6327,
+    "seconds": 20.5,
     "lines": [
      "Quando cortei meu braço e te",
      "entreguei. Você inseriu a carne",
-     "decepada entre suas coxas. Para",
-     "cada dedo meu assumir uma",
-     "extremidade sua."
+     "decepada entre suas coxas. Para cada",
+     "dedo meu assumir uma extremidade sua."
     ],
+    "width": 40,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b6",
-    "from": 0.6353,
-    "to": 0.7402,
-    "seconds": 8.6,
+    "from": 0.6327,
+    "to": 0.7384,
+    "seconds": 12.4,
     "lines": [
-     "E arrancou um sussurro do meu",
-     "ouvido, como se nunca tivesse",
-     "saído da sua garganta:"
+     "E arrancou um sussurro do meu ouvido,",
+     "como se nunca tivesse saído da sua",
+     "garganta:"
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b7",
-    "from": 0.7402,
-    "to": 0.8746,
-    "seconds": 11.1,
+    "from": 0.7384,
+    "to": 0.8737,
+    "seconds": 15.9,
     "lines": [
-     "\"Hoje a noite eu quero que",
-     "rasteje no quarto, até a minha",
-     "cama, e se enrole na minha pele",
-     "como um lençol."
+     "\"Hoje a noite eu quero que rasteje no",
+     "quarto, até a minha cama, e se enrole",
+     "na minha pele como um lençol."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b8",
-    "from": 0.8746,
+    "from": 0.8737,
     "to": 1.0,
-    "seconds": 10.3,
+    "seconds": 14.8,
     "lines": [
      "E então, irmãozinho, eu vou te",
-     "amamentar como um bebê de",
-     "sangue, e deixar que morda até",
-     "engasgar.\""
+     "amamentar como um bebê de sangue, e",
+     "deixar que morda até engasgar.\""
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -1347,7 +1366,7 @@
    "pulse": 0.8,
    "afterimage": 0.4
   },
-  "seconds": 82.3
+  "seconds": 117.6
  },
  {
   "id": "V-2",
@@ -1357,68 +1376,71 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.3843,
-    "seconds": 17.5,
+    "to": 0.4107,
+    "seconds": 25.2,
     "lines": [
-     "Só você foi capaz de aliviar a",
-     "coroa que me esmagava. Logo eu,",
-     "que mordia só para gastar os",
-     "dentes, esfreguei a língua",
-     "entre os seus molares, viciado",
-     "na gosma branca."
+     "Só você foi capaz de aliviar a coroa que me",
+     "esmagava. Logo eu, que mordia só para gastar",
+     "os dentes, esfreguei a língua entre os seus",
+     "molares, viciado na gosma branca."
     ],
+    "width": 48,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.3843,
-    "to": 0.5382,
-    "seconds": 7.0,
+    "from": 0.4107,
+    "to": 0.5591,
+    "seconds": 9.1,
     "lines": [
      "E mesmo que algo se perdesse.",
      "Eu encontrava. Você encontrou."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.5382,
-    "to": 0.6921,
-    "seconds": 7.0,
+    "from": 0.5591,
+    "to": 0.7061,
+    "seconds": 9.0,
     "lines": [
      "Entendi como uma alma se",
      "estica."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.6921,
-    "to": 0.8461,
-    "seconds": 7.0,
+    "from": 0.7061,
+    "to": 0.853,
+    "seconds": 9.0,
     "lines": [
      "E todo o mundo vai morrer sem",
      "descobrir o que é me amar."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b5",
-    "from": 0.8461,
+    "from": 0.853,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Menos você, que comeu essa",
      "carne estranha."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -1436,7 +1458,7 @@
    "pulse": 1.0,
    "double": 0.7
   },
-  "seconds": 45.5
+  "seconds": 61.2
  },
  {
   "id": "V-3",
@@ -1447,30 +1469,29 @@
     "id": "b1",
     "from": 0.0,
     "to": 0.5043,
-    "seconds": 18.5,
+    "seconds": 26.7,
     "lines": [
-     "Mas cantamos nossa língua",
-     "morta, que herdamos de silêncio",
-     "ancestral. Cordas feriram a",
-     "madeira estéril, e nossos calos",
-     "fundiram carne viva com",
-     "palavras loucas, num coro",
-     "canibal."
+     "Mas cantamos nossa língua morta, que herdamos",
+     "de silêncio ancestral. Cordas feriram a",
+     "madeira estéril, e nossos calos fundiram carne",
+     "viva com palavras loucas, num coro canibal."
     ],
+    "width": 48,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
     "from": 0.5043,
     "to": 0.7564,
-    "seconds": 9.3,
+    "seconds": 13.3,
     "lines": [
      "Onde terminava o violino? Onde",
-     "começava o piano? Compomos a",
-     "partitura de nossa extinção."
+     "começava o piano? Compomos a partitura",
+     "de nossa extinção."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -1479,12 +1500,13 @@
     "id": "b3",
     "from": 0.7564,
     "to": 1.0,
-    "seconds": 8.9,
+    "seconds": 12.9,
     "lines": [
-     "E só pudemos nos curvar de mãos",
-     "dadas para uma cortina",
-     "decapitar, e a Morte aplaudir."
+     "E só pudemos nos curvar de mãos dadas",
+     "para uma cortina decapitar, e a Morte",
+     "aplaudir."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -1501,7 +1523,7 @@
    "afterimage": 0.7,
    "tilt": 0.5
   },
-  "seconds": 36.7
+  "seconds": 52.9
  },
  {
   "id": "V-4",
@@ -1511,29 +1533,29 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.7542,
-    "seconds": 21.5,
+    "to": 0.7745,
+    "seconds": 30.9,
     "lines": [
-     "Um dia as flores murcharam no",
-     "túmulo. A grama pisada virou",
-     "lodo e nem a pegada se pôde",
-     "ver. A lápide foi engolida. E",
-     "gotas apagaram o epitáfio de",
-     "uma promessa. Da mentira que",
+     "Um dia as flores murcharam no túmulo. A grama",
+     "pisada virou lodo e nem a pegada se pôde ver.",
+     "A lápide foi engolida. E gotas apagaram o",
+     "epitáfio de uma promessa. Da mentira que",
      "disseram para o solo salgado."
     ],
+    "width": 48,
     "x": 0.3,
     "y": 1.85,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.7542,
+    "from": 0.7745,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Dois buracos não se enchem."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -1549,7 +1571,7 @@
    "cold": 0.8,
    "erase": 0.5
   },
-  "seconds": 28.5
+  "seconds": 39.9
  },
  {
   "id": "VI-1",
@@ -1559,68 +1581,71 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.1656,
-    "seconds": 7.0,
+    "to": 0.1562,
+    "seconds": 9.0,
     "lines": [
      "De um tempo grávido de prazer,",
      "nasceu uma gema mole."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.1656,
-    "to": 0.3313,
-    "seconds": 7.0,
+    "from": 0.1562,
+    "to": 0.3125,
+    "seconds": 9.0,
     "lines": [
      "Como pode o peso de nada ser",
      "tão difícil de carregar?"
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.3313,
-    "to": 0.655,
-    "seconds": 13.7,
+    "from": 0.3125,
+    "to": 0.6544,
+    "seconds": 19.7,
     "lines": [
-     "E esse peso lentamente se",
-     "espalhou por todo meu corpo,",
-     "como se eu tivesse deitado",
-     "errado. E mesmo o silêncio,",
+     "E esse peso lentamente se espalhou por",
+     "todo meu corpo, como se eu tivesse",
+     "deitado errado. E mesmo o silêncio,",
      "pareceu mais calado."
     ],
+    "width": 40,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.655,
-    "to": 0.8344,
-    "seconds": 7.6,
+    "from": 0.6544,
+    "to": 0.8438,
+    "seconds": 10.9,
     "lines": [
-     "Se eu abrisse meu peito, ainda",
-     "veria você ali. Mas a veria",
-     "escorregando."
+     "Se eu abrisse meu peito, ainda veria",
+     "você ali. Mas a veria escorregando."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b5",
-    "from": 0.8344,
+    "from": 0.8438,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
-     "Agora meu rosto está frio. Você",
-     "foi."
+     "Agora meu rosto está frio.",
+     "Você foi."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
@@ -1639,7 +1664,7 @@
    "pulse": 0.5,
    "cold": 0.6
   },
-  "seconds": 42.3
+  "seconds": 57.6
  },
  {
   "id": "VI-2",
@@ -1649,87 +1674,88 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.1451,
-    "seconds": 9.2,
+    "to": 0.1469,
+    "seconds": 13.2,
     "lines": [
-     "E eu não tenho solidão. Eu sou",
-     "a solidão. Somos uma só carne.",
-     "Aonde vou, ela me espera."
+     "E eu não tenho solidão. Eu sou a",
+     "solidão. Somos uma só carne. Aonde",
+     "vou, ela me espera."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.1451,
-    "to": 0.4053,
-    "seconds": 16.4,
+    "from": 0.1469,
+    "to": 0.4102,
+    "seconds": 23.6,
     "lines": [
-     "Quando durmo, me enrola em",
-     "dedos gelados. Quando acordo,",
-     "lembra o que queria esquecer.",
-     "Mesmo no meio deles, a noiva",
-     "que ficou, me veste como um véu",
-     "molhado."
+     "Quando durmo, me enrola em dedos gelados.",
+     "Quando acordo, lembra o que queria esquecer.",
+     "Mesmo no meio deles, a noiva que ficou, me",
+     "veste como um véu molhado."
     ],
+    "width": 48,
     "x": -3.45,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.4053,
-    "to": 0.6072,
-    "seconds": 12.7,
+    "from": 0.4102,
+    "to": 0.6144,
+    "seconds": 18.3,
     "lines": [
-     "A morte canta na nossa",
-     "cerimônia. Danço nas cinzas de",
-     "uma estrela. Até meus pés",
-     "sangrarem — Eu não paro, não",
+     "A morte canta na nossa cerimônia.",
+     "Danço nas cinzas de uma estrela. Até",
+     "meus pés sangrarem — Eu não paro, não",
      "posso parar."
     ],
+    "width": 40,
     "x": 0.3,
-    "y": 1.85,
+    "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.6072,
-    "to": 0.7706,
-    "seconds": 10.3,
+    "from": 0.6144,
+    "to": 0.7799,
+    "seconds": 14.8,
     "lines": [
-     "Me apaixono pelo luto. E meu",
-     "amor disseca o cadáver de um",
-     "fantasma. Se banha em líquido",
-     "ancestral."
+     "Me apaixono pelo luto. E meu amor",
+     "disseca o cadáver de um fantasma. Se",
+     "banha em líquido ancestral."
     ],
+    "width": 40,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b5",
-    "from": 0.7706,
-    "to": 0.8891,
-    "seconds": 7.5,
+    "from": 0.7799,
+    "to": 0.8997,
+    "seconds": 10.8,
     "lines": [
-     "Meus joelhos perfuram o chão,",
-     "tentam extrair a herança de uma",
-     "promessa."
+     "Meus joelhos perfuram o chão, tentam",
+     "extrair a herança de uma promessa."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b6",
-    "from": 0.8891,
+    "from": 0.8997,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Mas ainda danço."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -1749,7 +1775,7 @@
    "tilt": 0.7,
    "pulse": 0.6
   },
-  "seconds": 63.1
+  "seconds": 89.8
  },
  {
   "id": "VI-3",
@@ -1759,50 +1785,54 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.3085,
-    "seconds": 9.4,
+    "to": 0.3331,
+    "seconds": 13.5,
     "lines": [
-     "A dor é meu corpo estranho. Meu",
-     "lugar comum. Onde a luz sangra",
-     "na placenta de uma sombra."
+     "A dor é meu corpo estranho. Meu lugar",
+     "comum. Onde a luz sangra na placenta",
+     "de uma sombra."
     ],
+    "width": 40,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.3085,
-    "to": 0.539,
-    "seconds": 7.0,
+    "from": 0.3331,
+    "to": 0.5554,
+    "seconds": 9.0,
     "lines": [
      "Só escuro é espaço."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.539,
-    "to": 0.7695,
-    "seconds": 7.0,
+    "from": 0.5554,
+    "to": 0.7777,
+    "seconds": 9.0,
     "lines": [
-     "E já não consigo mais viver tão",
-     "longe do meu corpo."
+     "E já não consigo mais viver",
+     "tão longe do meu corpo."
     ],
+    "width": 32,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.7695,
+    "from": 0.7777,
     "to": 1.0,
-    "seconds": 7.0,
+    "seconds": 9.0,
     "lines": [
      "Me fiz."
     ],
+    "width": 32,
     "x": -3.45,
     "y": 1.55,
     "anchor": "left"
@@ -1820,6 +1850,6 @@
    "erase": 0.7,
    "pulse": 0.8
   },
-  "seconds": 30.4
+  "seconds": 40.5
  }
 ]
