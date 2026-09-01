@@ -261,12 +261,12 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
   background: radial-gradient(ellipse at 50% 48%, transparent 34%, var(--ink) 82%);
 }
 .title-lens {
-  perspective: 620px;
+  perspective: 1500px;
   perspective-origin: 50% 46%;
   will-change: filter;
   filter: blur(17px);              /* the resting state, so nothing flashes sharp */
 }
-.title-lens.run { animation: title-focus 17000ms both; }
+.title-lens.run { animation: title-focus 20000ms linear both; }
 .title-space {
   display: grid;
   place-items: center;
@@ -274,7 +274,7 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
   will-change: transform, opacity;
   opacity: 0;                      /* the words do not exist until they drift in */
 }
-.title-space.run { animation: title-approach 17000ms both; }
+.title-space.run { animation: title-approach 20000ms linear both; }
 .title-layer {
   grid-area: 1 / 1;
   margin: 0; white-space: nowrap;
@@ -286,30 +286,27 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
 
 /* Turned hard away from the reader and rolled over, the way the reference
    holds it — we are looking along the side walls of the letters, not at their
-   faces. It swings towards square as it drifts across the frame and passes,
-   and it is never allowed to come properly into focus. */
+   faces. It never arrives anywhere: the transform is one keyframe to one
+   keyframe with nothing in between, so there is no segment boundary for the
+   motion to slow into. Any easing here, even easing out into a second linear
+   run, stalls the word at the join and reads as a pause. Linear travel under
+   perspective also does the zoom the right way round on its own — the nearer
+   it gets the faster it grows, so the end opens up without being told to. */
 @keyframes title-approach {
-  0%   { transform: translate3d(-8%, 7%, -1400px) rotateZ(-27deg) rotateY(-66deg) rotateX(25deg);
-         opacity: 0;
-         animation-timing-function: cubic-bezier(.17,.63,.39,1); }
-  9%   { opacity: 1; }
-  /* the approach settles here, and then it keeps going: the easing above ends
-     at this keyframe rather than at the end of the animation, so the word does
-     not coast to a halt and switch off. From here it drifts on, still turning,
-     and fades while it is moving. */
-  74%  { transform: translate3d(6%, -4%, 372px) rotateZ(-5deg) rotateY(-17deg) rotateX(5deg);
-         opacity: 1;
-         animation-timing-function: linear; }
-  100% { transform: translate3d(13%, -10%, 476px) rotateZ(4deg) rotateY(3deg) rotateX(-6deg);
+  0%   { transform: translate3d(-9%, 8%, -3500px) rotateZ(-32deg) rotateY(-72deg) rotateX(28deg);
+         opacity: 0; }
+  8%   { opacity: 1; }
+  84%  { opacity: 1; }
+  100% { transform: translate3d(16%, -13%, 1010px) rotateZ(15deg) rotateY(34deg) rotateX(-20deg);
          opacity: 0; }
 }
 
 /* focus is the lens's job, not the stack's */
 @keyframes title-focus {
-  0%   { filter: blur(17px); animation-timing-function: cubic-bezier(.17,.63,.39,1); }
-  40%  { filter: blur(7px); }
-  74%  { filter: blur(3.2px); animation-timing-function: linear; }
-  100% { filter: blur(9px); }
+  0%   { filter: blur(18px); }
+  46%  { filter: blur(6px); }
+  78%  { filter: blur(3px); }
+  100% { filter: blur(10px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
