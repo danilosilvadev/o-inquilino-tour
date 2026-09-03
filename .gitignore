@@ -3,3 +3,6 @@ dist/
 tools/.venv/
 tools/poem.txt
 stills/
+
+# rendered films — large, and reproducible from the site
+video/

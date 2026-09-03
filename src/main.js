@@ -25,6 +25,8 @@ const firstPlate = stage.load().catch((e) => console.warn('[o inquilino] art:', 
 const scrub = new Scrubber({ wheelScale: 0.00009, touchScale: 0.0011, keyStep: 0.02, ease: 0.07 });
 let ctx = null, master = null, bed = null;
 let running = false, swapping = false, muted = false, playing = false, done = false;
+// the camera drives the clock itself; the live loop would overwrite its frames
+let rendering = false;
 let lastT = performance.now() / 1000;
 let t0 = performance.now();
 
@@ -316,13 +318,86 @@ window.addEventListener('resize', () => stage.resize());
 
 function frame() {
   requestAnimationFrame(frame);
-  step((performance.now() - t0) / 1000);
+  if (!rendering) step((performance.now() - t0) / 1000);
 }
 frame();
 
 if (params.has('auto')) {
   els.gate.classList.add('hidden');
   enter();
+}
+
+// ── rendering ─────────────────────────────────────────
+// Everything the piece does on a timer — the drift, the burn, the title, the
+// interludes — is driven off the wall clock, which is right for a reader and
+// useless for a camera: a dropped frame is a jump. This hands the clock over,
+// so a frame can be asked for at an exact moment and will be identical every
+// time it is asked for. Nothing here runs unless ?render is on.
+if (params.has('render')) {
+  rendering = true;
+  els.gate.classList.add('hidden');
+  document.body.classList.add('in');
+  const veil = (el, a) => {
+    el.classList.remove('hidden');
+    el.style.transition = 'none';
+    el.style.opacity = String(a);
+    el.style.pointerEvents = 'none';
+  };
+  window.RENDER = {
+    parts: parts.map((p) => ({ id: p.id, canto: p.canto, mark: p.mark, seconds: p.seconds })),
+
+    /** hide the reading furniture: a video has no scroll rail or play button */
+    chrome(on) { els.chrome.classList.toggle('hidden', !on); },
+
+    async part(i) {
+      if (stage) stage.dispose();
+      part = parts[i]; index = i;
+      stage = new Stage(els.stage, part);
+      await stage.load().catch((e) => console.warn('[render] art:', e.message));
+      paintHud();
+      document.title = `O Inquilino — ${part.canto} ${part.mark}`;
+      return { id: part.id, canto: part.canto, seconds: part.seconds };
+    },
+
+    /** one frame of a part: playhead at t, world clock at time */
+    frame(t, time) { stage.update(t, time); this._t = t; },
+
+    /** one frame of the plate burning away, the playhead held where it ended */
+    burn(k, time) {
+      stage.charcoal?.setErase(k);
+      stage.update(this._t ?? 1, time);
+    },
+
+    titleBuild() {
+      buildTitle();
+      els.intro.classList.remove('hidden');
+      els.intro.style.transition = 'none';
+      els.intro.style.opacity = '1';
+      els.titleSpace.classList.add('run');
+      els.titleLens.classList.add('run');
+      const a = els.titleSpace.getAnimations().find((x) => x.animationName === 'title-approach');
+      const b = els.titleLens.getAnimations().find((x) => x.animationName === 'title-focus');
+      a.pause(); b.pause();
+      this._title = [a, b];
+      return a.effect.getTiming().duration;
+    },
+    titleFrame(ms) { for (const a of this._title) a.currentTime = ms; },
+    titleHide() { els.intro.classList.add('hidden'); },
+
+    /** the canto card, driven by hand rather than by its transitions */
+    card(name, veilAlpha, nameAlpha) {
+      els.interludeName.textContent = name;
+      veil(els.interlude, veilAlpha);
+      const sp = els.interlude.querySelector('span');
+      sp.style.transition = 'none';
+      sp.style.opacity = String(nameAlpha * 0.5);
+      sp.style.transform = `scale(${(0.985 + 0.015 * nameAlpha).toFixed(4)})`;
+    },
+    cardHide() { els.interlude.style.opacity = '0'; },
+
+    end(alpha) { veil(els.end, alpha); },
+  };
+  console.log('[o inquilino] render mode');
 }
 
 if (params.has('debug')) {
