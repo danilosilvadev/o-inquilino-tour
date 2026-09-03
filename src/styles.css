@@ -314,3 +314,24 @@ body[data-font="bodoni"] .stanza    { font-size: clamp(1.05rem, 1.85vw, 1.65rem)
   .title-lens.run { animation: none; filter: blur(2px); }
   @keyframes title-fade { 0%,100% { opacity: 0 } 20%,72% { opacity: 1 } }
 }
+
+
+/* ── a tall frame ────────────────────────────────────── */
+/* The plate goes up top and fills the width; the words take the space it
+   leaves. Left where they are, they kept the desktop measure — the type
+   clamped to its floor and came out unreadable at arm's length. */
+@media (orientation: portrait) {
+  .stanza {
+    top: 68%;
+    left: 6vw;
+    right: 6vw;
+    max-width: none;
+    padding: 1.1rem 1.2rem;
+    font-size: clamp(1.35rem, 4.3vw, 2.7rem);
+    line-height: 1.5;
+  }
+  .stanza.right { left: 6vw; right: 6vw; }
+  .fim { font-size: clamp(3.4rem, 15vw, 9rem); }
+  .links a { font-size: 0.78rem; }
+  .interlude span { font-size: clamp(1.1rem, 3.4vw, 2rem); }
+}

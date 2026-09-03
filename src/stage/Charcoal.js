@@ -377,14 +377,24 @@ export class Charcoal {
     this.canvas.style.height = `${h}px`;
 
     if (!this.ready) return;
-    // full-bleed art fills the frame; a drawing on paper is let sit inside it
-    const k = this.cfg.fit === 'cover'
-      ? Math.max(this.canvas.width / this.img.width, this.canvas.height / this.img.height)
+    // A plate is close to 1.83:1. Covering a tall frame with one means scaling
+    // it until it fills the height, which throws away about two thirds of the
+    // width — the composition goes with it. In a portrait frame it fills the
+    // width instead — overscaled enough to have some presence in a tall frame,
+    // which costs about a quarter of the width rather than two thirds of it —
+    // and sits high, so the words have the room underneath and clear the strip
+    // along the bottom where a phone puts its own furniture.
+    const tall = this.canvas.width / this.canvas.height < 0.95;
+    const cover = this.cfg.fit === 'cover';
+    const k = cover
+      ? (tall
+        ? (this.canvas.width / this.img.width) * 1.4
+        : Math.max(this.canvas.width / this.img.width, this.canvas.height / this.img.height))
       : Math.min(this.canvas.width / this.img.width, this.canvas.height / this.img.height) * 0.86;
     this.dw = this.img.width * k;
     this.dh = this.img.height * k;
     this.dx = (this.canvas.width - this.dw) / 2;
-    this.dy = (this.canvas.height - this.dh) / 2;
+    this.dy = (this.canvas.height - this.dh) * (cover && tall ? 0.24 : 0.5);
 
     this.mask = document.createElement('canvas');
     this.mask.width = this.canvas.width;
