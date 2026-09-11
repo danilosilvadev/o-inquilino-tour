@@ -1185,30 +1185,30 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.1971,
-    "seconds": 16.6,
+    "to": 0.1954,
+    "seconds": 16.4,
     "lines": [
      "Y esta vez acaricio dedos empapados de",
      "delirio. Delirio chupa mi alma. Puedo",
-     "secarme, parar la infiltración."
+     "secar, parar la infiltración."
     ],
     "width": 40,
-    "fadeIn": 0.1083,
-    "burnOut": 0.3009,
+    "fadeIn": 0.1095,
+    "burnOut": 0.3042,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b2",
-    "from": 0.1971,
-    "to": 0.4794,
+    "from": 0.1954,
+    "to": 0.4783,
     "seconds": 23.8,
     "lines": [
      "Muerdo labios llenos de trampa. Dreno la baba",
      "con un beso en mi rostro. Hasta que nada más",
      "haga palabra. El delirio hizo de la nada, un",
-     "algo. Y qué rica es la carne blanda de un",
+     "algo. Y qué rica es la carne tierna de un",
      "fantasma."
     ],
     "width": 48,
@@ -1220,8 +1220,8 @@
    },
    {
     "id": "b3",
-    "from": 0.4794,
-    "to": 0.9644,
+    "from": 0.4783,
+    "to": 0.9643,
     "seconds": 40.9,
     "lines": [
      "Pero mi hambre no se sacia. Deforma mi cerebro. Dobla",
@@ -1252,7 +1252,7 @@
    "pulse": 0.6,
    "tilt": 0.4
   },
-  "seconds": 84.3
+  "seconds": 84.1
  },
  {
   "id": "IV-4",
@@ -1696,7 +1696,7 @@
     "seconds": 26.7,
     "lines": [
      "Un día las flores se marchitaron en la tumba.",
-     "La hierba pisada se volvió lodo y ni la pisada",
+     "La hierba pisada se volvió lodo y ni la huella",
      "se pudo ver. La lápida fue tragada. Y gotas",
      "borraron el epitafio de una promesa. De la",
      "mentira que le dijeron al suelo salado."

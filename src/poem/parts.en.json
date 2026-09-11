@@ -1200,39 +1200,39 @@
    {
     "id": "b2",
     "from": 0.196,
-    "to": 0.4913,
-    "seconds": 24.9,
+    "to": 0.4934,
+    "seconds": 25.1,
     "lines": [
      "I bite lips full of trickery. I drain the",
      "drool with a kiss on my face. Until nothing",
      "makes a word anymore. Delirium made, out of",
      "nothing, a something. And how delicious is the",
-     "soft flesh of a ghost."
+     "tender flesh of a ghost."
     ],
     "width": 48,
-    "fadeIn": 0.0723,
-    "burnOut": 0.2009,
+    "fadeIn": 0.0718,
+    "burnOut": 0.1994,
     "x": -3.45,
     "y": 1.85,
     "anchor": "left"
    },
    {
     "id": "b3",
-    "from": 0.4913,
+    "from": 0.4934,
     "to": 0.9644,
-    "seconds": 39.9,
+    "seconds": 39.7,
     "lines": [
      "But my hunger is not sated. It deforms my brain. Bends",
      "my nerves. Makes me eat the remains of an insect. It",
      "fell into my mouth while I slept. Dove into a deep",
      "dark. Its larvae will die soon. What guilt would I",
-     "feel? But I do. Before the absolute rot I cannot not",
-     "feel. I ate an insect. Crushed it between my teeth,",
-     "swallowed its slime, and at last there was taste."
+     "feel? But I do. Faced with the absolute rot I cannot",
+     "not feel. I ate an insect. Crushed it between my",
+     "teeth, swallowed its slime, and finally, I tasted."
     ],
     "width": 56,
-    "fadeIn": 0.0451,
-    "burnOut": 0.1253,
+    "fadeIn": 0.0453,
+    "burnOut": 0.1259,
     "x": 0.3,
     "y": 1.85,
     "anchor": "left"
