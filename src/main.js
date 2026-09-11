@@ -21,11 +21,11 @@ const els = {
 // ── the two tongues ───────────────────────────────────
 // The poem is Portuguese. The others are second readings of the same
 // paragraphs, laid on the same plates with the same moves; only the words and
-// the few things the interface says change. The title is the work's name and
-// stays as it is in all of them.
+// the few things the interface says change. The title stays the work's name
+// in the tab and on the gate; the one flown past the reader is in their tongue.
 const TONGUES = {
   pt: {
-    parts: partsPT,
+    parts: partsPT, title: 'O Inquilino',
     ask: 'Você está<br /><em>em seu corpo?</em>', yes: 'SIM', no: 'NÃO',
     replies: { sim: 'mentira. mas entra.', nao: 'nem eu. entra assim mesmo.' },
     sub: 'um poema atravessado', loading: 'carregando', scroll: 'role para atravessar',
@@ -33,7 +33,7 @@ const TONGUES = {
     rotate: 'vire o aparelho', rotateOr: 'ou toque para continuar assim',
   },
   en: {
-    parts: partsEN,
+    parts: partsEN, title: 'The Tenant',
     ask: 'Are you<br /><em>in your body?</em>', yes: 'YES', no: 'NO',
     replies: { sim: 'liar. but come in.', nao: 'neither am I. come in anyway.' },
     sub: 'a poem to cross', loading: 'loading', scroll: 'scroll to cross',
@@ -41,7 +41,7 @@ const TONGUES = {
     rotate: 'turn the device', rotateOr: 'or tap to go on like this',
   },
   es: {
-    parts: partsES,
+    parts: partsES, title: 'El Inquilino',
     ask: '¿Estás<br /><em>en tu cuerpo?</em>', yes: 'SÍ', no: 'NO',
     replies: { sim: 'mentira. pero entra.', nao: 'yo tampoco. entra igual.' },
     sub: 'un poema atravesado', loading: 'cargando', scroll: 'desliza para atravesar',
@@ -163,7 +163,7 @@ function buildTitle() {
     const k = depth / (LAYERS - 1);
     const d = document.createElement('div');
     d.className = 'title-layer';
-    d.textContent = 'O Inquilino';
+    d.textContent = T.title;
     // shallow on purpose: 11px a slab put 275px of depth on the stack, and up
     // close each slab projected at its own scale, so the word came apart into
     // ghosts of itself. A tight wall holds together at any distance.

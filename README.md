@@ -34,7 +34,8 @@ English and Spanish are second readings — `structure.en.json`, `structure.es.j
 — with the same paragraphs in the same places, so they take the same plates,
 moves and beats. `python3 tools/build-parts.py --lang en` writes
 `src/poem/parts.en.json`; the interface strings live in `TONGUES` in
-`src/main.js`. The title is the work's name and stays as it is in all three.
+`src/main.js`. The title flown past the reader is in their tongue — *The Tenant*,
+*El Inquilino*; the tab and the gate keep *O Inquilino*.
 
 ---
 
