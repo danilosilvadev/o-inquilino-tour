@@ -158,20 +158,22 @@ async function enter() {
   if (!params.has('still')) setPlaying(true);
 }
 
-// Each canto has its own piece. They are recordings of different things at
-// different levels with silence either side, so each carries where it really
-// starts and ends and a gain that brings it near the others (measured with
-// ffmpeg's ebur128, levelled to about -20 LUFS). Two cantos on the same piece
-// would hand over underneath it without a seam.
+// Each canto has its own piece, and the last part of the poem its own again.
+// They are recordings of different things at different levels with silence
+// either side, so each carries where it really starts and ends and a gain
+// that brings it near the others (measured with ffmpeg's ebur128, levelled to
+// about -20 LUFS). Parts on the same piece hand over underneath it.
 const BEDS = {
   'Canto I':   { file: 'audio/bed.mp3',       start: 0,   end: 476,   gain: 1.0,  name: 'Albinoni — Adagio' },
   'Canto II':  { file: 'audio/lacrimosa.mp3', start: 0,   end: 188,   gain: 0.67, name: 'Mozart — Lacrimosa' },
   'Canto III': { file: 'audio/marais.mp3',    start: 3,   end: 164.5, gain: 0.6,  name: 'Marais — Prélude en harpègement' },
   'Canto IV':  { file: 'audio/serenade.mp3',  start: 4.5, end: 368,   gain: 1.0,  name: 'Schubert — Ständchen' },
   'Canto V':   { file: 'audio/bed-2.mp3',     start: 4,   end: 244,   gain: 1.1,  name: 'Chopin — Noturno' },
-  'Canto VI':  { file: 'audio/ave-maria.mp3', start: 0,   end: 190,   gain: 0.73, name: 'Lorenc — Ave Maria' },
+  'Canto VI':  { file: 'audio/ave-maria-lobe.mp3', start: 1, end: 156, gain: 0.68, name: 'Javi Lobe — Ave Maria' },
+  // the last scene turns to the other Ave Maria, and it stays under Fim
+  'VI-3':      { file: 'audio/ave-maria.mp3', start: 0,   end: 190,   gain: 0.73, name: 'Lorenc — Ave Maria' },
 };
-const bedFor = (p) => BEDS[p.canto] || BEDS['Canto I'];
+const bedFor = (p) => BEDS[p.id] || BEDS[p.canto] || BEDS['Canto I'];
 const fetchBed = (piece) =>
   bed.load(piece.file, piece).catch((e) => console.warn('[o inquilino] music:', e.message));
 
@@ -226,13 +228,15 @@ async function goTo(i, { atEnd = false } = {}) {
   if (swapping || i < 0 || i >= parts.length) return;
   swapping = true; running = false;
   const crossing = parts[i] && parts[i].canto !== part.canto;
+  const turning = bedFor(parts[i]).file !== bedFor(part).file;
 
   // burn it back down rather than fading it out; a canto takes longer to go
   await stage.unform(crossing ? 4200 : 2800);
 
+  // the music turns as the picture goes — under the card, when there is one
+  if (turning) crossBed(parts[i]);
+
   if (crossing) {
-    // the music turns with the canto: the new piece comes up under the card
-    crossBed(parts[i]);
     els.interlude.classList.add('on');
     await wait(900);
     els.interludeName.textContent = parts[i].canto;
@@ -282,7 +286,7 @@ async function finish() {
   done = true;
   setPlaying(false);
   running = false;
-  bed?.fadeOut(12);
+  // the music is not taken down with the picture: it stays under Fim
   await stage.unform(5200);
   els.chrome.classList.add('hidden');
   els.end.classList.remove('hidden');
