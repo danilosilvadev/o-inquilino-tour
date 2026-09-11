@@ -25,7 +25,7 @@ const els = {
 // in the tab and on the gate; the one flown past the reader is in their tongue.
 const TONGUES = {
   pt: {
-    parts: partsPT, title: 'O Inquilino',
+    parts: partsPT, title: 'O Inquilino', canto: 'Canto',
     ask: 'Você está<br /><em>em seu corpo?</em>', yes: 'SIM', no: 'NÃO',
     replies: { sim: 'mentira. mas entra.', nao: 'nem eu. entra assim mesmo.' },
     sub: 'um poema atravessado', loading: 'carregando', scroll: 'role para atravessar',
@@ -33,7 +33,7 @@ const TONGUES = {
     rotate: 'vire o aparelho', rotateOr: 'ou toque para continuar assim',
   },
   en: {
-    parts: partsEN, title: 'The Tenant',
+    parts: partsEN, title: 'The Tenant', canto: 'Song',
     ask: 'Are you<br /><em>in your body?</em>', yes: 'YES', no: 'NO',
     replies: { sim: 'liar. but come in.', nao: 'neither am I. come in anyway.' },
     sub: 'a poem to cross', loading: 'loading', scroll: 'scroll to cross',
@@ -41,7 +41,7 @@ const TONGUES = {
     rotate: 'turn the device', rotateOr: 'or tap to go on like this',
   },
   es: {
-    parts: partsES, title: 'El Inquilino',
+    parts: partsES, title: 'El Inquilino', canto: 'Canto',
     ask: '¿Estás<br /><em>en tu cuerpo?</em>', yes: 'SÍ', no: 'NO',
     replies: { sim: 'mentira. pero entra.', nao: 'yo tampoco. entra igual.' },
     sub: 'un poema atravesado', loading: 'cargando', scroll: 'desliza para atravesar',
@@ -68,7 +68,11 @@ let rendering = false;
 let lastT = performance.now() / 1000;
 let t0 = performance.now();
 
-document.title = `O Inquilino — ${part.canto} ${part.mark}`;
+// "Canto I" is the canto's name everywhere in the code — the landscapes and
+// the music are keyed on it — and this is only what the reader is shown
+const cantoLabel = (p) => p.canto.replace('Canto', T.canto);
+
+document.title = `O Inquilino — ${cantoLabel(part)} ${part.mark}`;
 if (params.get('font')) document.body.dataset.font = params.get('font');
 
 // everything the interface says, in the tongue chosen; the poem itself is
@@ -96,6 +100,7 @@ function setLang(l) {
   stage = new Stage(els.stage, part);
   firstPlate = stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
   speak();
+  document.title = `O Inquilino — ${cantoLabel(part)} ${part.mark}`;
   history.replaceState(null, '', where());
 }
 
@@ -204,7 +209,7 @@ async function intro() {
   els.interlude.classList.add('on');
   await wait(1300);
   els.intro.classList.add('hidden');
-  els.interludeName.textContent = part.canto;
+  els.interludeName.textContent = cantoLabel(part);
   els.interlude.classList.add('name');
   await holdFor(3600);
   els.interlude.classList.remove('name');
@@ -312,7 +317,7 @@ async function goTo(i, { atEnd = false } = {}) {
   if (crossing) {
     els.interlude.classList.add('on');
     await wait(900);
-    els.interludeName.textContent = parts[i].canto;
+    els.interludeName.textContent = cantoLabel(parts[i]);
     els.interlude.classList.add('name');
     await wait(3600);
     els.interlude.classList.remove('name');
@@ -323,7 +328,7 @@ async function goTo(i, { atEnd = false } = {}) {
   part = parts[i]; index = i;
   stage = new Stage(els.stage, part);
   await stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
-  document.title = `O Inquilino — ${part.canto} ${part.mark}`;
+  document.title = `O Inquilino — ${cantoLabel(part)} ${part.mark}`;
 
   scrub.target = scrub.value = atEnd ? 0.999 : 0;
   scrub.clearIntent();
