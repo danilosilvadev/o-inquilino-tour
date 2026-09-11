@@ -1,0 +1,2050 @@
+[
+ {
+  "id": "I-1",
+  "canto": "Canto I",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2153,
+    "seconds": 15.2,
+    "lines": [
+     "Hoy desperté extraño. Como si mi",
+     "cuerpo fuera alquilado, y Yo un",
+     "intruso. Un cuerpo extraño."
+    ],
+    "width": 40,
+    "fadeIn": 0.1187,
+    "burnOut": 0.3297,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2153,
+    "to": 0.3785,
+    "seconds": 11.5,
+    "lines": [
+     "Mi corazón no era mío. Yo solo",
+     "lo cargaba."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3785,
+    "to": 0.6492,
+    "seconds": 19.1,
+    "lines": [
+     "Y cómo temblaba ante la lucidez. Ella",
+     "fue mi horror mayor. Daría todo por no",
+     "hospedarla. Pero aun así arañaba las",
+     "paredes de mi cabeza."
+    ],
+    "width": 40,
+    "fadeIn": 0.0944,
+    "burnOut": 0.2622,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6492,
+    "to": 0.9574,
+    "seconds": 21.7,
+    "lines": [
+     "La lucidez hizo de mi corazón un estorbo. Una",
+     "bolsa de carne en la espalda. Y cuanto más la",
+     "arrastraba, más pesado se hacía el rastro de",
+     "tierra, de grava, de suelo."
+    ],
+    "width": 48,
+    "fadeIn": 0.0829,
+    "burnOut": 0.2303,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "double": 0.8,
+   "pulse": 0.5,
+   "erase": 0.4,
+   "afterimage": 0.5
+  },
+  "seconds": 70.4
+ },
+ {
+  "id": "I-2",
+  "canto": "Canto I",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2457,
+    "seconds": 14.0,
+    "lines": [
+     "Cuanto más pienso sobre lo que hace de",
+     "mí, yo. Menos entiendo de esa",
+     "sustancia."
+    ],
+    "width": 40,
+    "fadeIn": 0.1287,
+    "burnOut": 0.3576,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2457,
+    "to": 0.5282,
+    "seconds": 16.1,
+    "lines": [
+     "Sé que siento más de lo que aguanto.",
+     "Pero mi carne traza fronteras",
+     "demasiado lejanas para alcanzarlas."
+    ],
+    "width": 40,
+    "fadeIn": 0.112,
+    "burnOut": 0.3111,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5282,
+    "to": 0.7452,
+    "seconds": 12.3,
+    "lines": [
+     "Y me encierro dentro de fuera.",
+     "No tengo casa. Soy un huésped."
+    ],
+    "width": 32,
+    "fadeIn": 0.1458,
+    "burnOut": 0.405,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.7452,
+    "to": 0.9473,
+    "seconds": 11.5,
+    "lines": [
+     "Un verdadero parásito."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "double": 1.0,
+   "press": 0.6,
+   "stretch": 0.3
+  },
+  "seconds": 56.9
+ },
+ {
+  "id": "I-3",
+  "canto": "Canto I",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2587,
+    "seconds": 19.5,
+    "lines": [
+     "Me acuesto caliente, pero voy",
+     "lentamente enfriándome. Y aun cuando",
+     "el invierno acaba. Y el frío me deja.",
+     "Yo sujeto su capa. Le prohíbo irse."
+    ],
+    "width": 40,
+    "fadeIn": 0.0922,
+    "burnOut": 0.2561,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2587,
+    "to": 0.4487,
+    "seconds": 14.3,
+    "lines": [
+     "Esparzo por mi cuerpo sus agujas. Y en",
+     "el escalofrío de cada pinchazo, me",
+     "caliento."
+    ],
+    "width": 40,
+    "fadeIn": 0.1255,
+    "burnOut": 0.3485,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.4487,
+    "to": 0.6556,
+    "seconds": 15.6,
+    "lines": [
+     "Hago que el hielo cubra el sol. Hasta",
+     "que la luz se enfríe. Quedando apenas",
+     "una carne conservada."
+    ],
+    "width": 40,
+    "fadeIn": 0.1153,
+    "burnOut": 0.3201,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6556,
+    "to": 0.8079,
+    "seconds": 11.5,
+    "lines": [
+     "Pero él no me obedece. Se",
+     "escapa entre mis dedos."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.8079,
+    "to": 0.9603,
+    "seconds": 11.5,
+    "lines": [
+     "Me rechaza."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "cold": 1.0,
+   "swarm": 0.7,
+   "erase": 0.3
+  },
+  "seconds": 75.5
+ },
+ {
+  "id": "I-4",
+  "canto": "Canto I",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3422,
+    "seconds": 14.3,
+    "lines": [
+     "Y dentro de esta carne existe tierra.",
+     "Donde comen gusanos en el útero de la",
+     "muerte."
+    ],
+    "width": 40,
+    "fadeIn": 0.1255,
+    "burnOut": 0.3485,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3422,
+    "to": 0.6166,
+    "seconds": 11.5,
+    "lines": [
+     "Hacen lodo donde me hundo. Es",
+     "mi ecosistema."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6166,
+    "to": 0.9284,
+    "seconds": 13.1,
+    "lines": [
+     "Una sombra líquida que se",
+     "infiltra en el suelo y no deja",
+     "crecer nada."
+    ],
+    "width": 32,
+    "fadeIn": 0.1377,
+    "burnOut": 0.3825,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "sink": 1.0,
+   "swarm": 0.8,
+   "press": 0.4
+  },
+  "seconds": 41.9
+ },
+ {
+  "id": "I-5",
+  "canto": "Canto I",
+  "mark": "*****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2552,
+    "seconds": 14.0,
+    "lines": [
+     "Y cuando mi garganta vibra en el vacío",
+     "como la cuerda de una guitarra",
+     "satánica."
+    ],
+    "width": 40,
+    "fadeIn": 0.1287,
+    "burnOut": 0.3576,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2552,
+    "to": 0.5254,
+    "seconds": 14.8,
+    "lines": [
+     "Me persiguen palabras que nunca podré",
+     "decir. Algo se está perdiendo.",
+     "Quedando más lejos."
+    ],
+    "width": 40,
+    "fadeIn": 0.1216,
+    "burnOut": 0.3378,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5254,
+    "to": 0.7353,
+    "seconds": 11.5,
+    "lines": [
+     "Y la amnesia me seduce, me",
+     "deja somnoliento."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.7353,
+    "to": 0.9452,
+    "seconds": 11.5,
+    "lines": [
+     "Hace que mis ojos se cierren",
+     "dentro de mí."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "erase": 1.0,
+   "stretch": 0.6,
+   "cold": 0.3
+  },
+  "seconds": 54.8
+ },
+ {
+  "id": "II-1",
+  "canto": "Canto II",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3057,
+    "seconds": 11.5,
+    "lines": [
+     "Fui expulsado de mi cuerpo. De",
+     "donde chupo la vida."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3057,
+    "to": 0.6145,
+    "seconds": 11.6,
+    "lines": [
+     "Suicidando al hombre por el",
+     "niño. Abandono la verdad."
+    ],
+    "width": 32,
+    "fadeIn": 0.1549,
+    "burnOut": 0.4304,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6145,
+    "to": 0.9203,
+    "seconds": 11.5,
+    "lines": [
+     "Me abandono."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "double": 1.0,
+   "erase": 0.6,
+   "tilt": 0.3
+  },
+  "seconds": 37.6
+ },
+ {
+  "id": "II-2",
+  "canto": "Canto II",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1655,
+    "seconds": 13.7,
+    "lines": [
+     "Paso los días preso en mi cuarto.",
+     "viendo mi carne mezclarse con las",
+     "paredes."
+    ],
+    "width": 40,
+    "fadeIn": 0.1313,
+    "burnOut": 0.3647,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1655,
+    "to": 0.3043,
+    "seconds": 11.5,
+    "lines": [
+     "Lágrimas escurren de la",
+     "pintura descascarada."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3043,
+    "to": 0.4545,
+    "seconds": 12.4,
+    "lines": [
+     "No existe fuera. Solo existe",
+     "hambre. En una oscuridad",
+     "verdosa."
+    ],
+    "width": 32,
+    "fadeIn": 0.1447,
+    "burnOut": 0.402,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.4545,
+    "to": 0.6353,
+    "seconds": 15.0,
+    "lines": [
+     "Y las hienas, cocodrilos y buitres",
+     "comen allí. Pero mi sangre ya se secó.",
+     "Aun así muerden."
+    ],
+    "width": 40,
+    "fadeIn": 0.1201,
+    "burnOut": 0.3337,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.6353,
+    "to": 0.825,
+    "seconds": 15.7,
+    "lines": [
+     "Cortan las fibras para no olvidar.",
+     "Clavando los colmillos hasta que",
+     "mueran ellos, hasta olvidarse."
+    ],
+    "width": 40,
+    "fadeIn": 0.1146,
+    "burnOut": 0.3183,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.825,
+    "to": 0.9638,
+    "seconds": 11.5,
+    "lines": [
+     "El hambre va a vencer."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.1,
+   -2.8,
+   -6.7,
+   -10.6,
+   -14.5,
+   -18.4
+  ],
+  "moves": {
+   "press": 1.0,
+   "swarm": 0.8,
+   "erase": 0.4
+  },
+  "seconds": 82.8
+ },
+ {
+  "id": "II-3",
+  "canto": "Canto II",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.494,
+    "seconds": 28.3,
+    "lines": [
+     "Debajo de la manta por dos eternidades.",
+     "Despierto sin levantarme. Crucificado en el",
+     "lecho. No hay cielo. Hay solamente el infierno",
+     "alto. La cama abre la boca, y la almohada",
+     "muerde. Perfora mi cráneo, del que escurre un",
+     "líquido insípido."
+    ],
+    "width": 48,
+    "fadeIn": 0.0637,
+    "burnOut": 0.177,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.494,
+    "to": 0.7465,
+    "seconds": 14.4,
+    "lines": [
+     "Todas las vértebras, vísceras y",
+     "costillas son un acúmulo de piezas que",
+     "no funcionan."
+    ],
+    "width": 40,
+    "fadeIn": 0.1247,
+    "burnOut": 0.3463,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.7465,
+    "to": 0.9475,
+    "seconds": 11.5,
+    "lines": [
+     "Y mi corazón no late, tose."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "tilt": 1.0,
+   "press": 0.7,
+   "sink": 0.5
+  },
+  "seconds": 57.2
+ },
+ {
+  "id": "II-4",
+  "canto": "Canto II",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.0984,
+    "seconds": 13.9,
+    "lines": [
+     "La baba se acumula, envenenando toda",
+     "la calma que solo los solitarios",
+     "conocen."
+    ],
+    "width": 40,
+    "fadeIn": 0.1296,
+    "burnOut": 0.3599,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.0984,
+    "to": 0.2179,
+    "seconds": 16.9,
+    "lines": [
+     "La enfermedad que contraje en el útero",
+     "no tiene remedio, pero cada día que",
+     "pasa camino en dirección a una cura."
+    ],
+    "width": 40,
+    "fadeIn": 0.1066,
+    "burnOut": 0.296,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.2179,
+    "to": 0.3118,
+    "seconds": 13.3,
+    "lines": [
+     "Dejo que la sombra ande delante de mí.",
+     "Que los pies cortejen lo oscuro."
+    ],
+    "width": 40,
+    "fadeIn": 0.1358,
+    "burnOut": 0.3772,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.3118,
+    "to": 0.4398,
+    "seconds": 18.1,
+    "lines": [
+     "Y en esa encrucijada, encuentro a",
+     "Satán en medio del camino habiendo",
+     "perdido el suyo. Caminamos de la mano,",
+     "rumbo a la cura."
+    ],
+    "width": 40,
+    "fadeIn": 0.0996,
+    "burnOut": 0.2767,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.4398,
+    "to": 0.5497,
+    "seconds": 15.5,
+    "lines": [
+     "El ataúd es mi cama. Es la cruz que",
+     "dudo en llamar mía. Pero me acuesto",
+     "con los brazos abiertos."
+    ],
+    "width": 40,
+    "fadeIn": 0.1159,
+    "burnOut": 0.322,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.5497,
+    "to": 0.7214,
+    "seconds": 24.3,
+    "lines": [
+     "Una rendija viene a engañar a la luz. Ella",
+     "refracta de lejos en una inmensidad sombría",
+     "como una niñita tímida. ¡Araña las entrañas de",
+     "la madera! ¡intenta! Pero estoy tan sediento",
+     "que bebo sed."
+    ],
+    "width": 48,
+    "fadeIn": 0.0742,
+    "burnOut": 0.2061,
+    "x": -3.45,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b7",
+    "from": 0.7214,
+    "to": 0.8028,
+    "seconds": 11.5,
+    "lines": [
+     "Sed es mi agua."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b8",
+    "from": 0.8028,
+    "to": 0.8973,
+    "seconds": 13.3,
+    "lines": [
+     "La cabeza intenta subir, el cuerpo no",
+     "la deja. Rasgan la materia oscura."
+    ],
+    "width": 40,
+    "fadeIn": 0.1349,
+    "burnOut": 0.3747,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b9",
+    "from": 0.8973,
+    "to": 0.9788,
+    "seconds": 11.5,
+    "lines": [
+     "Mitad es muerte, la otra",
+     "también."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.6,
+   -1.8,
+   -5.2,
+   -8.6,
+   -12.0,
+   -15.4,
+   -18.8,
+   -22.2,
+   -25.6
+  ],
+  "moves": {
+   "sink": 0.8,
+   "stretch": 0.7,
+   "cold": 0.5,
+   "double": 0.4
+  },
+  "seconds": 141.2
+ },
+ {
+  "id": "III-1",
+  "canto": "Canto III",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.8829,
+    "seconds": 22.6,
+    "lines": [
+     "Estoy escurriendo. Escurriendo de mí. No soy",
+     "cosa humana. Soy un caldo. Un caldo ralo. Dos.",
+     "Ninguno. Amasado de una sustancia mía, pero",
+     "desconocida. Infiltrándome a mí mismo."
+    ],
+    "width": 48,
+    "fadeIn": 0.0796,
+    "burnOut": 0.2211,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -6.4
+  ],
+  "moves": {
+   "sink": 1.0,
+   "erase": 0.8
+  },
+  "seconds": 25.6
+ },
+ {
+  "id": "III-2",
+  "canto": "Canto III",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2882,
+    "seconds": 15.4,
+    "lines": [
+     "Cavo para caber, al son de pasos del",
+     "mundo superior. Siguen alguna cosa que",
+     "yo no puedo seguir."
+    ],
+    "width": 40,
+    "fadeIn": 0.1166,
+    "burnOut": 0.3239,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2882,
+    "to": 0.7292,
+    "seconds": 23.6,
+    "lines": [
+     "Y cuando el sonido de las pisadas se va",
+     "adormeciendo. Tengo miedo de cerrar los ojos.",
+     "Aquí donde mueren estrellas, y el espacio se",
+     "estira. La luz es blanda. Es el retrato de un",
+     "agujero."
+    ],
+    "width": 48,
+    "fadeIn": 0.0762,
+    "burnOut": 0.2117,
+    "x": -3.45,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.7292,
+    "to": 0.944,
+    "seconds": 11.5,
+    "lines": [
+     "Y nada toca nada."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "stretch": 1.0,
+   "cold": 0.8,
+   "swarm": 0.4
+  },
+  "seconds": 53.6
+ },
+ {
+  "id": "III-3",
+  "canto": "Canto III",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.5077,
+    "seconds": 15.0,
+    "lines": [
+     "Y ya no soy yo quien actúa. Vivo",
+     "dentro de una idea. Una costura en el",
+     "lóbulo del cadáver."
+    ],
+    "width": 40,
+    "fadeIn": 0.1201,
+    "burnOut": 0.3337,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.5077,
+    "to": 0.8983,
+    "seconds": 11.5,
+    "lines": [
+     "Esa sutura es lo único que me",
+     "ata al legítimo dueño."
+    ],
+    "width": 32,
+    "fadeIn": 0.1562,
+    "burnOut": 0.4338,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "erase": 0.7,
+   "double": 0.6,
+   "stretch": 0.4
+  },
+  "seconds": 29.5
+ },
+ {
+  "id": "IV-1",
+  "canto": "Canto IV",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3738,
+    "seconds": 31.9,
+    "lines": [
+     "Y cuando la tierra pulsa. Tragando añoranza fina.",
+     "Extraño extrañar. Pero la memoria es blanca. Es",
+     "extraña. Prestada de otro al que tengo miedo. El",
+     "recuerdo viene de madrugada mientras mis cabellos se",
+     "funden con los hilos del colchón, y gime cerca de mí",
+     "como un animal en celo."
+    ],
+    "width": 56,
+    "fadeIn": 0.0564,
+    "burnOut": 0.1568,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3738,
+    "to": 0.5569,
+    "seconds": 15.6,
+    "lines": [
+     "Mientras él duerme, yo puedo ver lo",
+     "oscuro. E intentar alcanzar alguna",
+     "cosa que venía lentamente."
+    ],
+    "width": 40,
+    "fadeIn": 0.1153,
+    "burnOut": 0.3201,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5569,
+    "to": 0.6952,
+    "seconds": 11.8,
+    "lines": [
+     "Pero él despierta, antes de",
+     "que yo llegue. Y ya no veo."
+    ],
+    "width": 32,
+    "fadeIn": 0.1525,
+    "burnOut": 0.4237,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6952,
+    "to": 0.83,
+    "seconds": 11.5,
+    "lines": [
+     "No veo nada."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.83,
+    "to": 0.9648,
+    "seconds": 11.5,
+    "lines": [
+     "Ni siquiera nada."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "afterimage": 1.0,
+   "cold": 0.5,
+   "stretch": 0.4
+  },
+  "seconds": 85.3
+ },
+ {
+  "id": "IV-2",
+  "canto": "Canto IV",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.5299,
+    "seconds": 16.3,
+    "lines": [
+     "El vicio del oxígeno me deja sin aire.",
+     "La brisa muerta que trago en seco,",
+     "hace del viento parado, grueso."
+    ],
+    "width": 40,
+    "fadeIn": 0.1101,
+    "burnOut": 0.3059,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.5299,
+    "to": 0.9027,
+    "seconds": 11.5,
+    "lines": [
+     "Un veneno translúcido."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "press": 0.9,
+   "cold": 0.7,
+   "swarm": 0.3
+  },
+  "seconds": 30.8
+ },
+ {
+  "id": "IV-3",
+  "canto": "Canto IV",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1971,
+    "seconds": 16.6,
+    "lines": [
+     "Y esta vez acaricio dedos empapados de",
+     "delirio. Delirio chupa mi alma. Puedo",
+     "secarme, parar la infiltración."
+    ],
+    "width": 40,
+    "fadeIn": 0.1083,
+    "burnOut": 0.3009,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1971,
+    "to": 0.4794,
+    "seconds": 23.8,
+    "lines": [
+     "Muerdo labios llenos de trampa. Dreno la baba",
+     "con un beso en mi rostro. Hasta que nada más",
+     "haga palabra. El delirio hizo de la nada, un",
+     "algo. Y qué rica es la carne blanda de un",
+     "fantasma."
+    ],
+    "width": 48,
+    "fadeIn": 0.0756,
+    "burnOut": 0.2101,
+    "x": -3.45,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.4794,
+    "to": 0.9644,
+    "seconds": 40.9,
+    "lines": [
+     "Pero mi hambre no se sacia. Deforma mi cerebro. Dobla",
+     "mis nervios. Me hace comer los restos de un insecto.",
+     "Cayó en mi boca mientras dormía. Se hundió en un",
+     "oscuro profundo. Sus larvas van a morir en breve. ¿Qué",
+     "culpa sentiría? Pero siento. Ante lo podrido absoluto",
+     "no consigo no sentir. Comí un insecto. Lo aplasté",
+     "entre los dientes, tragué su baba, y finalmente sentí",
+     "sabor."
+    ],
+    "width": 56,
+    "fadeIn": 0.044,
+    "burnOut": 0.1223,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "swarm": 1.0,
+   "pulse": 0.6,
+   "tilt": 0.4
+  },
+  "seconds": 84.3
+ },
+ {
+  "id": "IV-4",
+  "canto": "Canto IV",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.7656,
+    "seconds": 47.4,
+    "lines": [
+     "Y hoy me enamoro de la fealdad. Nunca entendí por qué",
+     "los otros le tienen tanto miedo. La fealdad no es fea.",
+     "Si amar fuera bonito, bonito sería feo. Amar algo es",
+     "grotesco. Es bello. En la fealdad es donde encuentro",
+     "amor. Y yo no tengo miedo. Tengo pasión. En una",
+     "inmensidad de horror. Amo ser horrible. Sonrío con",
+     "dientes amarillos, y bebo de una fuente sucia. Bebo",
+     "feo. Y aunque nadie me ame, yo elijo la fealdad. Una",
+     "cosa fea pero que reconozco."
+    ],
+    "width": 56,
+    "fadeIn": 0.0379,
+    "burnOut": 0.1054,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.7656,
+    "to": 0.9516,
+    "seconds": 11.5,
+    "lines": [
+     "Hay algo de divino en lo feo.",
+     "Como un oscuro nítido."
+    ],
+    "width": 32,
+    "fadeIn": 0.1562,
+    "burnOut": 0.4338,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "pulse": 0.8,
+   "erase": 0.3
+  },
+  "seconds": 62.0
+ },
+ {
+  "id": "IV-5",
+  "canto": "Canto IV",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.8684,
+    "seconds": 19.8,
+    "lines": [
+     "Y todo lo que era nuevo, quedó un poco",
+     "menos nuevo. Tengo miedo de que no",
+     "sobre nada reciente. De volverme el",
+     "pasado estéril de padres e hijos."
+    ],
+    "width": 40,
+    "fadeIn": 0.0909,
+    "burnOut": 0.2525,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -6.4
+  ],
+  "moves": {
+   "erase": 0.9,
+   "stretch": 0.5,
+   "cold": 0.4
+  },
+  "seconds": 22.8
+ },
+ {
+  "id": "V-1",
+  "canto": "Canto V",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1109,
+    "seconds": 14.4,
+    "lines": [
+     "Pero un sueño lúcido también acaba. Y",
+     "un día la fricción del aire calentó mi",
+     "rostro."
+    ],
+    "width": 40,
+    "fadeIn": 0.1247,
+    "burnOut": 0.3463,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1109,
+    "to": 0.2247,
+    "seconds": 14.8,
+    "lines": [
+     "Por primera vez mi frente se restregó",
+     "contra el asfalto que antes solo mis",
+     "pies tocaban."
+    ],
+    "width": 40,
+    "fadeIn": 0.1216,
+    "burnOut": 0.3378,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.2247,
+    "to": 0.3188,
+    "seconds": 12.3,
+    "lines": [
+     "Antes yo no sangraba. Ni una",
+     "gota. Pero todo cambió",
+     "contigo."
+    ],
+    "width": 32,
+    "fadeIn": 0.1469,
+    "burnOut": 0.408,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.3188,
+    "to": 0.4647,
+    "seconds": 19.0,
+    "lines": [
+     "Embutía migajas de mi espíritu. De",
+     "masa desnutrida. En la boca de mi",
+     "hermana parásita. Cenábamos en el",
+     "útero seco, empapados de flujo."
+    ],
+    "width": 40,
+    "fadeIn": 0.0948,
+    "burnOut": 0.2634,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.4647,
+    "to": 0.6148,
+    "seconds": 19.5,
+    "lines": [
+     "Cuando corté mi brazo y te lo",
+     "entregué. Insertaste la carne",
+     "cercenada entre tus muslos. Para que",
+     "cada dedo mío asumiera una extremidad",
+     "tuya."
+    ],
+    "width": 40,
+    "fadeIn": 0.0922,
+    "burnOut": 0.2561,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.6148,
+    "to": 0.7229,
+    "seconds": 14.1,
+    "lines": [
+     "Y arrancaste un susurro de mi oído,",
+     "como si nunca hubiera salido de tu",
+     "garganta:"
+    ],
+    "width": 40,
+    "fadeIn": 0.1279,
+    "burnOut": 0.3553,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b7",
+    "from": 0.7229,
+    "to": 0.8499,
+    "seconds": 16.5,
+    "lines": [
+     "\"Esta noche quiero que te arrastres",
+     "por el cuarto, hasta mi cama, y te",
+     "enrolles en mi piel como una sábana."
+    ],
+    "width": 40,
+    "fadeIn": 0.1089,
+    "burnOut": 0.3025,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b8",
+    "from": 0.8499,
+    "to": 0.9769,
+    "seconds": 16.5,
+    "lines": [
+     "Y entonces, hermanito, voy a",
+     "amamantarte como a un bebé de sangre,",
+     "y dejar que muerdas hasta",
+     "atragantarte.\""
+    ],
+    "width": 40,
+    "fadeIn": 0.1089,
+    "burnOut": 0.3025,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.48,
+   -2.05,
+   -5.57,
+   -9.1,
+   -12.62,
+   -16.15,
+   -19.68,
+   -23.2
+  ],
+  "moves": {
+   "double": 1.0,
+   "pulse": 0.8,
+   "afterimage": 0.4
+  },
+  "seconds": 130.1
+ },
+ {
+  "id": "V-2",
+  "canto": "Canto V",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3089,
+    "seconds": 22.6,
+    "lines": [
+     "Solo tú fuiste capaz de aliviar la corona que",
+     "me aplastaba. Justo yo, que mordía solo para",
+     "gastar los dientes, restregué la lengua entre",
+     "tus molares, adicto a la baba blanca."
+    ],
+    "width": 48,
+    "fadeIn": 0.0796,
+    "burnOut": 0.2211,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3089,
+    "to": 0.48,
+    "seconds": 12.5,
+    "lines": [
+     "Y aunque algo se perdiera. Yo",
+     "lo encontraba. Tú lo",
+     "encontraste."
+    ],
+    "width": 32,
+    "fadeIn": 0.1437,
+    "burnOut": 0.3991,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.48,
+    "to": 0.6371,
+    "seconds": 11.5,
+    "lines": [
+     "Entendí cómo se estira un",
+     "alma."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6371,
+    "to": 0.802,
+    "seconds": 12.1,
+    "lines": [
+     "Y todo el mundo va a morir sin",
+     "descubrir lo que es amarme."
+    ],
+    "width": 32,
+    "fadeIn": 0.1491,
+    "burnOut": 0.4142,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.802,
+    "to": 0.959,
+    "seconds": 11.5,
+    "lines": [
+     "Menos tú, que comiste esta",
+     "carne extraña."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "pulse": 1.0,
+   "double": 0.7
+  },
+  "seconds": 73.2
+ },
+ {
+  "id": "V-3",
+  "canto": "Canto V",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.4117,
+    "seconds": 23.9,
+    "lines": [
+     "Pero cantamos nuestra lengua muerta, que",
+     "heredamos de silencio ancestral. Cuerdas",
+     "hirieron la madera estéril, y nuestros callos",
+     "fundieron carne viva con palabras locas, en un",
+     "coro caníbal."
+    ],
+    "width": 48,
+    "fadeIn": 0.0753,
+    "burnOut": 0.2093,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.4117,
+    "to": 0.6839,
+    "seconds": 15.8,
+    "lines": [
+     "¿Dónde terminaba el violín? ¿Dónde",
+     "empezaba el piano? Compusimos la",
+     "partitura de nuestra extinción."
+    ],
+    "width": 40,
+    "fadeIn": 0.1139,
+    "burnOut": 0.3165,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6839,
+    "to": 0.9483,
+    "seconds": 15.3,
+    "lines": [
+     "Y solo pudimos inclinarnos de la mano",
+     "para que una cortina decapitara, y la",
+     "Muerte aplaudiera."
+    ],
+    "width": 40,
+    "fadeIn": 0.1173,
+    "burnOut": 0.3258,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "stretch": 0.8,
+   "afterimage": 0.7,
+   "tilt": 0.5
+  },
+  "seconds": 58.0
+ },
+ {
+  "id": "V-4",
+  "canto": "Canto V",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.6481,
+    "seconds": 26.7,
+    "lines": [
+     "Un día las flores se marchitaron en la tumba.",
+     "La hierba pisada se volvió lodo y ni la pisada",
+     "se pudo ver. La lápida fue tragada. Y gotas",
+     "borraron el epitafio de una promesa. De la",
+     "mentira que le dijeron al suelo salado."
+    ],
+    "width": 48,
+    "fadeIn": 0.0674,
+    "burnOut": 0.1872,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.6481,
+    "to": 0.9272,
+    "seconds": 11.5,
+    "lines": [
+     "Dos agujeros no se llenan."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "sink": 1.0,
+   "cold": 0.8,
+   "erase": 0.5
+  },
+  "seconds": 41.2
+ },
+ {
+  "id": "VI-1",
+  "canto": "Canto VI",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1695,
+    "seconds": 11.7,
+    "lines": [
+     "De un tiempo preñado de",
+     "placer, nació una yema blanda."
+    ],
+    "width": 32,
+    "fadeIn": 0.1537,
+    "burnOut": 0.427,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1695,
+    "to": 0.3391,
+    "seconds": 11.7,
+    "lines": [
+     "¿Cómo puede el peso de nada",
+     "ser tan difícil de cargar?"
+    ],
+    "width": 32,
+    "fadeIn": 0.1537,
+    "burnOut": 0.427,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3391,
+    "to": 0.606,
+    "seconds": 18.4,
+    "lines": [
+     "Y ese peso lentamente se esparció por",
+     "todo mi cuerpo, como si me hubiera",
+     "acostado mal. Y hasta el silencio,",
+     "pareció más callado."
+    ],
+    "width": 40,
+    "fadeIn": 0.0976,
+    "burnOut": 0.2712,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.606,
+    "to": 0.79,
+    "seconds": 12.7,
+    "lines": [
+     "Si abriera mi pecho, aún te",
+     "vería allí. Pero te vería",
+     "resbalando."
+    ],
+    "width": 32,
+    "fadeIn": 0.1416,
+    "burnOut": 0.3934,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.79,
+    "to": 0.9566,
+    "seconds": 11.5,
+    "lines": [
+     "Ahora mi rostro está frío.",
+     "Fuiste."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "erase": 0.9,
+   "pulse": 0.5,
+   "cold": 0.6
+  },
+  "seconds": 69.1
+ },
+ {
+  "id": "VI-2",
+  "canto": "Canto VI",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1512,
+    "seconds": 15.1,
+    "lines": [
+     "Y yo no tengo soledad. Yo soy la",
+     "soledad. Somos una sola carne. Adonde",
+     "voy, ella me espera."
+    ],
+    "width": 40,
+    "fadeIn": 0.1194,
+    "burnOut": 0.3317,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1512,
+    "to": 0.3745,
+    "seconds": 22.3,
+    "lines": [
+     "Cuando duermo, me envuelve en dedos helados.",
+     "Cuando despierto, recuerda lo que quería",
+     "olvidar. Aun en medio de ellos, la novia que",
+     "se quedó, me viste como un velo mojado."
+    ],
+    "width": 48,
+    "fadeIn": 0.0809,
+    "burnOut": 0.2247,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3745,
+    "to": 0.5631,
+    "seconds": 18.8,
+    "lines": [
+     "La muerte canta en nuestra ceremonia.",
+     "Bailo en las cenizas de una estrella.",
+     "Hasta que mis pies sangren — Yo no",
+     "paro, no puedo parar."
+    ],
+    "width": 40,
+    "fadeIn": 0.0957,
+    "burnOut": 0.266,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.5631,
+    "to": 0.717,
+    "seconds": 15.3,
+    "lines": [
+     "Me enamoro del luto. Y mi amor diseca",
+     "el cadáver de un fantasma. Se baña en",
+     "líquido ancestral."
+    ],
+    "width": 40,
+    "fadeIn": 0.1173,
+    "burnOut": 0.3258,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.717,
+    "to": 0.8545,
+    "seconds": 13.7,
+    "lines": [
+     "Mis rodillas perforan el suelo,",
+     "intentan extraer la herencia de una",
+     "promesa."
+    ],
+    "width": 40,
+    "fadeIn": 0.1313,
+    "burnOut": 0.3647,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.8545,
+    "to": 0.9699,
+    "seconds": 11.5,
+    "lines": [
+     "Pero aún bailo."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.1,
+   -2.8,
+   -6.7,
+   -10.6,
+   -14.5,
+   -18.4
+  ],
+  "moves": {
+   "afterimage": 1.0,
+   "tilt": 0.7,
+   "pulse": 0.6
+  },
+  "seconds": 99.7
+ },
+ {
+  "id": "VI-3",
+  "canto": "Canto VI",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2928,
+    "seconds": 15.5,
+    "lines": [
+     "El dolor es mi cuerpo extraño. Mi",
+     "lugar común. Donde la luz sangra en la",
+     "placenta de una sombra."
+    ],
+    "width": 40,
+    "fadeIn": 0.1159,
+    "burnOut": 0.322,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2928,
+    "to": 0.5097,
+    "seconds": 11.5,
+    "lines": [
+     "Solo oscuro es espacio."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5097,
+    "to": 0.7266,
+    "seconds": 11.5,
+    "lines": [
+     "Y ya no consigo vivir tan",
+     "lejos de mi cuerpo."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.7266,
+    "to": 0.9434,
+    "seconds": 11.5,
+    "lines": [
+     "Me hice."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "stretch": 1.0,
+   "erase": 0.7,
+   "pulse": 0.8
+  },
+  "seconds": 53.0
+ }
+]

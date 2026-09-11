@@ -15,12 +15,17 @@
 
   <section id="gate" class="veil">
     <p class="gate-eyebrow">o inquilino</p>
-    <h1 class="gate-ask">Você está<br /><em>em seu corpo?</em></h1>
+    <h1 class="gate-ask" id="gateAsk">Você está<br /><em>em seu corpo?</em></h1>
     <div class="gate-choices">
       <button class="gate-btn" data-answer="sim">SIM</button>
       <button class="gate-btn" data-answer="nao">NÃO</button>
     </div>
     <p class="gate-reply" id="gateReply">&nbsp;</p>
+    <div class="gate-lang" id="gateLang">
+      <button data-lang="pt" class="on">português</button>
+      <button data-lang="en">english</button>
+      <button data-lang="es">español</button>
+    </div>
   </section>
 
   <section id="intro" class="intro hidden">
@@ -30,13 +35,13 @@
   <div id="interlude" class="interlude"><span id="interludeName"></span></div>
 
   <section id="end" class="veil hidden">
-    <h2 class="fim">Fim</h2>
+    <h2 class="fim" id="fim">Fim</h2>
     <nav class="links" id="endLinks"></nav>
   </section>
 
   <div id="rotate" class="rotate">
-    <span>vire o aparelho</span>
-    <em>ou toque para continuar assim</em>
+    <span id="rotateAsk">vire o aparelho</span>
+    <em id="rotateOr">ou toque para continuar assim</em>
   </div>
 
   <div id="chrome" class="hidden">

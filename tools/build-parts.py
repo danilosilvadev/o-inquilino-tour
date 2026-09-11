@@ -18,7 +18,7 @@ and the body's ability to stay one body — the figure itself never performs.
     swarm      the dark has grain moving in it
     stretch    the space gets longer than it should be
 """
-import json, textwrap, pathlib
+import json, sys, textwrap, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ROMAN = ["I", "II", "III", "IV", "V", "VI"]
@@ -102,8 +102,11 @@ def wrap_lines(para):
     return textwrap.wrap(para, measure(para)[0], break_long_words=False) or [para]
 
 
-def build():
-    cantos = json.loads((ROOT / "tools" / "structure.json").read_text(encoding="utf-8"))
+def build(lang="pt"):
+    # the poem is Portuguese; a translation is a second structure file with the
+    # same paragraphs in the same places, so it takes the same plates and moves
+    suffix = "" if lang == "pt" else f".{lang}"
+    cantos = json.loads((ROOT / "tools" / f"structure{suffix}.json").read_text(encoding="utf-8"))
     parts = []
 
     for ci, canto in enumerate(cantos):
@@ -161,7 +164,7 @@ def build():
                 "seconds": round(total, 1),
             })
 
-    out = ROOT / "src" / "poem" / "parts.json"
+    out = ROOT / "src" / "poem" / f"parts{suffix}.json"
     out.write_text(json.dumps(parts, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(parts)} parts -> {out.relative_to(ROOT)}")
     for p in parts:
@@ -170,4 +173,4 @@ def build():
 
 
 if __name__ == "__main__":
-    build()
+    build(sys.argv[sys.argv.index("--lang") + 1] if "--lang" in sys.argv else "pt")

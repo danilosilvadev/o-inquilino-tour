@@ -1,0 +1,2044 @@
+[
+ {
+  "id": "I-1",
+  "canto": "Canto I",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.208,
+    "seconds": 14.6,
+    "lines": [
+     "Today I woke up strange. As if my body",
+     "were rented, and I an intruder. A",
+     "foreign body."
+    ],
+    "width": 40,
+    "fadeIn": 0.1231,
+    "burnOut": 0.342,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.208,
+    "to": 0.3717,
+    "seconds": 11.5,
+    "lines": [
+     "My heart was not mine. I only",
+     "carried it."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3717,
+    "to": 0.6716,
+    "seconds": 21.1,
+    "lines": [
+     "And how I trembled before lucidity. It was my",
+     "greatest horror. I would have given anything",
+     "not to lodge it. But even so it scratched at",
+     "the walls of my head."
+    ],
+    "width": 48,
+    "fadeIn": 0.0854,
+    "burnOut": 0.2373,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6716,
+    "to": 0.9573,
+    "seconds": 20.1,
+    "lines": [
+     "Lucidity made my heart a burden. A bag",
+     "of flesh on my back. And the more I",
+     "dragged it, the heavier the trail",
+     "grew, of earth, of gravel, of ground."
+    ],
+    "width": 40,
+    "fadeIn": 0.0897,
+    "burnOut": 0.2491,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "double": 0.8,
+   "pulse": 0.5,
+   "erase": 0.4,
+   "afterimage": 0.5
+  },
+  "seconds": 70.3
+ },
+ {
+  "id": "I-2",
+  "canto": "Canto I",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2542,
+    "seconds": 14.3,
+    "lines": [
+     "The more I think about what makes me,",
+     "me. The less I understand of that",
+     "substance."
+    ],
+    "width": 40,
+    "fadeIn": 0.1263,
+    "burnOut": 0.3508,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2542,
+    "to": 0.5165,
+    "seconds": 14.7,
+    "lines": [
+     "I know I feel more than I can bear.",
+     "But my flesh draws borders too far for",
+     "me to reach."
+    ],
+    "width": 40,
+    "fadeIn": 0.1224,
+    "burnOut": 0.3399,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5165,
+    "to": 0.7414,
+    "seconds": 12.6,
+    "lines": [
+     "And I lock myself in from",
+     "outside. I have no house. I am",
+     "a host."
+    ],
+    "width": 32,
+    "fadeIn": 0.1427,
+    "burnOut": 0.3963,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.7414,
+    "to": 0.9465,
+    "seconds": 11.5,
+    "lines": [
+     "A true parasite."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "double": 1.0,
+   "press": 0.6,
+   "stretch": 0.3
+  },
+  "seconds": 56.1
+ },
+ {
+  "id": "I-3",
+  "canto": "Canto I",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2538,
+    "seconds": 18.8,
+    "lines": [
+     "I lie down warm, but slowly I go cold.",
+     "And even when winter ends. And the",
+     "cold leaves me. I hold on to its",
+     "cloak. I forbid it to go."
+    ],
+    "width": 40,
+    "fadeIn": 0.0957,
+    "burnOut": 0.266,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2538,
+    "to": 0.45,
+    "seconds": 14.5,
+    "lines": [
+     "I spread its needles over my body. And",
+     "in the shiver of each puncture, I warm",
+     "myself."
+    ],
+    "width": 40,
+    "fadeIn": 0.1239,
+    "burnOut": 0.3442,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.45,
+    "to": 0.6474,
+    "seconds": 14.6,
+    "lines": [
+     "I make the ice cover the sun. Until",
+     "the light goes cold. Leaving only",
+     "preserved flesh."
+    ],
+    "width": 40,
+    "fadeIn": 0.1231,
+    "burnOut": 0.342,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6474,
+    "to": 0.8042,
+    "seconds": 11.6,
+    "lines": [
+     "But it does not obey me. It",
+     "slips through my fingers."
+    ],
+    "width": 32,
+    "fadeIn": 0.1549,
+    "burnOut": 0.4304,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.8042,
+    "to": 0.9595,
+    "seconds": 11.5,
+    "lines": [
+     "It rejects me."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "cold": 1.0,
+   "swarm": 0.7,
+   "erase": 0.3
+  },
+  "seconds": 74.1
+ },
+ {
+  "id": "I-4",
+  "canto": "Canto I",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3365,
+    "seconds": 13.7,
+    "lines": [
+     "And inside this flesh there is earth.",
+     "Where worms feed in the womb of death."
+    ],
+    "width": 40,
+    "fadeIn": 0.1313,
+    "burnOut": 0.3647,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3365,
+    "to": 0.6188,
+    "seconds": 11.5,
+    "lines": [
+     "They make mud where I sink. It",
+     "is my ecosystem."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6188,
+    "to": 0.9264,
+    "seconds": 12.5,
+    "lines": [
+     "A liquid shadow that seeps",
+     "into the soil and lets nothing",
+     "grow."
+    ],
+    "width": 32,
+    "fadeIn": 0.1437,
+    "burnOut": 0.3991,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "sink": 1.0,
+   "swarm": 0.8,
+   "press": 0.4
+  },
+  "seconds": 40.7
+ },
+ {
+  "id": "I-5",
+  "canto": "Canto I",
+  "mark": "*****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2527,
+    "seconds": 13.9,
+    "lines": [
+     "And when my throat vibrates in the",
+     "vacuum like the string of a satanic",
+     "guitar."
+    ],
+    "width": 40,
+    "fadeIn": 0.1296,
+    "burnOut": 0.3599,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2527,
+    "to": 0.527,
+    "seconds": 15.1,
+    "lines": [
+     "Words I will never be able to say",
+     "pursue me. Something is being lost.",
+     "Getting farther away."
+    ],
+    "width": 40,
+    "fadeIn": 0.1194,
+    "burnOut": 0.3317,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.527,
+    "to": 0.7362,
+    "seconds": 11.5,
+    "lines": [
+     "And amnesia seduces me, makes",
+     "me drowsy."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.7362,
+    "to": 0.9454,
+    "seconds": 11.5,
+    "lines": [
+     "Makes my eyes close inside me."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "erase": 1.0,
+   "stretch": 0.6,
+   "cold": 0.3
+  },
+  "seconds": 55.0
+ },
+ {
+  "id": "II-1",
+  "canto": "Canto II",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3072,
+    "seconds": 11.5,
+    "lines": [
+     "I was expelled from my body.",
+     "From where I suck life."
+    ],
+    "width": 32,
+    "fadeIn": 0.1562,
+    "burnOut": 0.4338,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3072,
+    "to": 0.6136,
+    "seconds": 11.5,
+    "lines": [
+     "Suiciding the man for the boy.",
+     "I abandon the truth."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6136,
+    "to": 0.9201,
+    "seconds": 11.5,
+    "lines": [
+     "I abandon myself."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "double": 1.0,
+   "erase": 0.6,
+   "tilt": 0.3
+  },
+  "seconds": 37.5
+ },
+ {
+  "id": "II-2",
+  "canto": "Canto II",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1624,
+    "seconds": 13.5,
+    "lines": [
+     "I spend my days locked in my room.",
+     "watching my flesh blend into the",
+     "walls."
+    ],
+    "width": 40,
+    "fadeIn": 0.1331,
+    "burnOut": 0.3696,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1624,
+    "to": 0.3005,
+    "seconds": 11.5,
+    "lines": [
+     "Tears run down the peeling",
+     "paint."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3005,
+    "to": 0.4498,
+    "seconds": 12.4,
+    "lines": [
+     "There is no outside. There is",
+     "only hunger. In a greenish",
+     "dark."
+    ],
+    "width": 32,
+    "fadeIn": 0.1447,
+    "burnOut": 0.402,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.4498,
+    "to": 0.6406,
+    "seconds": 15.9,
+    "lines": [
+     "And the hyenas, crocodiles and",
+     "vultures feed there. But my blood has",
+     "already dried. Still they bite."
+    ],
+    "width": 40,
+    "fadeIn": 0.1133,
+    "burnOut": 0.3146,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.6406,
+    "to": 0.8259,
+    "seconds": 15.4,
+    "lines": [
+     "They cut the fibres so as not to",
+     "forget. Sinking their fangs until they",
+     "die, until they forget."
+    ],
+    "width": 40,
+    "fadeIn": 0.1166,
+    "burnOut": 0.3239,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.8259,
+    "to": 0.964,
+    "seconds": 11.5,
+    "lines": [
+     "Hunger will win."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.1,
+   -2.8,
+   -6.7,
+   -10.6,
+   -14.5,
+   -18.4
+  ],
+  "moves": {
+   "press": 1.0,
+   "swarm": 0.8,
+   "erase": 0.4
+  },
+  "seconds": 83.3
+ },
+ {
+  "id": "II-3",
+  "canto": "Canto II",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.4996,
+    "seconds": 27.9,
+    "lines": [
+     "Under the blanket for two eternities. I wake",
+     "without getting up. Crucified on the bed.",
+     "There is no heaven. There is only hell, high",
+     "up. The bed opens its mouth, and the pillow",
+     "bites. Pierces my skull, which leaks a",
+     "tasteless liquid."
+    ],
+    "width": 48,
+    "fadeIn": 0.0645,
+    "burnOut": 0.1793,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.4996,
+    "to": 0.7403,
+    "seconds": 13.4,
+    "lines": [
+     "All the vertebrae, viscera and ribs",
+     "are a pile of parts that do not work."
+    ],
+    "width": 40,
+    "fadeIn": 0.134,
+    "burnOut": 0.3721,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.7403,
+    "to": 0.9463,
+    "seconds": 11.5,
+    "lines": [
+     "And my heart does not beat, it",
+     "coughs."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "tilt": 1.0,
+   "press": 0.7,
+   "sink": 0.5
+  },
+  "seconds": 55.8
+ },
+ {
+  "id": "II-4",
+  "canto": "Canto II",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.0956,
+    "seconds": 13.2,
+    "lines": [
+     "The drool builds up, poisoning",
+     "all the calm that only the",
+     "lonely know."
+    ],
+    "width": 32,
+    "fadeIn": 0.1367,
+    "burnOut": 0.3798,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.0956,
+    "to": 0.213,
+    "seconds": 16.2,
+    "lines": [
+     "The disease I contracted in the womb",
+     "has no remedy, but with each day that",
+     "passes I walk toward a cure."
+    ],
+    "width": 40,
+    "fadeIn": 0.1114,
+    "burnOut": 0.3093,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.213,
+    "to": 0.3033,
+    "seconds": 12.4,
+    "lines": [
+     "I let the shadow walk ahead of",
+     "me. Let my feet court the",
+     "dark."
+    ],
+    "width": 32,
+    "fadeIn": 0.1447,
+    "burnOut": 0.402,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.3033,
+    "to": 0.4339,
+    "seconds": 18.0,
+    "lines": [
+     "And at this crossroads, I meet Satan",
+     "in the middle of the road, having lost",
+     "his way. We walk hand in hand, toward",
+     "the cure."
+    ],
+    "width": 40,
+    "fadeIn": 0.1001,
+    "burnOut": 0.2781,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.4339,
+    "to": 0.5447,
+    "seconds": 15.3,
+    "lines": [
+     "The coffin is my bed. It is the cross",
+     "I hesitate to call mine. But I lie",
+     "down with open arms."
+    ],
+    "width": 40,
+    "fadeIn": 0.118,
+    "burnOut": 0.3278,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.5447,
+    "to": 0.7116,
+    "seconds": 23.0,
+    "lines": [
+     "A crack comes to deceive the light. It",
+     "refracts from afar in a sombre immensity like",
+     "a shy little girl. Scratch the wood's",
+     "entrails! try! But I am so thirsty that I",
+     "drink thirst."
+    ],
+    "width": 48,
+    "fadeIn": 0.0783,
+    "burnOut": 0.2176,
+    "x": -3.45,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b7",
+    "from": 0.7116,
+    "to": 0.7951,
+    "seconds": 11.5,
+    "lines": [
+     "Thirst is my water."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b8",
+    "from": 0.7951,
+    "to": 0.8947,
+    "seconds": 13.7,
+    "lines": [
+     "The head tries to rise, the body will",
+     "not let it. They tear the dark matter."
+    ],
+    "width": 40,
+    "fadeIn": 0.1313,
+    "burnOut": 0.3647,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b9",
+    "from": 0.8947,
+    "to": 0.9782,
+    "seconds": 11.5,
+    "lines": [
+     "Half is death, the other too."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.6,
+   -1.8,
+   -5.2,
+   -8.6,
+   -12.0,
+   -15.4,
+   -18.8,
+   -22.2,
+   -25.6
+  ],
+  "moves": {
+   "sink": 0.8,
+   "stretch": 0.7,
+   "cold": 0.5,
+   "double": 0.4
+  },
+  "seconds": 137.7
+ },
+ {
+  "id": "III-1",
+  "canto": "Canto III",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.8799,
+    "seconds": 22.0,
+    "lines": [
+     "I am leaking. Leaking out of myself. I am not",
+     "a human thing. I am a broth. A thin broth.",
+     "Two. None. Kneaded from a substance of mine,",
+     "but unknown. Seeping into myself."
+    ],
+    "width": 48,
+    "fadeIn": 0.0819,
+    "burnOut": 0.2275,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -6.4
+  ],
+  "moves": {
+   "sink": 1.0,
+   "erase": 0.8
+  },
+  "seconds": 25.0
+ },
+ {
+  "id": "III-2",
+  "canto": "Canto III",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2977,
+    "seconds": 15.9,
+    "lines": [
+     "I dig to fit, to the sound of",
+     "footsteps from the world above. They",
+     "follow something I cannot follow."
+    ],
+    "width": 40,
+    "fadeIn": 0.1133,
+    "burnOut": 0.3146,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2977,
+    "to": 0.7283,
+    "seconds": 23.0,
+    "lines": [
+     "And when the sound of the footsteps drifts off",
+     "to sleep. I am afraid to close my eyes. Here",
+     "where stars die, and space stretches. The",
+     "light is limp. It is the portrait of a hole."
+    ],
+    "width": 48,
+    "fadeIn": 0.0783,
+    "burnOut": 0.2176,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.7283,
+    "to": 0.9438,
+    "seconds": 11.5,
+    "lines": [
+     "And nothing touches nothing."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "stretch": 1.0,
+   "cold": 0.8,
+   "swarm": 0.4
+  },
+  "seconds": 53.4
+ },
+ {
+  "id": "III-3",
+  "canto": "Canto III",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.4867,
+    "seconds": 15.0,
+    "lines": [
+     "And it is no longer I who acts. I live",
+     "inside an idea. A stitch in the lobe",
+     "of the corpse."
+    ],
+    "width": 40,
+    "fadeIn": 0.1201,
+    "burnOut": 0.3337,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.4867,
+    "to": 0.9025,
+    "seconds": 12.8,
+    "lines": [
+     "That suture is the only thing",
+     "that binds me to the rightful",
+     "owner."
+    ],
+    "width": 32,
+    "fadeIn": 0.1406,
+    "burnOut": 0.3906,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "erase": 0.7,
+   "double": 0.6,
+   "stretch": 0.4
+  },
+  "seconds": 30.8
+ },
+ {
+  "id": "IV-1",
+  "canto": "Canto IV",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3825,
+    "seconds": 32.3,
+    "lines": [
+     "And when the earth pulses. Swallowing a thin longing.",
+     "I miss missing. But the memory is white. It is",
+     "strange. Borrowed from another whom I fear. The",
+     "remembrance comes in the small hours while my hair",
+     "fuses with the threads of the mattress, and moans near",
+     "me like an animal in heat."
+    ],
+    "width": 56,
+    "fadeIn": 0.0556,
+    "burnOut": 0.1546,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3825,
+    "to": 0.5565,
+    "seconds": 14.7,
+    "lines": [
+     "While he sleeps, I can see the dark.",
+     "And try to reach something that was",
+     "coming slowly."
+    ],
+    "width": 40,
+    "fadeIn": 0.1224,
+    "burnOut": 0.3399,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5565,
+    "to": 0.6925,
+    "seconds": 11.5,
+    "lines": [
+     "But he wakes, before I arrive.",
+     "And I no longer see."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6925,
+    "to": 0.8285,
+    "seconds": 11.5,
+    "lines": [
+     "I see nothing."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.8285,
+    "to": 0.9645,
+    "seconds": 11.5,
+    "lines": [
+     "Not even nothing."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "afterimage": 1.0,
+   "cold": 0.5,
+   "stretch": 0.4
+  },
+  "seconds": 84.6
+ },
+ {
+  "id": "IV-2",
+  "canto": "Canto IV",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.5271,
+    "seconds": 16.2,
+    "lines": [
+     "The addiction to oxygen leaves me",
+     "breathless. The dead breeze I swallow",
+     "dry makes the still wind thick."
+    ],
+    "width": 40,
+    "fadeIn": 0.1114,
+    "burnOut": 0.3093,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.5271,
+    "to": 0.9022,
+    "seconds": 11.5,
+    "lines": [
+     "A translucent poison."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "press": 0.9,
+   "cold": 0.7,
+   "swarm": 0.3
+  },
+  "seconds": 30.7
+ },
+ {
+  "id": "IV-3",
+  "canto": "Canto IV",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.196,
+    "seconds": 16.5,
+    "lines": [
+     "And this time I caress fingers soaked",
+     "in delirium. Delirium sucks my soul. I",
+     "can dry out, stop the seepage."
+    ],
+    "width": 40,
+    "fadeIn": 0.1089,
+    "burnOut": 0.3025,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.196,
+    "to": 0.4913,
+    "seconds": 24.9,
+    "lines": [
+     "I bite lips full of trickery. I drain the",
+     "drool with a kiss on my face. Until nothing",
+     "makes a word anymore. Delirium made, out of",
+     "nothing, a something. And how delicious is the",
+     "soft flesh of a ghost."
+    ],
+    "width": 48,
+    "fadeIn": 0.0723,
+    "burnOut": 0.2009,
+    "x": -3.45,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.4913,
+    "to": 0.9644,
+    "seconds": 39.9,
+    "lines": [
+     "But my hunger is not sated. It deforms my brain. Bends",
+     "my nerves. Makes me eat the remains of an insect. It",
+     "fell into my mouth while I slept. Dove into a deep",
+     "dark. Its larvae will die soon. What guilt would I",
+     "feel? But I do. Before the absolute rot I cannot not",
+     "feel. I ate an insect. Crushed it between my teeth,",
+     "swallowed its slime, and at last there was taste."
+    ],
+    "width": 56,
+    "fadeIn": 0.0451,
+    "burnOut": 0.1253,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "swarm": 1.0,
+   "pulse": 0.6,
+   "tilt": 0.4
+  },
+  "seconds": 84.3
+ },
+ {
+  "id": "IV-4",
+  "canto": "Canto IV",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.7744,
+    "seconds": 51.4,
+    "lines": [
+     "And today I fall in love with ugliness. I never",
+     "understood why others are so afraid of it. Ugliness is",
+     "not ugly. If loving were beautiful, beautiful would be",
+     "ugly. To love something is grotesque. It is beautiful.",
+     "It is in ugliness that I find love. And I am not",
+     "afraid. I have passion. In an immensity of horror. I",
+     "love being horrible. I smile with yellow teeth, and",
+     "drink from a dirty spring. I drink ugly. And even if",
+     "no one loves me, I choose ugliness. An ugly thing, but",
+     "one I recognise."
+    ],
+    "width": 56,
+    "fadeIn": 0.035,
+    "burnOut": 0.0972,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.7744,
+    "to": 0.9548,
+    "seconds": 12.0,
+    "lines": [
+     "There is something divine in",
+     "the ugly. Like a sharp dark."
+    ],
+    "width": 32,
+    "fadeIn": 0.1502,
+    "burnOut": 0.4173,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "pulse": 0.8,
+   "erase": 0.3
+  },
+  "seconds": 66.4
+ },
+ {
+  "id": "IV-5",
+  "canto": "Canto IV",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.8744,
+    "seconds": 20.9,
+    "lines": [
+     "And everything that was new became a little",
+     "less new. I am afraid nothing recent will be",
+     "left. That I will become the sterile past of",
+     "parents and children."
+    ],
+    "width": 48,
+    "fadeIn": 0.0862,
+    "burnOut": 0.2393,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -6.4
+  ],
+  "moves": {
+   "erase": 0.9,
+   "stretch": 0.5,
+   "cold": 0.4
+  },
+  "seconds": 23.9
+ },
+ {
+  "id": "V-1",
+  "canto": "Canto V",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1077,
+    "seconds": 14.0,
+    "lines": [
+     "But a lucid dream ends too. And one",
+     "day the friction of the air warmed my",
+     "face."
+    ],
+    "width": 40,
+    "fadeIn": 0.1287,
+    "burnOut": 0.3576,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1077,
+    "to": 0.2216,
+    "seconds": 14.8,
+    "lines": [
+     "For the first time my forehead scraped",
+     "the asphalt that before only my feet",
+     "had touched."
+    ],
+    "width": 40,
+    "fadeIn": 0.1216,
+    "burnOut": 0.3378,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.2216,
+    "to": 0.3223,
+    "seconds": 13.1,
+    "lines": [
+     "Before, I did not bleed. Not a",
+     "drop. But everything changed",
+     "with you."
+    ],
+    "width": 32,
+    "fadeIn": 0.1377,
+    "burnOut": 0.3825,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.3223,
+    "to": 0.4713,
+    "seconds": 19.3,
+    "lines": [
+     "I stuffed crumbs of my spirit. Of",
+     "malnourished dough. Into the mouth of",
+     "my parasite sister. We dined in the",
+     "dry womb, soaked in discharge."
+    ],
+    "width": 40,
+    "fadeIn": 0.093,
+    "burnOut": 0.2585,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.4713,
+    "to": 0.628,
+    "seconds": 20.3,
+    "lines": [
+     "When I cut off my arm and handed it to",
+     "you. You slid the severed flesh",
+     "between your thighs. For each finger",
+     "of mine to take on an extremity of",
+     "yours."
+    ],
+    "width": 40,
+    "fadeIn": 0.0885,
+    "burnOut": 0.2458,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.628,
+    "to": 0.7307,
+    "seconds": 13.3,
+    "lines": [
+     "And you tore a whisper from my ear, as",
+     "if it had never left your throat:"
+    ],
+    "width": 40,
+    "fadeIn": 0.1349,
+    "burnOut": 0.3747,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b7",
+    "from": 0.7307,
+    "to": 0.8552,
+    "seconds": 16.2,
+    "lines": [
+     "\"Tonight I want you to crawl across",
+     "the room, to my bed, and wrap yourself",
+     "around my skin like a sheet."
+    ],
+    "width": 40,
+    "fadeIn": 0.1114,
+    "burnOut": 0.3093,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b8",
+    "from": 0.8552,
+    "to": 0.9769,
+    "seconds": 15.8,
+    "lines": [
+     "And then, little brother, I will nurse",
+     "you like a baby of blood, and let you",
+     "bite until you choke.\""
+    ],
+    "width": 40,
+    "fadeIn": 0.1139,
+    "burnOut": 0.3165,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.48,
+   -2.05,
+   -5.57,
+   -9.1,
+   -12.62,
+   -16.15,
+   -19.68,
+   -23.2
+  ],
+  "moves": {
+   "double": 1.0,
+   "pulse": 0.8,
+   "afterimage": 0.4
+  },
+  "seconds": 129.9
+ },
+ {
+  "id": "V-2",
+  "canto": "Canto V",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3063,
+    "seconds": 22.6,
+    "lines": [
+     "Only you were able to ease the crown that",
+     "crushed me. I, of all people, who bit only to",
+     "wear down my teeth, rubbed my tongue between",
+     "your molars, addicted to the white slime."
+    ],
+    "width": 48,
+    "fadeIn": 0.0796,
+    "burnOut": 0.2211,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3063,
+    "to": 0.4685,
+    "seconds": 12.0,
+    "lines": [
+     "And even if something was",
+     "lost. I found it. You found",
+     "it."
+    ],
+    "width": 32,
+    "fadeIn": 0.1502,
+    "burnOut": 0.4173,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.4685,
+    "to": 0.6242,
+    "seconds": 11.5,
+    "lines": [
+     "I understood how a soul",
+     "stretches."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.6242,
+    "to": 0.8037,
+    "seconds": 13.3,
+    "lines": [
+     "And the whole world will die without",
+     "discovering what it is to love me."
+    ],
+    "width": 40,
+    "fadeIn": 0.1358,
+    "burnOut": 0.3772,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.8037,
+    "to": 0.9594,
+    "seconds": 11.5,
+    "lines": [
+     "Except you, who ate this",
+     "strange flesh."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "pulse": 1.0,
+   "double": 0.7
+  },
+  "seconds": 73.9
+ },
+ {
+  "id": "V-3",
+  "canto": "Canto V",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.3994,
+    "seconds": 22.2,
+    "lines": [
+     "But we sang our dead tongue, inherited from",
+     "ancestral silence. Strings wounded the sterile",
+     "wood, and our calluses fused living flesh with",
+     "mad words, in a cannibal choir."
+    ],
+    "width": 48,
+    "fadeIn": 0.0812,
+    "burnOut": 0.2256,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.3994,
+    "to": 0.6743,
+    "seconds": 15.3,
+    "lines": [
+     "Where did the violin end? Where did",
+     "the piano begin? We composed the score",
+     "of our extinction."
+    ],
+    "width": 40,
+    "fadeIn": 0.118,
+    "burnOut": 0.3278,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.6743,
+    "to": 0.9459,
+    "seconds": 15.1,
+    "lines": [
+     "And all we could do was bow hand in",
+     "hand for a curtain to decapitate, and",
+     "Death to applaud."
+    ],
+    "width": 40,
+    "fadeIn": 0.1194,
+    "burnOut": 0.3317,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -0.4,
+   -5.8,
+   -11.2
+  ],
+  "moves": {
+   "stretch": 0.8,
+   "afterimage": 0.7,
+   "tilt": 0.5
+  },
+  "seconds": 55.5
+ },
+ {
+  "id": "V-4",
+  "canto": "Canto V",
+  "mark": "****",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.6565,
+    "seconds": 27.7,
+    "lines": [
+     "One day the flowers withered on the grave. The",
+     "trampled grass turned to sludge and not even",
+     "the footprint could be seen. The headstone was",
+     "swallowed. And drops erased the epitaph of a",
+     "promise. Of the lie they told the salted soil."
+    ],
+    "width": 48,
+    "fadeIn": 0.065,
+    "burnOut": 0.1804,
+    "x": 0.3,
+    "y": 1.85,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.6565,
+    "to": 0.9289,
+    "seconds": 11.5,
+    "lines": [
+     "Two holes do not fill."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   -1.9,
+   -8.8
+  ],
+  "moves": {
+   "sink": 1.0,
+   "cold": 0.8,
+   "erase": 0.5
+  },
+  "seconds": 42.2
+ },
+ {
+  "id": "VI-1",
+  "canto": "Canto VI",
+  "mark": "*",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1711,
+    "seconds": 12.0,
+    "lines": [
+     "From a time pregnant with",
+     "pleasure, a soft yolk was",
+     "born."
+    ],
+    "width": 32,
+    "fadeIn": 0.1502,
+    "burnOut": 0.4173,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1711,
+    "to": 0.3353,
+    "seconds": 11.5,
+    "lines": [
+     "How can the weight of nothing",
+     "be so hard to carry?"
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3353,
+    "to": 0.5855,
+    "seconds": 17.5,
+    "lines": [
+     "And this weight slowly spread through",
+     "my whole body, as if I had lain down",
+     "wrong. And even the silence seemed",
+     "quieter."
+    ],
+    "width": 40,
+    "fadeIn": 0.1027,
+    "burnOut": 0.2853,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.5855,
+    "to": 0.793,
+    "seconds": 14.5,
+    "lines": [
+     "If I opened my chest, I would still",
+     "see you there. But I would see you",
+     "slipping away."
+    ],
+    "width": 40,
+    "fadeIn": 0.1239,
+    "burnOut": 0.3442,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.793,
+    "to": 0.9572,
+    "seconds": 11.5,
+    "lines": [
+     "Now my face is cold. You went."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.8,
+   -3.4,
+   -7.6,
+   -11.8,
+   -16.0
+  ],
+  "moves": {
+   "erase": 0.9,
+   "pulse": 0.5,
+   "cold": 0.6
+  },
+  "seconds": 70.0
+ },
+ {
+  "id": "VI-2",
+  "canto": "Canto VI",
+  "mark": "**",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.1524,
+    "seconds": 14.9,
+    "lines": [
+     "And I have no solitude. I am solitude.",
+     "We are one flesh. Wherever I go, she",
+     "waits for me."
+    ],
+    "width": 40,
+    "fadeIn": 0.1209,
+    "burnOut": 0.3358,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.1524,
+    "to": 0.3747,
+    "seconds": 21.7,
+    "lines": [
+     "When I sleep, she wraps me in icy fingers.",
+     "When I wake, she reminds me of what I wanted",
+     "to forget. Even among them, the bride who",
+     "stayed dresses me like a wet veil."
+    ],
+    "width": 48,
+    "fadeIn": 0.0829,
+    "burnOut": 0.2303,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.3747,
+    "to": 0.5485,
+    "seconds": 17.0,
+    "lines": [
+     "Death sings at our ceremony. I dance",
+     "in the ashes of a star. Until my feet",
+     "bleed — I do not stop, I cannot stop."
+    ],
+    "width": 40,
+    "fadeIn": 0.106,
+    "burnOut": 0.2944,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.5485,
+    "to": 0.7121,
+    "seconds": 16.0,
+    "lines": [
+     "I fall in love with mourning. And my",
+     "love dissects the corpse of a ghost.",
+     "Bathes in ancestral liquid."
+    ],
+    "width": 40,
+    "fadeIn": 0.1126,
+    "burnOut": 0.3129,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b5",
+    "from": 0.7121,
+    "to": 0.8516,
+    "seconds": 13.6,
+    "lines": [
+     "My knees pierce the ground, trying to",
+     "extract the inheritance of a promise."
+    ],
+    "width": 40,
+    "fadeIn": 0.1322,
+    "burnOut": 0.3672,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b6",
+    "from": 0.8516,
+    "to": 0.9693,
+    "seconds": 11.5,
+    "lines": [
+     "But still I dance."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   1.1,
+   -2.8,
+   -6.7,
+   -10.6,
+   -14.5,
+   -18.4
+  ],
+  "moves": {
+   "afterimage": 1.0,
+   "tilt": 0.7,
+   "pulse": 0.6
+  },
+  "seconds": 97.7
+ },
+ {
+  "id": "VI-3",
+  "canto": "Canto VI",
+  "mark": "***",
+  "beats": [
+   {
+    "id": "b1",
+    "from": 0.0,
+    "to": 0.2892,
+    "seconds": 15.3,
+    "lines": [
+     "Pain is my foreign body. My common",
+     "place. Where the light bleeds in the",
+     "placenta of a shadow."
+    ],
+    "width": 40,
+    "fadeIn": 0.118,
+    "burnOut": 0.3278,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b2",
+    "from": 0.2892,
+    "to": 0.5072,
+    "seconds": 11.5,
+    "lines": [
+     "Only dark is space."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b3",
+    "from": 0.5072,
+    "to": 0.7251,
+    "seconds": 11.5,
+    "lines": [
+     "And I can no longer live so",
+     "far from my body."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": 0.3,
+    "y": 1.55,
+    "anchor": "left"
+   },
+   {
+    "id": "b4",
+    "from": 0.7251,
+    "to": 0.9431,
+    "seconds": 11.5,
+    "lines": [
+     "I made myself."
+    ],
+    "width": 32,
+    "fadeIn": 0.1565,
+    "burnOut": 0.4348,
+    "x": -3.45,
+    "y": 1.55,
+    "anchor": "left"
+   }
+  ],
+  "stations": [
+   5.0,
+   0.35,
+   -4.3,
+   -8.95,
+   -13.6
+  ],
+  "moves": {
+   "stretch": 1.0,
+   "erase": 0.7,
+   "pulse": 0.8
+  },
+  "seconds": 52.8
+ }
+]

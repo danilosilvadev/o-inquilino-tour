@@ -97,6 +97,18 @@ html, body {
 .gate-btn:hover { background: rgba(232,226,214,0.06); border-color: var(--bone); letter-spacing: 0.36em; }
 .gate-reply { min-height: 1.4em; font-family: var(--serif); font-style: italic; color: var(--ash); opacity: 0; transition: opacity 500ms; }
 .gate-reply.show { opacity: 1; }
+/* the poem is Portuguese; the other tongue is offered, not pushed */
+.gate-lang {
+  position: absolute; bottom: 2.4rem; display: flex; gap: 1.6rem;
+  font-size: 0.6rem; letter-spacing: 0.26em; text-transform: uppercase;
+}
+.gate-lang button {
+  background: none; border: 0; padding: 0; cursor: crosshair; font: inherit;
+  letter-spacing: inherit; text-transform: inherit; color: var(--ash); opacity: 0.45;
+  transition: opacity 300ms, color 300ms;
+}
+.gate-lang button:hover { opacity: 1; }
+.gate-lang button.on { color: var(--bone); opacity: 1; }
 
 /* ── chrome ──────────────────────────────────────────── */
 #chrome { position: fixed; inset: 0; z-index: 10; pointer-events: none; }

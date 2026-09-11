@@ -19,9 +19,22 @@ npm run build    # static bundle in dist/
 
 - `/` starts at Canto I, part ✳ and runs to the end of the poem.
 - `?part=III-2` opens any part directly.
+- `?lang=en` / `?lang=es` opens the English or Spanish reading; the gate offers
+  the same choice. The poem is Portuguese and that is the default.
 - `?debug` exposes `SCENE`, `SCRUB`, `PART`, `JUMP(t)`, `TICK(n)`, `GOTO(i)`.
 - `?auto` skips the threshold (used by the test sweep).
 - `/sweep.html` loads all 24 parts in turn and reports failures.
+
+---
+
+## The tongues
+
+The poem is Portuguese: `tools/structure.json`, and nothing touches it. The
+English and Spanish are second readings — `structure.en.json`, `structure.es.json`
+— with the same paragraphs in the same places, so they take the same plates,
+moves and beats. `python3 tools/build-parts.py --lang en` writes
+`src/poem/parts.en.json`; the interface strings live in `TONGUES` in
+`src/main.js`. The title is the work's name and stays as it is in all three.
 
 ---
 

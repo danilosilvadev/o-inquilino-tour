@@ -1,4 +1,6 @@
-import parts from './poem/parts.json';
+import partsPT from './poem/parts.json';
+import partsEN from './poem/parts.en.json';
+import partsES from './poem/parts.es.json';
 import base from './config/base.json';
 import { Stage } from './stage/Stage.js';
 import { Scrubber } from './core/Scrubber.js';
@@ -11,16 +13,52 @@ const els = {
   hint: $('hint'), piece: $('piece'), playBtn: $('playBtn'), playLabel: $('playLabel'),
   interlude: $('interlude'), interludeName: $('interludeName'),
   soundBtn: $('soundBtn'), soundLabel: $('soundLabel'), rotate: $('rotate'),
-  end: $('end'), endLinks: $('endLinks'),
-  intro: $('intro'), titleSpace: $('titleSpace'), titleLens: $('titleLens')
+  end: $('end'), endLinks: $('endLinks'), fim: $('fim'),
+  intro: $('intro'), titleSpace: $('titleSpace'), titleLens: $('titleLens'),
+  gateAsk: $('gateAsk'), gateLang: $('gateLang'), rotateAsk: $('rotateAsk'), rotateOr: $('rotateOr')
+};
+
+// ── the two tongues ───────────────────────────────────
+// The poem is Portuguese. The others are second readings of the same
+// paragraphs, laid on the same plates with the same moves; only the words and
+// the few things the interface says change. The title is the work's name and
+// stays as it is in all of them.
+const TONGUES = {
+  pt: {
+    parts: partsPT,
+    ask: 'Você está<br /><em>em seu corpo?</em>', yes: 'SIM', no: 'NÃO',
+    replies: { sim: 'mentira. mas entra.', nao: 'nem eu. entra assim mesmo.' },
+    sub: 'um poema atravessado', loading: 'carregando', scroll: 'role para atravessar',
+    play: 'TOCAR', pause: 'PAUSAR', soundOn: 'SOM ON', soundOff: 'SOM OFF', end: 'Fim',
+    rotate: 'vire o aparelho', rotateOr: 'ou toque para continuar assim',
+  },
+  en: {
+    parts: partsEN,
+    ask: 'Are you<br /><em>in your body?</em>', yes: 'YES', no: 'NO',
+    replies: { sim: 'liar. but come in.', nao: 'neither am I. come in anyway.' },
+    sub: 'a poem to cross', loading: 'loading', scroll: 'scroll to cross',
+    play: 'PLAY', pause: 'PAUSE', soundOn: 'SOUND ON', soundOff: 'SOUND OFF', end: 'End',
+    rotate: 'turn the device', rotateOr: 'or tap to go on like this',
+  },
+  es: {
+    parts: partsES,
+    ask: '¿Estás<br /><em>en tu cuerpo?</em>', yes: 'SÍ', no: 'NO',
+    replies: { sim: 'mentira. pero entra.', nao: 'yo tampoco. entra igual.' },
+    sub: 'un poema atravesado', loading: 'cargando', scroll: 'desliza para atravesar',
+    play: 'TOCAR', pause: 'PAUSAR', soundOn: 'SONIDO ON', soundOff: 'SONIDO OFF', end: 'Fin',
+    rotate: 'gira el aparato', rotateOr: 'o toca para seguir así',
+  },
 };
 
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const params = new URLSearchParams(location.search);
+let lang = TONGUES[params.get('lang')] ? params.get('lang') : 'pt';
+let T = TONGUES[lang];
+let parts = T.parts;
 let index = Math.max(0, parts.findIndex((p) => p.id === (params.get('part') || 'I-1')));
 let part = parts[index];
 let stage = new Stage(els.stage, part);
-const firstPlate = stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
+let firstPlate = stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
 
 const scrub = new Scrubber({ wheelScale: 0.00009, touchScale: 0.0011, keyStep: 0.02, ease: 0.07 });
 let ctx = null, master = null, bed = null;
@@ -33,12 +71,47 @@ let t0 = performance.now();
 document.title = `O Inquilino — ${part.canto} ${part.mark}`;
 if (params.get('font')) document.body.dataset.font = params.get('font');
 
+// everything the interface says, in the tongue chosen; the poem itself is
+// swapped at the gate, before anything has been read
+function speak() {
+  els.gateAsk.innerHTML = T.ask;
+  els.gate.querySelector('[data-answer="sim"]').textContent = T.yes;
+  els.gate.querySelector('[data-answer="nao"]').textContent = T.no;
+  els.gateLang.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.lang === lang));
+  els.chrome.querySelector('.tl .sub').textContent = T.sub;
+  els.playLabel.textContent = playing ? T.pause : T.play;
+  els.soundLabel.textContent = muted ? T.soundOff : T.soundOn;
+  els.fim.textContent = T.end;
+  els.rotateAsk.textContent = T.rotate;
+  els.rotateOr.textContent = T.rotateOr;
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+}
+
+function setLang(l) {
+  if (!TONGUES[l] || l === lang) return;
+  lang = l; T = TONGUES[l]; parts = T.parts;
+  part = parts[index];
+  // the same plate, the other words on it
+  stage.dispose();
+  stage = new Stage(els.stage, part);
+  firstPlate = stage.load().catch((e) => console.warn('[o inquilino] art:', e.message));
+  speak();
+  history.replaceState(null, '', where());
+}
+
+const where = () => `?part=${part.id}${lang === 'pt' ? '' : `&lang=${lang}`}`;
+
+els.gateLang.addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-lang]');
+  if (b && !running && !swapping) setLang(b.dataset.lang);
+});
+speak();
+
 // ── the threshold ─────────────────────────────────────
-const REPLIES = { sim: 'mentira. mas entra.', nao: 'nem eu. entra assim mesmo.' };
 els.gate.querySelectorAll('.gate-btn').forEach((b) => {
   b.addEventListener('click', () => {
     if (running || swapping) return;
-    els.gateReply.textContent = REPLIES[b.dataset.answer];
+    els.gateReply.textContent = T.replies[b.dataset.answer];
     els.gateReply.classList.add('show');
     startAudio();
     immerse();
@@ -152,9 +225,9 @@ async function enter() {
   running = true;
   // the plate is ~1.6MB; on a phone it may not be here yet, and starting the
   // playhead over a blank screen would spend the opening stanzas on nothing
-  els.hint.textContent = 'carregando';
+  els.hint.textContent = T.loading;
   await firstPlate;
-  els.hint.textContent = 'role para atravessar';
+  els.hint.textContent = T.scroll;
   if (!params.has('still')) setPlaying(true);
 }
 
@@ -256,7 +329,7 @@ async function goTo(i, { atEnd = false } = {}) {
   scrub.clearIntent();
   stage.update(scrub.value, (performance.now() - t0) / 1000);
   paintHud();
-  history.replaceState(null, '', `?part=${part.id}`);
+  history.replaceState(null, '', where());
 
   if (crossing) {
     els.interlude.classList.remove('on');
@@ -298,7 +371,7 @@ async function finish() {
 function setPlaying(v) {
   playing = v;
   els.playBtn.classList.toggle('on', v);
-  els.playLabel.textContent = v ? 'PAUSAR' : 'TOCAR';
+  els.playLabel.textContent = v ? T.pause : T.play;
 }
 
 els.playBtn.addEventListener('click', () => setPlaying(!playing));
@@ -311,7 +384,7 @@ els.soundBtn.addEventListener('click', () => {
   muted = !muted;
   bed?.setMuted(muted);
   els.soundBtn.classList.toggle('muted', muted);
-  els.soundLabel.textContent = muted ? 'SOM OFF' : 'SOM ON';
+  els.soundLabel.textContent = muted ? T.soundOff : T.soundOn;
 });
 
 // ── the loop ──────────────────────────────────────────
