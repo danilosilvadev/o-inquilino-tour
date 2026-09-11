@@ -155,7 +155,15 @@ html, body {
   border: 0; width: 7px; height: 9px;
   border-left: 2.5px solid currentColor; border-right: 2.5px solid currentColor;
 }
-.hint { bottom: 3.6rem; }
+.hint { bottom: 5rem; }
+/* what is playing, in a whisper over the play button */
+.piece {
+  bottom: 3.55rem; left: 50%; transform: translateX(-50%); white-space: nowrap;
+  font-family: var(--serif); font-style: italic; text-transform: none;
+  font-size: 0.78rem; letter-spacing: 0.04em; color: var(--ash);
+  opacity: 0.55; transition: opacity 2400ms;
+}
+.piece.off { opacity: 0; }
 
 
 /* ── type options, chosen with ?font= ─────────────────── */

@@ -8,7 +8,7 @@ const $ = (id) => document.getElementById(id);
 const els = {
   stage: $('stage'), gate: $('gate'), gateReply: $('gateReply'),
   chrome: $('chrome'), rail: $('rail'), railFill: $('railFill'),
-  hint: $('hint'), playBtn: $('playBtn'), playLabel: $('playLabel'),
+  hint: $('hint'), piece: $('piece'), playBtn: $('playBtn'), playLabel: $('playLabel'),
   interlude: $('interlude'), interludeName: $('interludeName'),
   soundBtn: $('soundBtn'), soundLabel: $('soundLabel'), rotate: $('rotate'),
   end: $('end'), endLinks: $('endLinks'),
@@ -164,12 +164,12 @@ async function enter() {
 // ffmpeg's ebur128, levelled to about -20 LUFS). Two cantos on the same piece
 // would hand over underneath it without a seam.
 const BEDS = {
-  'Canto I':   { file: 'audio/bed.mp3',       start: 0,   end: 476,   gain: 1.0  },
-  'Canto II':  { file: 'audio/lacrimosa.mp3', start: 0,   end: 188,   gain: 0.67 },
-  'Canto III': { file: 'audio/marais.mp3',    start: 3,   end: 164.5, gain: 0.6  },
-  'Canto IV':  { file: 'audio/serenade.mp3',  start: 4.5, end: 368,   gain: 1.0  },
-  'Canto V':   { file: 'audio/bed-2.mp3',     start: 4,   end: 244,   gain: 1.1  },
-  'Canto VI':  { file: 'audio/ave-maria.mp3', start: 0,   end: 190,   gain: 0.73 },
+  'Canto I':   { file: 'audio/bed.mp3',       start: 0,   end: 476,   gain: 1.0,  name: 'Albinoni — Adagio' },
+  'Canto II':  { file: 'audio/lacrimosa.mp3', start: 0,   end: 188,   gain: 0.67, name: 'Mozart — Lacrimosa' },
+  'Canto III': { file: 'audio/marais.mp3',    start: 3,   end: 164.5, gain: 0.6,  name: 'Marais — Prélude en harpègement' },
+  'Canto IV':  { file: 'audio/serenade.mp3',  start: 4.5, end: 368,   gain: 1.0,  name: 'Schubert — Ständchen' },
+  'Canto V':   { file: 'audio/bed-2.mp3',     start: 4,   end: 244,   gain: 1.1,  name: 'Chopin — Noturno' },
+  'Canto VI':  { file: 'audio/ave-maria.mp3', start: 0,   end: 190,   gain: 0.73, name: 'Lorenc — Ave Maria' },
 };
 const bedFor = (p) => BEDS[p.canto] || BEDS['Canto I'];
 const fetchBed = (piece) =>
@@ -178,6 +178,12 @@ const fetchBed = (piece) =>
 async function loadBed() {
   if (!ctx || bed) return;
   bed = new Bed(ctx, master, { gain: 0.5, loopFade: 5, switchFade: 7 });
+  // the piece's name sits over the play button, and goes when the piece does
+  bed.onPlay = (file) => {
+    const piece = Object.values(BEDS).find((b) => b.file === file);
+    if (piece) els.piece.textContent = piece.name;
+    els.piece.classList.toggle('off', !piece);
+  };
   const first = bedFor(part);
   bed.setMuted(muted);
   bed.switchTo(first.file);     // recorded now, heard once the buffer lands

@@ -15,6 +15,7 @@ export class Bed {
     this.tracks = new Map();     // name -> { buffer, gain, timer, live }
     this.loading = new Map();    // name -> promise, so a piece is fetched once
     this.current = null;
+    this.onPlay = null;          // called with the piece coming up, or null for none
 
     this.bus = ctx.createGain();
     this.bus.gain.value = this.cfg.gain;
@@ -67,12 +68,14 @@ export class Bed {
       // has come back to it in the meantime
       setTimeout(() => { if (this.current !== prevName) this._silence(prev); }, (f + 0.5) * 1000);
       this.current = null;
+      this.onPlay?.(null);
     }
 
     const next = this.tracks.get(name);
     if (!next) { console.log(`[o inquilino] music: waiting for ${name}`); return; }
     console.log(`[o inquilino] music: ${name}`);
     this.current = name;
+    this.onPlay?.(name);
     if (!next.running) this._pass(name, now + 0.05, true);
     next.gain.gain.cancelScheduledValues(now);
     next.gain.gain.setValueAtTime(next.gain.gain.value, now);
@@ -128,5 +131,6 @@ export class Bed {
   stop() {
     for (const t of this.tracks.values()) this._silence(t);
     this.current = null;
+    this.onPlay?.(null);
   }
 }
