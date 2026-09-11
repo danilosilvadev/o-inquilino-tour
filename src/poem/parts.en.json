@@ -97,7 +97,7 @@
    {
     "id": "b1",
     "from": 0.0,
-    "to": 0.2542,
+    "to": 0.2563,
     "seconds": 14.3,
     "lines": [
      "The more I think about what makes me,",
@@ -113,8 +113,8 @@
    },
    {
     "id": "b2",
-    "from": 0.2542,
-    "to": 0.5165,
+    "from": 0.2563,
+    "to": 0.5207,
     "seconds": 14.7,
     "lines": [
      "I know I feel more than I can bear.",
@@ -130,25 +130,24 @@
    },
    {
     "id": "b3",
-    "from": 0.5165,
-    "to": 0.7414,
-    "seconds": 12.6,
+    "from": 0.5207,
+    "to": 0.7393,
+    "seconds": 12.2,
     "lines": [
-     "And I lock myself in from",
-     "outside. I have no house. I am",
-     "a host."
+     "And I lock myself inside out.",
+     "I have no house. I am a host."
     ],
     "width": 32,
-    "fadeIn": 0.1427,
-    "burnOut": 0.3963,
+    "fadeIn": 0.148,
+    "burnOut": 0.4111,
     "x": 0.3,
     "y": 1.55,
     "anchor": "left"
    },
    {
     "id": "b4",
-    "from": 0.7414,
-    "to": 0.9465,
+    "from": 0.7393,
+    "to": 0.9461,
     "seconds": 11.5,
     "lines": [
      "A true parasite."
@@ -173,7 +172,7 @@
    "press": 0.6,
    "stretch": 0.3
   },
-  "seconds": 56.1
+  "seconds": 55.6
  },
  {
   "id": "I-3",
@@ -2017,7 +2016,7 @@
     "to": 0.9431,
     "seconds": 11.5,
     "lines": [
-     "I made myself."
+     "I made Me."
     ],
     "width": 32,
     "fadeIn": 0.1565,
