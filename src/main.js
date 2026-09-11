@@ -158,27 +158,54 @@ async function enter() {
   if (!params.has('still')) setPlaying(true);
 }
 
-// The poem changes register at Canto V, where the other person arrives, and
-// the music changes with it. Parts hand over underneath whichever is playing.
-const BEDS = { early: 'audio/bed.mp3', late: 'audio/bed-2.mp3' };
-const bedFor = (p) => (['Canto V', 'Canto VI'].includes(p.canto) ? 'late' : 'early');
+// Each canto has its own piece. They are recordings of different things at
+// different levels with silence either side, so each carries where it really
+// starts and ends and a gain that brings it near the others (measured with
+// ffmpeg's ebur128, levelled to about -20 LUFS). Two cantos on the same piece
+// would hand over underneath it without a seam.
+const BEDS = {
+  'Canto I':   { file: 'audio/bed.mp3',       start: 0,   end: 476,   gain: 1.0  },
+  'Canto II':  { file: 'audio/lacrimosa.mp3', start: 0,   end: 188,   gain: 0.67 },
+  'Canto III': { file: 'audio/marais.mp3',    start: 3,   end: 164.5, gain: 0.6  },
+  'Canto IV':  { file: 'audio/serenade.mp3',  start: 4.5, end: 368,   gain: 1.0  },
+  'Canto V':   { file: 'audio/bed-2.mp3',     start: 4,   end: 244,   gain: 1.1  },
+  'Canto VI':  { file: 'audio/ave-maria.mp3', start: 0,   end: 190,   gain: 0.73 },
+};
+const bedFor = (p) => BEDS[p.canto] || BEDS['Canto I'];
+const fetchBed = (piece) =>
+  bed.load(piece.file, piece).catch((e) => console.warn('[o inquilino] music:', e.message));
 
 async function loadBed() {
   if (!ctx || bed) return;
   bed = new Bed(ctx, master, { gain: 0.5, loopFade: 5, switchFade: 7 });
   const first = bedFor(part);
   bed.setMuted(muted);
-  bed.switchTo(first);          // recorded now, heard once the buffer lands
+  bed.switchTo(first.file);     // recorded now, heard once the buffer lands
   try {
-    await bed.load(first, BEDS[first]);
+    await bed.load(first.file, first);
   } catch (e) {
     console.warn('[o inquilino] music:', e.message);
     bed = null;
     return;
   }
-  // the second piece is not wanted before Canto V — fetch it behind the poem
-  const other = first === 'early' ? 'late' : 'early';
-  bed.load(other, BEDS[other]).catch((e) => console.warn('[o inquilino] music:', e.message));
+  prefetchBeds(index);
+}
+
+function crossBed(p) {
+  if (!bed) return;
+  const piece = bedFor(p);
+  bed.switchTo(piece.file);     // heard now if it was prefetched, else once it lands
+  fetchBed(piece);
+}
+
+// six pieces is too much to pull before the poem can start, and a fast reader
+// can cross a canto before one piece lands — so the rest are fetched behind
+// the reading, one after another in the order they will be wanted
+async function prefetchBeds(i) {
+  for (const p of parts.slice(i + 1)) {
+    if (!bed) return;
+    await fetchBed(bedFor(p));  // a piece already here or on its way is a no-op
+  }
 }
 
 function paintHud() {
@@ -198,6 +225,8 @@ async function goTo(i, { atEnd = false } = {}) {
   await stage.unform(crossing ? 4200 : 2800);
 
   if (crossing) {
+    // the music turns with the canto: the new piece comes up under the card
+    crossBed(parts[i]);
     els.interlude.classList.add('on');
     await wait(900);
     els.interludeName.textContent = parts[i].canto;
@@ -224,7 +253,6 @@ async function goTo(i, { atEnd = false } = {}) {
     await wait(1600);
   }
 
-  bed?.switchTo(bedFor(part));
   running = true;
   swapping = false;
   lastT = performance.now() / 1000;
